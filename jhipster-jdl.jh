@@ -19,7 +19,7 @@ title String required minlength(5) maxlength(40)
 description String required minlength(29) maxlength(1000)
 location String required
 creationDate ZonedDateTime
-activeUntil ZonedDateTime
+activeUntil LocalDate
 active Boolean
 }
 
@@ -34,10 +34,8 @@ marked Boolean
 }
 
 relationship OneToOne {
-Resume{Resume} to StudentProfile
+Resume{StudentProfile(fullname)} to StudentProfile
 }
-
-
 
 
 relationship OneToOne {
