@@ -1,0 +1,53 @@
+entity CompanyProfile{
+name String required minlength(3) maxlength(40)
+description String maxlength(200)
+image ImageBlob 
+}
+
+entity StudentProfile{
+fullname String required
+contactPhone String 
+faculty String required
+enrollmentYear String required
+receiveJobAlerts Boolean 
+linkedinProfile String 
+image ImageBlob
+}
+
+entity Internship {
+title String required minlength(5) maxlength(40)
+description String required minlength(29) maxlength(1000)
+location String required
+creationDate ZonedDateTime
+activeUntil ZonedDateTime
+active Boolean
+}
+
+entity Resume{
+jsonResume String
+cvFile AnyBlob
+linkedinData String
+}
+
+entity Application{
+marked Boolean
+}
+
+relationship OneToOne {
+Resume{Resume} to StudentProfile
+}
+
+
+
+
+relationship OneToOne {
+CompanyProfile{user(login)} to User
+}
+
+relationship OneToOne {
+StudentProfile{user(login)} to User
+}
+
+relationship OneToMany {
+CompanyProfile{internship} to Internship{CompanyProfile(name)}
+}
