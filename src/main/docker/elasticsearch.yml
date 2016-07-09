@@ -1,0 +1,10 @@
+version: '2'
+services:
+    internshipping-elasticsearch:
+        container_name: internshipping-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/InternShipping/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300
