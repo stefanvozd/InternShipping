@@ -1,0 +1,114 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-one",
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "resume"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "applications",
+      "otherEntityName": "application",
+      "otherEntityRelationshipName": "resume"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "overview",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "education",
+      "fieldType": "Education",
+      "fieldValues": "ANY,ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "faculty",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "enrollmentYear",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "birthDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldId": 11,
+      "fieldName": "jsonResume",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 12,
+      "fieldName": "cvFile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldId": 13,
+      "fieldName": "receiveJobAlerts",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 14,
+      "fieldName": "socialLinkedin",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 15,
+      "fieldName": "representativeSkills",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160716094416",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "resume"
+}

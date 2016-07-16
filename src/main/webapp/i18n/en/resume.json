@@ -1,0 +1,38 @@
+{
+    "internShippingApp": {
+        "resume" : {
+            "home": {
+                "title": "Resumes",
+                "createLabel": "Create a new Resume",
+                "createOrEditLabel": "Create or edit a Resume",
+                "search": "Search for Resume"
+            },
+            "created": "A new Resume is created with identifier {{ param }}",
+            "updated": "A Resume is updated with identifier {{ param }}",
+            "deleted": "A Resume is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume"
+            },
+            "image": "Image",
+            "name": "Name",
+            "title": "Title",
+            "overview": "Overview",
+            "education": "Education",
+            "faculty": "Faculty",
+            "enrollmentYear": "Enrollment Year",
+            "location": "Location",
+            "contactEmail": "Contact Email",
+            "birthDate": "Birth Date",
+            "jsonResume": "Json Resume",
+            "cvFile": "Cv File",
+            "receiveJobAlerts": "Receive Job Alerts",
+            "socialLinkedin": "Social Linkedin",
+            "representativeSkills": "Representative Skills",
+            "user": "User",
+            "applications": "Applications"
+        }
+    }
+}

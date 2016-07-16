@@ -1,0 +1,184 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myResumeLabel" translate="internShippingApp.resume.home.createOrEditLabel">Create or edit a Resume</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.resume.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.resume.id" readonly />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.resume)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="internShippingApp.resume.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.resume.imageContentType + ';base64,' + vm.resume.image}}" style="max-height: 100px;" ng-if="vm.resume.image"/>
+                <div ng-if="vm.resume.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.resume.imageContentType}}, {{vm.byteSize(vm.resume.image)}}</span>
+                    <button ng-click="vm.resume.image=null;vm.resume.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.resume)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.resume.image"
+                     />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.resume.imageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.resume.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.resume.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.overview" for="field_overview">Overview</label>
+            <input type="text" class="form-control" name="overview" id="field_overview"
+                    ng-model="vm.resume.overview"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.education" for="field_education">Education</label>
+            <select class="form-control" name="education" ng-model="vm.resume.education" id="field_education">
+                <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
+                <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
+                <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
+                <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
+                <option value="DOCTORAL_STUDENT" translate="internShippingApp.Education.DOCTORAL_STUDENT">DOCTORAL_STUDENT</option>
+                <option value="ASSOCIATE_DEGREE" translate="internShippingApp.Education.ASSOCIATE_DEGREE">ASSOCIATE_DEGREE</option>
+                <option value="BACHELOR_DEGREE" translate="internShippingApp.Education.BACHELOR_DEGREE">BACHELOR_DEGREE</option>
+                <option value="MASTER_DEGREE" translate="internShippingApp.Education.MASTER_DEGREE">MASTER_DEGREE</option>
+                <option value="DOCTORAL_DEGREE" translate="internShippingApp.Education.DOCTORAL_DEGREE">DOCTORAL_DEGREE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.faculty" for="field_faculty">Faculty</label>
+            <input type="text" class="form-control" name="faculty" id="field_faculty"
+                    ng-model="vm.resume.faculty"
+                    required />
+            <div ng-show="editForm.faculty.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.faculty.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.enrollmentYear" for="field_enrollmentYear">Enrollment Year</label>
+            <input type="text" class="form-control" name="enrollmentYear" id="field_enrollmentYear"
+                    ng-model="vm.resume.enrollmentYear"
+                    required />
+            <div ng-show="editForm.enrollmentYear.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.enrollmentYear.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.resume.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.contactEmail" for="field_contactEmail">Contact Email</label>
+            <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
+                    ng-model="vm.resume.contactEmail"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.birthDate" for="field_birthDate">Birth Date</label>
+                <div class="input-group">
+                    <input id="field_birthDate" type="text" class="form-control" name="birthDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.resume.birthDate" is-open="vm.datePickerOpenStatus.birthDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.jsonResume" for="field_jsonResume">Json Resume</label>
+            <input type="text" class="form-control" name="jsonResume" id="field_jsonResume"
+                    ng-model="vm.resume.jsonResume"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setCvFile($file, vm.resume)">
+            <label class="control-label" translate="internShippingApp.resume.cvFile" for="field_cvFile">Cv File</label>
+            <div>
+                <div ng-if="vm.resume.cvFile" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.resume.cvFileContentType, vm.resume.cvFile)" translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.resume.cvFileContentType}}, {{vm.byteSize(vm.resume.cvFile)}}</span>
+                    <button ng-click="vm.resume.cvFile=null;vm.resume.cvFileContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setCvFile($file, vm.resume)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="cvFile" id="field_cvFile"
+                    ng-model="vm.resume.cvFile"
+                     />
+            <input type="hidden" class="form-control" name="cvFileContentType" id="field_cvFileContentType"
+                    ng-model="vm.resume.cvFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.receiveJobAlerts" for="field_receiveJobAlerts">Receive Job Alerts</label>
+            <input type="checkbox" class="form-control" name="receiveJobAlerts" id="field_receiveJobAlerts"
+                    ng-model="vm.resume.receiveJobAlerts"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.socialLinkedin" for="field_socialLinkedin">Social Linkedin</label>
+            <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
+                    ng-model="vm.resume.socialLinkedin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.representativeSkills" for="field_representativeSkills">Representative Skills</label>
+            <input type="text" class="form-control" name="representativeSkills" id="field_representativeSkills"
+                    ng-model="vm.resume.representativeSkills"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="internShippingApp.resume.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.resume.user" ng-options="user as user.login for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

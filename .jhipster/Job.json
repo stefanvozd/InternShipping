@@ -1,0 +1,123 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "applications",
+      "otherEntityName": "application",
+      "otherEntityRelationshipName": "job"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-one",
+      "relationshipName": "company",
+      "otherEntityName": "company",
+      "otherEntityField": "name"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 5,
+      "fieldValidateRulesMaxlength": 70
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "shortDescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 10,
+      "fieldValidateRulesMaxlength": 700
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "location",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "jobType",
+      "fieldType": "JobType",
+      "fieldValues": "INTERNSHIP,PART_TIME,FULL_TIME,FREELANCE,REMOTE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "jobLevel",
+      "fieldType": "JobLevel",
+      "fieldValues": "ANY,NO_EXPERIENCE,JUNIOR,MID_LEVEL,SENIOR_LEVEL",
+      "fieldValidateRules": [
+        "required",
+        "required"
+      ]
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "education",
+      "fieldType": "Education",
+      "fieldValues": "ANY,ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "longDescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": 4000
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "skills",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "socialLinkedin",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "creationDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldId": 11,
+      "fieldName": "activeUntil",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 12,
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    }
+  ],
+  "changelogDate": "20160716094418",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "job"
+}

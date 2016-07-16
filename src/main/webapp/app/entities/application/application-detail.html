@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="internShippingApp.application.detail.title">Application</span> {{vm.application.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="internShippingApp.application.marked">Marked</span></dt>
+        <dd>
+            <span>{{vm.application.marked}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.application.resume">Resume</span></dt>
+        <dd>
+            <a ui-sref="resume-detail({id:vm.application.resume.id})">{{vm.application.resume.name}}</a>
+        </dd>
+        <dt><span translate="internShippingApp.application.job">Job</span></dt>
+        <dd>
+            <a ui-sref="job-detail({id:vm.application.job.id})">{{vm.application.job.title}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,117 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-one",
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "company"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "jobs",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "company"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 3,
+      "fieldValidateRulesMaxlength": 70
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "domain",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "shortDescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": 700
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "longDescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": 4000
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "website",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "contactNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "companySize",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "foundedYear",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 11,
+      "fieldName": "socialFacebook",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 12,
+      "fieldName": "socialLinkedin",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 13,
+      "fieldName": "socialYoutube",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 14,
+      "fieldName": "socialTwitter",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160716094417",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "company"
+}

@@ -1,0 +1,99 @@
+<div>
+    <h2 translate="internShippingApp.job.home.title">Jobs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="job.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="internShippingApp.job.home.createLabel">
+                        Create new Job
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.job.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="internShippingApp.job.title">Title</span></th>
+                    <th><span translate="internShippingApp.job.shortDescription">Short Description</span></th>
+                    <th><span translate="internShippingApp.job.location">Location</span></th>
+                    <th><span translate="internShippingApp.job.jobType">Job Type</span></th>
+                    <th><span translate="internShippingApp.job.jobLevel">Job Level</span></th>
+                    <th><span translate="internShippingApp.job.education">Education</span></th>
+                    <th><span translate="internShippingApp.job.longDescription">Long Description</span></th>
+                    <th><span translate="internShippingApp.job.skills">Skills</span></th>
+                    <th><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span></th>
+                    <th><span translate="internShippingApp.job.creationDate">Creation Date</span></th>
+                    <th><span translate="internShippingApp.job.activeUntil">Active Until</span></th>
+                    <th><span translate="internShippingApp.job.active">Active</span></th>
+                    <th><span translate="internShippingApp.job.company">Company</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="job in vm.jobs track by job.id">
+                    <td><a ui-sref="job-detail({id:job.id})">{{job.id}}</a></td>
+                    <td>{{job.title}}</td>
+                    <td>{{job.shortDescription}}</td>
+                    <td>{{job.location}}</td>
+                    <td translate="{{'internShippingApp.JobType.' + job.jobType}}">{{job.jobType}}</td>
+                    <td translate="{{'internShippingApp.JobLevel.' + job.jobLevel}}">{{job.jobLevel}}</td>
+                    <td translate="{{'internShippingApp.Education.' + job.education}}">{{job.education}}</td>
+                    <td>{{job.longDescription}}</td>
+                    <td>{{job.skills}}</td>
+                    <td>{{job.socialLinkedin}}</td>
+                    <td>{{job.creationDate | date:'medium'}}</td>
+                        <td>{{job.activeUntil | date:'mediumDate'}}</td>
+                    <td>{{job.active}}</td>
+                    <td>
+                        <a ui-sref="company-detail({id:job.company.id})">{{job.company.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="job-detail({id:job.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="job.edit({id:job.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="job.delete({id:job.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

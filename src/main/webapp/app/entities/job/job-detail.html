@@ -1,0 +1,66 @@
+
+<div>
+    <h2><span translate="internShippingApp.job.detail.title">Job</span> {{vm.job.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="internShippingApp.job.title">Title</span></dt>
+        <dd>
+            <span>{{vm.job.title}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.shortDescription">Short Description</span></dt>
+        <dd>
+            <span>{{vm.job.shortDescription}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.location">Location</span></dt>
+        <dd>
+            <span>{{vm.job.location}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.jobType">Job Type</span></dt>
+        <dd>
+            <span translate="{{'internShippingApp.JobType.' + vm.job.jobType}}">{{vm.job.jobType}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.jobLevel">Job Level</span></dt>
+        <dd>
+            <span translate="{{'internShippingApp.JobLevel.' + vm.job.jobLevel}}">{{vm.job.jobLevel}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.education">Education</span></dt>
+        <dd>
+            <span translate="{{'internShippingApp.Education.' + vm.job.education}}">{{vm.job.education}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.longDescription">Long Description</span></dt>
+        <dd>
+            <span>{{vm.job.longDescription}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.skills">Skills</span></dt>
+        <dd>
+            <span>{{vm.job.skills}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span></dt>
+        <dd>
+            <span>{{vm.job.socialLinkedin}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.creationDate">Creation Date</span></dt>
+        <dd>
+            <span>{{vm.job.creationDate | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.activeUntil">Active Until</span></dt>
+        <dd>
+            <span>{{vm.job.activeUntil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.active">Active</span></dt>
+        <dd>
+            <span>{{vm.job.active}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.job.company">Company</span></dt>
+        <dd>
+            <a ui-sref="company-detail({id:vm.job.company.id})">{{vm.job.company.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

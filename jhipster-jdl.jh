@@ -1,51 +1,94 @@
-entity CompanyProfile{
-name String required minlength(3) maxlength(40)
-description String maxlength(200)
-image ImageBlob 
+enum Education {
+    ANY, ASSOCIATE_STUDENT, BACHELOR_STUDENT, MASTER_STUDENT, DOCTORAL_STUDENT, ASSOCIATE_DEGREE, BACHELOR_DEGREE, MASTER_DEGREE, DOCTORAL_DEGREE
 }
 
-entity StudentProfile{
-fullname String required
-contactPhone String 
+enum JobType {
+   INTERNSHIP, PART_TIME, FULL_TIME, FREELANCE, REMOTE
+}
+  
+enum JobLevel {
+	ANY, NO_EXPERIENCE, JUNIOR, MID_LEVEL, SENIOR_LEVEL
+}
+
+entity Resume {
+image ImageBlob
+name String required
+title String 
+overview String
+education Education
 faculty String required
 enrollmentYear String required
+location String
+contactEmail String
+birthDate LocalDate
+jsonResume String
+cvFile AnyBlob
 receiveJobAlerts Boolean 
-linkedinProfile String 
-image ImageBlob
+socialLinkedin String 
+representativeSkills String
 }
 
-entity Internship {
-title String required minlength(5) maxlength(40)
-description String required minlength(29) maxlength(1000)
+entity Company {
+logo ImageBlob 
+name String required minlength(3) maxlength(70)
+domain String 
+shortDescription String required maxlength(700)
+longDescription String maxlength(4000)
+website String required
+contactEmail String
+contactNumber String
+companySize String
+foundedYear String
+socialFacebook String
+socialLinkedin String
+socialYoutube String
+socialTwitter String
+}
+
+entity Job {
+title String required minlength(5) maxlength(70)
+shortDescription String required minlength(10) maxlength(700)
 location String required
+jobType JobType required
+jobLevel JobLevel required
+requiredEducation Education required
+longDescription String maxlength(4000)
+requiredSkills String
+socialLinkedin String
 creationDate ZonedDateTime
-activeUntil LocalDate
+activeUntil LocalDate required
 active Boolean
 }
 
-entity Resume{
-jsonResume String
-cvFile AnyBlob
-linkedinData String
+entity Article {
+image ImageBlob 
+title String required
+shortDescription String required minlength(10) maxlength(700)
+longDescription String required maxlength(4000)
+creationDate ZonedDateTime
+}
+
+relationship OneToOne {
+Company{user(login)} to User
+}
+
+relationship OneToOne {
+Resume{user(login)} to User
 }
 
 entity Application{
 marked Boolean
 }
 
-relationship OneToOne {
-Resume{StudentProfile(fullname)} to StudentProfile
-}
-
-
-relationship OneToOne {
-CompanyProfile{user(login)} to User
-}
-
-relationship OneToOne {
-StudentProfile{user(login)} to User
+relationship OneToMany {
+	Resume{applications} to Application{resume(name)}
 }
 
 relationship OneToMany {
-CompanyProfile{internship} to Internship{CompanyProfile(name)}
+	Job{applications} to Application{job(title)}
 }
+
+relationship OneToMany {
+	Company{jobs} to Job{company(name)}
+}
+

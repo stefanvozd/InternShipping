@@ -1,0 +1,30 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "many-to-one",
+      "relationshipName": "resume",
+      "otherEntityName": "resume",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "many-to-one",
+      "relationshipName": "job",
+      "otherEntityName": "job",
+      "otherEntityField": "title"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "marked",
+      "fieldType": "Boolean"
+    }
+  ],
+  "changelogDate": "20160716094420",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "application"
+}

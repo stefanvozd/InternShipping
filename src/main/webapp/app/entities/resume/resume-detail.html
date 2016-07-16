@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span translate="internShippingApp.resume.detail.title">Resume</span> {{vm.resume.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="internShippingApp.resume.image">Image</span></dt>
+        <dd>
+            <div ng-if="vm.resume.image">
+                <a ng-click="vm.openFile(vm.resume.imageContentType, vm.resume.image)">
+                    <img data-ng-src="{{'data:' + vm.resume.imageContentType + ';base64,' + vm.resume.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.resume.imageContentType}}, {{vm.byteSize(vm.resume.image)}}
+            </div>
+        </dd>
+        <dt><span translate="internShippingApp.resume.name">Name</span></dt>
+        <dd>
+            <span>{{vm.resume.name}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.title">Title</span></dt>
+        <dd>
+            <span>{{vm.resume.title}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.overview">Overview</span></dt>
+        <dd>
+            <span>{{vm.resume.overview}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.education">Education</span></dt>
+        <dd>
+            <span translate="{{'internShippingApp.Education.' + vm.resume.education}}">{{vm.resume.education}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.faculty">Faculty</span></dt>
+        <dd>
+            <span>{{vm.resume.faculty}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.enrollmentYear">Enrollment Year</span></dt>
+        <dd>
+            <span>{{vm.resume.enrollmentYear}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.location">Location</span></dt>
+        <dd>
+            <span>{{vm.resume.location}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.contactEmail">Contact Email</span></dt>
+        <dd>
+            <span>{{vm.resume.contactEmail}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.birthDate">Birth Date</span></dt>
+        <dd>
+            <span>{{vm.resume.birthDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.jsonResume">Json Resume</span></dt>
+        <dd>
+            <span>{{vm.resume.jsonResume}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.cvFile">Cv File</span></dt>
+        <dd>
+            <div ng-if="vm.resume.cvFile">
+                <a ng-click="vm.openFile(vm.resume.cvFileContentType, vm.resume.cvFile)" translate="entity.action.open">open</a>
+                {{vm.resume.cvFileContentType}}, {{vm.byteSize(vm.resume.cvFile)}}
+            </div>
+        </dd>
+        <dt><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span></dt>
+        <dd>
+            <span>{{vm.resume.receiveJobAlerts}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span></dt>
+        <dd>
+            <span>{{vm.resume.socialLinkedin}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.representativeSkills">Representative Skills</span></dt>
+        <dd>
+            <span>{{vm.resume.representativeSkills}}</span>
+        </dd>
+        <dt><span translate="internShippingApp.resume.user">User</span></dt>
+        <dd>
+            {{vm.resume.user.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

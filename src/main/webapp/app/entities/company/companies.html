@@ -1,0 +1,108 @@
+<div>
+    <h2 translate="internShippingApp.company.home.title">Companies</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="company.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="internShippingApp.company.home.createLabel">
+                        Create new Company
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.company.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="internShippingApp.company.logo">Logo</span></th>
+                    <th><span translate="internShippingApp.company.name">Name</span></th>
+                    <th><span translate="internShippingApp.company.domain">Domain</span></th>
+                    <th><span translate="internShippingApp.company.shortDescription">Short Description</span></th>
+                    <th><span translate="internShippingApp.company.longDescription">Long Description</span></th>
+                    <th><span translate="internShippingApp.company.website">Website</span></th>
+                    <th><span translate="internShippingApp.company.contactEmail">Contact Email</span></th>
+                    <th><span translate="internShippingApp.company.contactNumber">Contact Number</span></th>
+                    <th><span translate="internShippingApp.company.companySize">Company Size</span></th>
+                    <th><span translate="internShippingApp.company.foundedYear">Founded Year</span></th>
+                    <th><span translate="internShippingApp.company.socialFacebook">Social Facebook</span></th>
+                    <th><span translate="internShippingApp.company.socialLinkedin">Social Linkedin</span></th>
+                    <th><span translate="internShippingApp.company.socialYoutube">Social Youtube</span></th>
+                    <th><span translate="internShippingApp.company.socialTwitter">Social Twitter</span></th>
+                    <th><span translate="internShippingApp.company.user">User</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="company in vm.companies track by company.id">
+                    <td><a ui-sref="company-detail({id:company.id})">{{company.id}}</a></td>
+                    <td>
+                        <a ng-if="company.logo" ng-click="vm.openFile(company.logoContentType, company.logo)">
+                            <img data-ng-src="{{'data:' + company.logoContentType + ';base64,' + company.logo}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="company.logo">{{company.logoContentType}}, {{vm.byteSize(company.logo)}}</span>
+                    </td>
+                    <td>{{company.name}}</td>
+                    <td>{{company.domain}}</td>
+                    <td>{{company.shortDescription}}</td>
+                    <td>{{company.longDescription}}</td>
+                    <td>{{company.website}}</td>
+                    <td>{{company.contactEmail}}</td>
+                    <td>{{company.contactNumber}}</td>
+                    <td>{{company.companySize}}</td>
+                    <td>{{company.foundedYear}}</td>
+                    <td>{{company.socialFacebook}}</td>
+                    <td>{{company.socialLinkedin}}</td>
+                    <td>{{company.socialYoutube}}</td>
+                    <td>{{company.socialTwitter}}</td>
+                    <td>
+                        {{company.user.login}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="company-detail({id:company.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="company.edit({id:company.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="company.delete({id:company.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

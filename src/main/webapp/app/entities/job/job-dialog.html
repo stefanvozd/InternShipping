@@ -1,0 +1,196 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myJobLabel" translate="internShippingApp.job.home.createOrEditLabel">Create or edit a Job</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.job.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.job.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.job.title"
+                    required ng-minlength="5" ng-maxlength="70" />
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.title.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.title.$error.minlength" translate="entity.validation.minlength" translate-value-min="5">
+                    This field is required to be at least 5 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="70">
+                    This field cannot be longer than 70 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.shortDescription" for="field_shortDescription">Short Description</label>
+            <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
+                    ng-model="vm.job.shortDescription"
+                    required ng-minlength="10" ng-maxlength="700" />
+            <div ng-show="editForm.shortDescription.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="10">
+                    This field is required to be at least 10 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="700">
+                    This field cannot be longer than 700 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.job.location"
+                    required />
+            <div ng-show="editForm.location.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.location.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.jobType" for="field_jobType">Job Type</label>
+            <select class="form-control" name="jobType" ng-model="vm.job.jobType" id="field_jobType" required>
+                <option value="INTERNSHIP" translate="internShippingApp.JobType.INTERNSHIP">INTERNSHIP</option>
+                <option value="PART_TIME" translate="internShippingApp.JobType.PART_TIME">PART_TIME</option>
+                <option value="FULL_TIME" translate="internShippingApp.JobType.FULL_TIME">FULL_TIME</option>
+                <option value="FREELANCE" translate="internShippingApp.JobType.FREELANCE">FREELANCE</option>
+                <option value="REMOTE" translate="internShippingApp.JobType.REMOTE">REMOTE</option>
+            </select>
+            <div ng-show="editForm.jobType.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.jobType.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.jobLevel" for="field_jobLevel">Job Level</label>
+            <select class="form-control" name="jobLevel" ng-model="vm.job.jobLevel" id="field_jobLevel" required>
+                <option value="ANY" translate="internShippingApp.JobLevel.ANY">ANY</option>
+                <option value="NO_EXPERIENCE" translate="internShippingApp.JobLevel.NO_EXPERIENCE">NO_EXPERIENCE</option>
+                <option value="JUNIOR" translate="internShippingApp.JobLevel.JUNIOR">JUNIOR</option>
+                <option value="MID_LEVEL" translate="internShippingApp.JobLevel.MID_LEVEL">MID_LEVEL</option>
+                <option value="SENIOR_LEVEL" translate="internShippingApp.JobLevel.SENIOR_LEVEL">SENIOR_LEVEL</option>
+            </select>
+            <div ng-show="editForm.jobLevel.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.jobLevel.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.education" for="field_education">Education</label>
+            <select class="form-control" name="education" ng-model="vm.job.education" id="field_education" required>
+                <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
+                <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
+                <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
+                <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
+                <option value="DOCTORAL_STUDENT" translate="internShippingApp.Education.DOCTORAL_STUDENT">DOCTORAL_STUDENT</option>
+                <option value="ASSOCIATE_DEGREE" translate="internShippingApp.Education.ASSOCIATE_DEGREE">ASSOCIATE_DEGREE</option>
+                <option value="BACHELOR_DEGREE" translate="internShippingApp.Education.BACHELOR_DEGREE">BACHELOR_DEGREE</option>
+                <option value="MASTER_DEGREE" translate="internShippingApp.Education.MASTER_DEGREE">MASTER_DEGREE</option>
+                <option value="DOCTORAL_DEGREE" translate="internShippingApp.Education.DOCTORAL_DEGREE">DOCTORAL_DEGREE</option>
+            </select>
+            <div ng-show="editForm.education.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.education.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.longDescription" for="field_longDescription">Long Description</label>
+            <input type="text" class="form-control" name="longDescription" id="field_longDescription"
+                    ng-model="vm.job.longDescription"
+                    required ng-maxlength="4000" />
+            <div ng-show="editForm.longDescription.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.longDescription.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.longDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4000">
+                    This field cannot be longer than 4000 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.skills" for="field_skills">Skills</label>
+            <input type="text" class="form-control" name="skills" id="field_skills"
+                    ng-model="vm.job.skills"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.socialLinkedin" for="field_socialLinkedin">Social Linkedin</label>
+            <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
+                    ng-model="vm.job.socialLinkedin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.creationDate" for="field_creationDate">Creation Date</label>
+                <div class="input-group">
+                    <input id="field_creationDate" type="text" class="form-control" name="creationDate" datetime-picker="{{dateformat}}" ng-model="vm.job.creationDate" is-open="vm.datePickerOpenStatus.creationDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('creationDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.activeUntil" for="field_activeUntil">Active Until</label>
+                <div class="input-group">
+                    <input id="field_activeUntil" type="text" class="form-control" name="activeUntil" uib-datepicker-popup="{{dateformat}}" ng-model="vm.job.activeUntil" is-open="vm.datePickerOpenStatus.activeUntil"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('activeUntil')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.activeUntil.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.activeUntil.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.job.active" for="field_active">Active</label>
+            <input type="checkbox" class="form-control" name="active" id="field_active"
+                    ng-model="vm.job.active"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="internShippingApp.job.company" for="field_company">Company</label>
+            <select class="form-control" id="field_company" name="company" ng-model="vm.job.company" ng-options="company as company.name for company in vm.companies track by company.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
