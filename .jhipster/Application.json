@@ -23,8 +23,8 @@
     }
   ],
   "changelogDate": "20160716094420",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
   "entityTableName": "application"
 }

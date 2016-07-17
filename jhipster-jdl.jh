@@ -1,5 +1,5 @@
 enum Education {
-    ANY, ASSOCIATE_STUDENT, BACHELOR_STUDENT, MASTER_STUDENT, DOCTORAL_STUDENT, ASSOCIATE_DEGREE, BACHELOR_DEGREE, MASTER_DEGREE, DOCTORAL_DEGREE
+    ASSOCIATE_STUDENT, BACHELOR_STUDENT, MASTER_STUDENT, DOCTORAL_STUDENT, ASSOCIATE_DEGREE, BACHELOR_DEGREE, MASTER_DEGREE, DOCTORAL_DEGREE
 }
 
 enum JobType {
@@ -30,10 +30,10 @@ representativeSkills String
 
 entity Company {
 logo ImageBlob 
-name String required minlength(3) maxlength(70)
+name String required minlength(3) maxlength(40)
 domain String 
-shortDescription String required maxlength(700)
-longDescription String maxlength(4000)
+shortDescription String required maxlength(300)
+longDescription String
 website String required
 contactEmail String
 contactNumber String
@@ -46,13 +46,13 @@ socialTwitter String
 }
 
 entity Job {
-title String required minlength(5) maxlength(70)
-shortDescription String required minlength(10) maxlength(700)
+title String required minlength(5) maxlength(40)
+shortDescription String required minlength(29) maxlength(300)
 location String required
 jobType JobType required
 jobLevel JobLevel required
 requiredEducation Education required
-longDescription String maxlength(4000)
+longDescription String 
 requiredSkills String
 socialLinkedin String
 creationDate ZonedDateTime
@@ -63,32 +63,33 @@ active Boolean
 entity Article {
 image ImageBlob 
 title String required
-shortDescription String required minlength(10) maxlength(700)
-longDescription String required maxlength(4000)
+shortDescription String required minlength(29) maxlength(300)
+longDescription String required
 creationDate ZonedDateTime
-}
-
-relationship OneToOne {
-Company{user(login)} to User
-}
-
-relationship OneToOne {
-Resume{user(login)} to User
 }
 
 entity Application{
 marked Boolean
 }
 
-relationship OneToMany {
-	Resume{applications} to Application{resume(name)}
+entity MailingList{
+email String
+dateCreated LocalDate
+}
+
+relationship OneToOne {
+Company{user(login)} to User,
+Resume{user(login)} to User
 }
 
 relationship OneToMany {
-	Job{applications} to Application{job(title)}
+	Resume{applications} to Application{resume(name)},
+    Job{applications} to Application{job(title)},
+    Company{jobs} to Job{company(name)}
 }
 
-relationship OneToMany {
-	Company{jobs} to Job{company(name)}
-}
 
+dto all with mapstruct
+service all with serviceClass except Article
+paginate all with pagination except Article, MailingList
+paginate Article, MailingList with infinite-scroll

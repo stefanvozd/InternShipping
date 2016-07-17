@@ -2,7 +2,6 @@
     "internShippingApp": {
         "Education" : {
             "null": "",
-            "ANY": "ANY",
             "ASSOCIATE_STUDENT": "ASSOCIATE_STUDENT",
             "BACHELOR_STUDENT": "BACHELOR_STUDENT",
             "MASTER_STUDENT": "MASTER_STUDENT",

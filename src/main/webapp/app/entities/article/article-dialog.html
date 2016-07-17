@@ -51,19 +51,19 @@
             <label class="control-label" translate="internShippingApp.article.shortDescription" for="field_shortDescription">Short Description</label>
             <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
                     ng-model="vm.article.shortDescription"
-                    required ng-minlength="10" ng-maxlength="700" />
+                    required ng-minlength="29" ng-maxlength="300" />
             <div ng-show="editForm.shortDescription.$invalid">
                 <p class="help-block"
                     ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="10">
-                    This field is required to be at least 10 characters.
+                    ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="29">
+                    This field is required to be at least 29 characters.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="700">
-                    This field cannot be longer than 700 characters.
+                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                    This field cannot be longer than 300 characters.
                 </p>
             </div>
         </div>
@@ -71,15 +71,11 @@
             <label class="control-label" translate="internShippingApp.article.longDescription" for="field_longDescription">Long Description</label>
             <input type="text" class="form-control" name="longDescription" id="field_longDescription"
                     ng-model="vm.article.longDescription"
-                    required ng-maxlength="4000" />
+                    required />
             <div ng-show="editForm.longDescription.$invalid">
                 <p class="help-block"
                     ng-show="editForm.longDescription.$error.required" translate="entity.validation.required">
                     This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.longDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4000">
-                    This field cannot be longer than 4000 characters.
                 </p>
             </div>
         </div>

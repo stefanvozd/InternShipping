@@ -46,7 +46,7 @@
       "fieldId": 5,
       "fieldName": "education",
       "fieldType": "Education",
-      "fieldValues": "ANY,ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE"
+      "fieldValues": "ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE"
     },
     {
       "fieldId": 6,
@@ -107,8 +107,8 @@
     }
   ],
   "changelogDate": "20160716094416",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
   "entityTableName": "resume"
 }

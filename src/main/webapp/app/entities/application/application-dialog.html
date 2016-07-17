@@ -22,13 +22,13 @@
 
         <div class="form-group">
             <label translate="internShippingApp.application.resume" for="field_resume">Resume</label>
-            <select class="form-control" id="field_resume" name="resume" ng-model="vm.application.resume" ng-options="resume as resume.name for resume in vm.resumes track by resume.id">
+            <select class="form-control" id="field_resume" name="resume" ng-model="vm.application.resumeId" ng-options="resume.id as resume.name for resume in vm.resumes"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label translate="internShippingApp.application.job" for="field_job">Job</label>
-            <select class="form-control" id="field_job" name="job" ng-model="vm.application.job" ng-options="job as job.title for job in vm.jobs track by job.id">
+            <select class="form-control" id="field_job" name="job" ng-model="vm.application.jobId" ng-options="job.id as job.title for job in vm.jobs"            >
                 <option value=""></option>
             </select>
         </div>

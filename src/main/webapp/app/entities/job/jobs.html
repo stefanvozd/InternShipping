@@ -34,21 +34,21 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="internShippingApp.job.title">Title</span></th>
-                    <th><span translate="internShippingApp.job.shortDescription">Short Description</span></th>
-                    <th><span translate="internShippingApp.job.location">Location</span></th>
-                    <th><span translate="internShippingApp.job.jobType">Job Type</span></th>
-                    <th><span translate="internShippingApp.job.jobLevel">Job Level</span></th>
-                    <th><span translate="internShippingApp.job.education">Education</span></th>
-                    <th><span translate="internShippingApp.job.longDescription">Long Description</span></th>
-                    <th><span translate="internShippingApp.job.skills">Skills</span></th>
-                    <th><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span></th>
-                    <th><span translate="internShippingApp.job.creationDate">Creation Date</span></th>
-                    <th><span translate="internShippingApp.job.activeUntil">Active Until</span></th>
-                    <th><span translate="internShippingApp.job.active">Active</span></th>
-                    <th><span translate="internShippingApp.job.company">Company</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span translate="internShippingApp.job.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shortDescription"><span translate="internShippingApp.job.shortDescription">Short Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span translate="internShippingApp.job.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobType"><span translate="internShippingApp.job.jobType">Job Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobLevel"><span translate="internShippingApp.job.jobLevel">Job Level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="education"><span translate="internShippingApp.job.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="longDescription"><span translate="internShippingApp.job.longDescription">Long Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="skills"><span translate="internShippingApp.job.skills">Skills</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="creationDate"><span translate="internShippingApp.job.creationDate">Creation Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="activeUntil"><span translate="internShippingApp.job.activeUntil">Active Until</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="active"><span translate="internShippingApp.job.active">Active</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="companyName"><span translate="internShippingApp.job.company">Company</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -68,7 +68,7 @@
                         <td>{{job.activeUntil | date:'mediumDate'}}</td>
                     <td>{{job.active}}</td>
                     <td>
-                        <a ui-sref="company-detail({id:job.company.id})">{{job.company.name}}</a>
+                        <a ui-sref="company-detail({id:job.companyId})">{{job.companyName}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -95,5 +95,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

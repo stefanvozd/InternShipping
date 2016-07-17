@@ -34,23 +34,23 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="internShippingApp.company.logo">Logo</span></th>
-                    <th><span translate="internShippingApp.company.name">Name</span></th>
-                    <th><span translate="internShippingApp.company.domain">Domain</span></th>
-                    <th><span translate="internShippingApp.company.shortDescription">Short Description</span></th>
-                    <th><span translate="internShippingApp.company.longDescription">Long Description</span></th>
-                    <th><span translate="internShippingApp.company.website">Website</span></th>
-                    <th><span translate="internShippingApp.company.contactEmail">Contact Email</span></th>
-                    <th><span translate="internShippingApp.company.contactNumber">Contact Number</span></th>
-                    <th><span translate="internShippingApp.company.companySize">Company Size</span></th>
-                    <th><span translate="internShippingApp.company.foundedYear">Founded Year</span></th>
-                    <th><span translate="internShippingApp.company.socialFacebook">Social Facebook</span></th>
-                    <th><span translate="internShippingApp.company.socialLinkedin">Social Linkedin</span></th>
-                    <th><span translate="internShippingApp.company.socialYoutube">Social Youtube</span></th>
-                    <th><span translate="internShippingApp.company.socialTwitter">Social Twitter</span></th>
-                    <th><span translate="internShippingApp.company.user">User</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="logo"><span translate="internShippingApp.company.logo">Logo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="internShippingApp.company.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="domain"><span translate="internShippingApp.company.domain">Domain</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shortDescription"><span translate="internShippingApp.company.shortDescription">Short Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="longDescription"><span translate="internShippingApp.company.longDescription">Long Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="website"><span translate="internShippingApp.company.website">Website</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactEmail"><span translate="internShippingApp.company.contactEmail">Contact Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactNumber"><span translate="internShippingApp.company.contactNumber">Contact Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="companySize"><span translate="internShippingApp.company.companySize">Company Size</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="foundedYear"><span translate="internShippingApp.company.foundedYear">Founded Year</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialFacebook"><span translate="internShippingApp.company.socialFacebook">Social Facebook</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.company.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialYoutube"><span translate="internShippingApp.company.socialYoutube">Social Youtube</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialTwitter"><span translate="internShippingApp.company.socialTwitter">Social Twitter</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userLogin"><span translate="internShippingApp.company.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -77,7 +77,7 @@
                     <td>{{company.socialYoutube}}</td>
                     <td>{{company.socialTwitter}}</td>
                     <td>
-                        {{company.user.login}}
+                        {{company.userLogin}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -104,5 +104,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

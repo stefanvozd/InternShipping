@@ -24,18 +24,16 @@
         "minlength",
         "maxlength"
       ],
-      "fieldValidateRulesMinlength": 10,
-      "fieldValidateRulesMaxlength": 700
+      "fieldValidateRulesMinlength": 29,
+      "fieldValidateRulesMaxlength": 300
     },
     {
       "fieldId": 4,
       "fieldName": "longDescription",
       "fieldType": "String",
       "fieldValidateRules": [
-        "required",
-        "maxlength"
-      ],
-      "fieldValidateRulesMaxlength": 4000
+        "required"
+      ]
     },
     {
       "fieldId": 5,
@@ -44,8 +42,8 @@
     }
   ],
   "changelogDate": "20160716094419",
-  "dto": "no",
-  "pagination": "no",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
   "service": "no",
   "entityTableName": "article"
 }

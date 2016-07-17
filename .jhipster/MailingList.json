@@ -1,0 +1,20 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "dateCreated",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20160717075609",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "entityTableName": "mailing_list"
+}

@@ -34,24 +34,24 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="internShippingApp.resume.image">Image</span></th>
-                    <th><span translate="internShippingApp.resume.name">Name</span></th>
-                    <th><span translate="internShippingApp.resume.title">Title</span></th>
-                    <th><span translate="internShippingApp.resume.overview">Overview</span></th>
-                    <th><span translate="internShippingApp.resume.education">Education</span></th>
-                    <th><span translate="internShippingApp.resume.faculty">Faculty</span></th>
-                    <th><span translate="internShippingApp.resume.enrollmentYear">Enrollment Year</span></th>
-                    <th><span translate="internShippingApp.resume.location">Location</span></th>
-                    <th><span translate="internShippingApp.resume.contactEmail">Contact Email</span></th>
-                    <th><span translate="internShippingApp.resume.birthDate">Birth Date</span></th>
-                    <th><span translate="internShippingApp.resume.jsonResume">Json Resume</span></th>
-                    <th><span translate="internShippingApp.resume.cvFile">Cv File</span></th>
-                    <th><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span></th>
-                    <th><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span></th>
-                    <th><span translate="internShippingApp.resume.representativeSkills">Representative Skills</span></th>
-                    <th><span translate="internShippingApp.resume.user">User</span></th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="image"><span translate="internShippingApp.resume.image">Image</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="internShippingApp.resume.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span translate="internShippingApp.resume.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="overview"><span translate="internShippingApp.resume.overview">Overview</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="education"><span translate="internShippingApp.resume.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="faculty"><span translate="internShippingApp.resume.faculty">Faculty</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="enrollmentYear"><span translate="internShippingApp.resume.enrollmentYear">Enrollment Year</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span translate="internShippingApp.resume.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="contactEmail"><span translate="internShippingApp.resume.contactEmail">Contact Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthDate"><span translate="internShippingApp.resume.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jsonResume"><span translate="internShippingApp.resume.jsonResume">Json Resume</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cvFile"><span translate="internShippingApp.resume.cvFile">Cv File</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="receiveJobAlerts"><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="representativeSkills"><span translate="internShippingApp.resume.representativeSkills">Representative Skills</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userLogin"><span translate="internShippingApp.resume.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -82,7 +82,7 @@
                     <td>{{resume.socialLinkedin}}</td>
                     <td>{{resume.representativeSkills}}</td>
                     <td>
-                        {{resume.user.login}}
+                        {{resume.userLogin}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -109,5 +109,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>

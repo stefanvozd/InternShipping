@@ -3,7 +3,10 @@ package rs.eestec.internshipping.web.rest;
 import rs.eestec.internshipping.InternShippingApp;
 import rs.eestec.internshipping.domain.Application;
 import rs.eestec.internshipping.repository.ApplicationRepository;
+import rs.eestec.internshipping.service.ApplicationService;
 import rs.eestec.internshipping.repository.search.ApplicationSearchRepository;
+import rs.eestec.internshipping.web.rest.dto.ApplicationDTO;
+import rs.eestec.internshipping.web.rest.mapper.ApplicationMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +53,12 @@ public class ApplicationResourceIntTest {
     private ApplicationRepository applicationRepository;
 
     @Inject
+    private ApplicationMapper applicationMapper;
+
+    @Inject
+    private ApplicationService applicationService;
+
+    @Inject
     private ApplicationSearchRepository applicationSearchRepository;
 
     @Inject
@@ -66,8 +75,8 @@ public class ApplicationResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         ApplicationResource applicationResource = new ApplicationResource();
-        ReflectionTestUtils.setField(applicationResource, "applicationSearchRepository", applicationSearchRepository);
-        ReflectionTestUtils.setField(applicationResource, "applicationRepository", applicationRepository);
+        ReflectionTestUtils.setField(applicationResource, "applicationService", applicationService);
+        ReflectionTestUtils.setField(applicationResource, "applicationMapper", applicationMapper);
         this.restApplicationMockMvc = MockMvcBuilders.standaloneSetup(applicationResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -86,10 +95,11 @@ public class ApplicationResourceIntTest {
         int databaseSizeBeforeCreate = applicationRepository.findAll().size();
 
         // Create the Application
+        ApplicationDTO applicationDTO = applicationMapper.applicationToApplicationDTO(application);
 
         restApplicationMockMvc.perform(post("/api/applications")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(application)))
+                .content(TestUtil.convertObjectToJsonBytes(applicationDTO)))
                 .andExpect(status().isCreated());
 
         // Validate the Application in the database
@@ -151,10 +161,11 @@ public class ApplicationResourceIntTest {
         Application updatedApplication = new Application();
         updatedApplication.setId(application.getId());
         updatedApplication.setMarked(UPDATED_MARKED);
+        ApplicationDTO applicationDTO = applicationMapper.applicationToApplicationDTO(updatedApplication);
 
         restApplicationMockMvc.perform(put("/api/applications")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(updatedApplication)))
+                .content(TestUtil.convertObjectToJsonBytes(applicationDTO)))
                 .andExpect(status().isOk());
 
         // Validate the Application in the database

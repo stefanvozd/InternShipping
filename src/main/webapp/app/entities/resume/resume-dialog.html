@@ -62,7 +62,6 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.education" for="field_education">Education</label>
             <select class="form-control" name="education" ng-model="vm.resume.education" id="field_education">
-                <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
                 <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
                 <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
                 <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
@@ -168,7 +167,7 @@
 
         <div class="form-group">
             <label translate="internShippingApp.resume.user" for="field_user">User</label>
-            <select class="form-control" id="field_user" name="user" ng-model="vm.resume.user" ng-options="user as user.login for user in vm.users track by user.id">
+            <select class="form-control" id="field_user" name="user" ng-model="vm.resume.userId" ng-options="user.id as user.login for user in vm.users"            >
                 <option value=""></option>
             </select>
         </div>

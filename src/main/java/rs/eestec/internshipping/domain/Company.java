@@ -35,20 +35,19 @@ public class Company implements Serializable {
     private String logoContentType;
 
     @NotNull
-    @Size(min = 3, max = 70)
-    @Column(name = "name", length = 70, nullable = false)
+    @Size(min = 3, max = 40)
+    @Column(name = "name", length = 40, nullable = false)
     private String name;
 
     @Column(name = "domain")
     private String domain;
 
     @NotNull
-    @Size(max = 700)
-    @Column(name = "short_description", length = 700, nullable = false)
+    @Size(max = 300)
+    @Column(name = "short_description", length = 300, nullable = false)
     private String shortDescription;
 
-    @Size(max = 4000)
-    @Column(name = "long_description", length = 4000)
+    @Column(name = "long_description")
     private String longDescription;
 
     @NotNull

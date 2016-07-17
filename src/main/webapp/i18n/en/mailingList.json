@@ -1,0 +1,23 @@
+{
+    "internShippingApp": {
+        "mailingList" : {
+            "home": {
+                "title": "Mailing Lists",
+                "createLabel": "Create a new Mailing List",
+                "createOrEditLabel": "Create or edit a Mailing List",
+                "search": "Search for Mailing List"
+            },
+            "created": "A new Mailing List is created with identifier {{ param }}",
+            "updated": "A Mailing List is updated with identifier {{ param }}",
+            "deleted": "A Mailing List is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mailing List {{ id }}?"
+            },
+            "detail": {
+                "title": "Mailing List"
+            },
+            "email": "Email",
+            "dateCreated": "Date Created"
+        }
+    }
+}

@@ -26,7 +26,7 @@
         "maxlength"
       ],
       "fieldValidateRulesMinlength": 5,
-      "fieldValidateRulesMaxlength": 70
+      "fieldValidateRulesMaxlength": 40
     },
     {
       "fieldId": 2,
@@ -37,8 +37,8 @@
         "minlength",
         "maxlength"
       ],
-      "fieldValidateRulesMinlength": 10,
-      "fieldValidateRulesMaxlength": 700
+      "fieldValidateRulesMinlength": 29,
+      "fieldValidateRulesMaxlength": 300
     },
     {
       "fieldId": 3,
@@ -71,7 +71,7 @@
       "fieldId": 6,
       "fieldName": "education",
       "fieldType": "Education",
-      "fieldValues": "ANY,ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE",
+      "fieldValues": "ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE",
       "fieldValidateRules": [
         "required"
       ]
@@ -81,10 +81,8 @@
       "fieldName": "longDescription",
       "fieldType": "String",
       "fieldValidateRules": [
-        "maxlength",
         "required"
-      ],
-      "fieldValidateRulesMaxlength": 4000
+      ]
     },
     {
       "fieldId": 8,
@@ -116,8 +114,8 @@
     }
   ],
   "changelogDate": "20160716094418",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
   "entityTableName": "job"
 }

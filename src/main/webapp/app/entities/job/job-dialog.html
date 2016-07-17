@@ -17,7 +17,7 @@
             <label class="control-label" translate="internShippingApp.job.title" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
                     ng-model="vm.job.title"
-                    required ng-minlength="5" ng-maxlength="70" />
+                    required ng-minlength="5" ng-maxlength="40" />
             <div ng-show="editForm.title.$invalid">
                 <p class="help-block"
                     ng-show="editForm.title.$error.required" translate="entity.validation.required">
@@ -28,8 +28,8 @@
                     This field is required to be at least 5 characters.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="70">
-                    This field cannot be longer than 70 characters.
+                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                    This field cannot be longer than 40 characters.
                 </p>
             </div>
         </div>
@@ -37,19 +37,19 @@
             <label class="control-label" translate="internShippingApp.job.shortDescription" for="field_shortDescription">Short Description</label>
             <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
                     ng-model="vm.job.shortDescription"
-                    required ng-minlength="10" ng-maxlength="700" />
+                    required ng-minlength="29" ng-maxlength="300" />
             <div ng-show="editForm.shortDescription.$invalid">
                 <p class="help-block"
                     ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="10">
-                    This field is required to be at least 10 characters.
+                    ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="29">
+                    This field is required to be at least 29 characters.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="700">
-                    This field cannot be longer than 700 characters.
+                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                    This field cannot be longer than 300 characters.
                 </p>
             </div>
         </div>
@@ -100,7 +100,6 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.job.education" for="field_education">Education</label>
             <select class="form-control" name="education" ng-model="vm.job.education" id="field_education" required>
-                <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
                 <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
                 <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
                 <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
@@ -121,15 +120,11 @@
             <label class="control-label" translate="internShippingApp.job.longDescription" for="field_longDescription">Long Description</label>
             <input type="text" class="form-control" name="longDescription" id="field_longDescription"
                     ng-model="vm.job.longDescription"
-                    required ng-maxlength="4000" />
+                    required />
             <div ng-show="editForm.longDescription.$invalid">
                 <p class="help-block"
                     ng-show="editForm.longDescription.$error.required" translate="entity.validation.required">
                     This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.longDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4000">
-                    This field cannot be longer than 4000 characters.
                 </p>
             </div>
         </div>
@@ -180,7 +175,7 @@
 
         <div class="form-group">
             <label translate="internShippingApp.job.company" for="field_company">Company</label>
-            <select class="form-control" id="field_company" name="company" ng-model="vm.job.company" ng-options="company as company.name for company in vm.companies track by company.id">
+            <select class="form-control" id="field_company" name="company" ng-model="vm.job.companyId" ng-options="company.id as company.name for company in vm.companies"            >
                 <option value=""></option>
             </select>
         </div>

@@ -3,7 +3,10 @@ package rs.eestec.internshipping.web.rest;
 import rs.eestec.internshipping.InternShippingApp;
 import rs.eestec.internshipping.domain.Resume;
 import rs.eestec.internshipping.repository.ResumeRepository;
+import rs.eestec.internshipping.service.ResumeService;
 import rs.eestec.internshipping.repository.search.ResumeSearchRepository;
+import rs.eestec.internshipping.web.rest.dto.ResumeDTO;
+import rs.eestec.internshipping.web.rest.mapper.ResumeMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -58,8 +61,8 @@ public class ResumeResourceIntTest {
     private static final String DEFAULT_OVERVIEW = "AAAAA";
     private static final String UPDATED_OVERVIEW = "BBBBB";
 
-    private static final Education DEFAULT_EDUCATION = Education.ANY;
-    private static final Education UPDATED_EDUCATION = Education.ASSOCIATE_STUDENT;
+    private static final Education DEFAULT_EDUCATION = Education.ASSOCIATE_STUDENT;
+    private static final Education UPDATED_EDUCATION = Education.BACHELOR_STUDENT;
     private static final String DEFAULT_FACULTY = "AAAAA";
     private static final String UPDATED_FACULTY = "BBBBB";
     private static final String DEFAULT_ENROLLMENT_YEAR = "AAAAA";
@@ -90,6 +93,12 @@ public class ResumeResourceIntTest {
     private ResumeRepository resumeRepository;
 
     @Inject
+    private ResumeMapper resumeMapper;
+
+    @Inject
+    private ResumeService resumeService;
+
+    @Inject
     private ResumeSearchRepository resumeSearchRepository;
 
     @Inject
@@ -106,8 +115,8 @@ public class ResumeResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         ResumeResource resumeResource = new ResumeResource();
-        ReflectionTestUtils.setField(resumeResource, "resumeSearchRepository", resumeSearchRepository);
-        ReflectionTestUtils.setField(resumeResource, "resumeRepository", resumeRepository);
+        ReflectionTestUtils.setField(resumeResource, "resumeService", resumeService);
+        ReflectionTestUtils.setField(resumeResource, "resumeMapper", resumeMapper);
         this.restResumeMockMvc = MockMvcBuilders.standaloneSetup(resumeResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
@@ -142,10 +151,11 @@ public class ResumeResourceIntTest {
         int databaseSizeBeforeCreate = resumeRepository.findAll().size();
 
         // Create the Resume
+        ResumeDTO resumeDTO = resumeMapper.resumeToResumeDTO(resume);
 
         restResumeMockMvc.perform(post("/api/resumes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(resume)))
+                .content(TestUtil.convertObjectToJsonBytes(resumeDTO)))
                 .andExpect(status().isCreated());
 
         // Validate the Resume in the database
@@ -183,10 +193,11 @@ public class ResumeResourceIntTest {
         resume.setName(null);
 
         // Create the Resume, which fails.
+        ResumeDTO resumeDTO = resumeMapper.resumeToResumeDTO(resume);
 
         restResumeMockMvc.perform(post("/api/resumes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(resume)))
+                .content(TestUtil.convertObjectToJsonBytes(resumeDTO)))
                 .andExpect(status().isBadRequest());
 
         List<Resume> resumes = resumeRepository.findAll();
@@ -201,10 +212,11 @@ public class ResumeResourceIntTest {
         resume.setFaculty(null);
 
         // Create the Resume, which fails.
+        ResumeDTO resumeDTO = resumeMapper.resumeToResumeDTO(resume);
 
         restResumeMockMvc.perform(post("/api/resumes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(resume)))
+                .content(TestUtil.convertObjectToJsonBytes(resumeDTO)))
                 .andExpect(status().isBadRequest());
 
         List<Resume> resumes = resumeRepository.findAll();
@@ -219,10 +231,11 @@ public class ResumeResourceIntTest {
         resume.setEnrollmentYear(null);
 
         // Create the Resume, which fails.
+        ResumeDTO resumeDTO = resumeMapper.resumeToResumeDTO(resume);
 
         restResumeMockMvc.perform(post("/api/resumes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(resume)))
+                .content(TestUtil.convertObjectToJsonBytes(resumeDTO)))
                 .andExpect(status().isBadRequest());
 
         List<Resume> resumes = resumeRepository.findAll();
@@ -325,10 +338,11 @@ public class ResumeResourceIntTest {
         updatedResume.setReceiveJobAlerts(UPDATED_RECEIVE_JOB_ALERTS);
         updatedResume.setSocialLinkedin(UPDATED_SOCIAL_LINKEDIN);
         updatedResume.setRepresentativeSkills(UPDATED_REPRESENTATIVE_SKILLS);
+        ResumeDTO resumeDTO = resumeMapper.resumeToResumeDTO(updatedResume);
 
         restResumeMockMvc.perform(put("/api/resumes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(updatedResume)))
+                .content(TestUtil.convertObjectToJsonBytes(resumeDTO)))
                 .andExpect(status().isOk());
 
         // Validate the Resume in the database
