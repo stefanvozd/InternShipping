@@ -1,9 +1,9 @@
 enum Education {
-    ASSOCIATE_STUDENT, BACHELOR_STUDENT, MASTER_STUDENT, DOCTORAL_STUDENT, ASSOCIATE_DEGREE, BACHELOR_DEGREE, MASTER_DEGREE, DOCTORAL_DEGREE
+    ANY, ASSOCIATE_STUDENT, BACHELOR_STUDENT, MASTER_STUDENT, DOCTORAL_STUDENT, ASSOCIATE_DEGREE, BACHELOR_DEGREE, MASTER_DEGREE, DOCTORAL_DEGREE
 }
 
 enum JobType {
-   INTERNSHIP, PART_TIME, FULL_TIME, FREELANCE, REMOTE
+   INTERNSHIP, PART_TIME, FULL_TIME, FREELANCE, REMOTE, NEGOTIABLE
 }
   
 enum JobLevel {
@@ -23,6 +23,7 @@ contactEmail String
 birthDate LocalDate
 jsonResume String
 cvFile AnyBlob
+cvFileContent String
 receiveJobAlerts Boolean 
 socialLinkedin String 
 representativeSkills String
@@ -49,6 +50,7 @@ entity Job {
 title String required minlength(5) maxlength(40)
 shortDescription String required minlength(29) maxlength(300)
 location String required
+compensation String
 jobType JobType required
 jobLevel JobLevel required
 requiredEducation Education required

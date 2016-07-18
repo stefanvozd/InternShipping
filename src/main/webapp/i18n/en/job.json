@@ -19,6 +19,7 @@
             "title": "Title",
             "shortDescription": "Short Description",
             "location": "Location",
+            "compensation": "Compensation",
             "jobType": "Job Type",
             "jobLevel": "Job Level",
             "education": "Education",

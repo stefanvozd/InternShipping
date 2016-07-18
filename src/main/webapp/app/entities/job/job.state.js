@@ -100,6 +100,7 @@
                                 title: null,
                                 shortDescription: null,
                                 location: null,
+                                compensation: null,
                                 jobType: null,
                                 jobLevel: null,
                                 education: null,

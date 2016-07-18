@@ -67,7 +67,7 @@ class ResumeGatlingTest extends Simulation {
             .exec(http("Create new resume")
             .post("/api/resumes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "image":null, "name":"SAMPLE_TEXT", "title":"SAMPLE_TEXT", "overview":"SAMPLE_TEXT", "education":null, "faculty":"SAMPLE_TEXT", "enrollmentYear":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "contactEmail":"SAMPLE_TEXT", "birthDate":"2020-01-01T00:00:00.000Z", "jsonResume":"SAMPLE_TEXT", "cvFile":null, "receiveJobAlerts":null, "socialLinkedin":"SAMPLE_TEXT", "representativeSkills":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "image":null, "name":"SAMPLE_TEXT", "title":"SAMPLE_TEXT", "overview":"SAMPLE_TEXT", "education":null, "faculty":"SAMPLE_TEXT", "enrollmentYear":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "contactEmail":"SAMPLE_TEXT", "birthDate":"2020-01-01T00:00:00.000Z", "jsonResume":"SAMPLE_TEXT", "cvFile":null, "cvFileContent":"SAMPLE_TEXT", "receiveJobAlerts":null, "socialLinkedin":"SAMPLE_TEXT", "representativeSkills":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_resume_url"))).exitHereIfFailed
             .pause(10)

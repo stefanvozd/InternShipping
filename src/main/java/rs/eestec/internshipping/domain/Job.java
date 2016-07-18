@@ -49,6 +49,9 @@ public class Job implements Serializable {
     @Column(name = "location", nullable = false)
     private String location;
 
+    @Column(name = "compensation")
+    private String compensation;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "job_type", nullable = false)
@@ -122,6 +125,14 @@ public class Job implements Serializable {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getCompensation() {
+        return compensation;
+    }
+
+    public void setCompensation(String compensation) {
+        this.compensation = compensation;
     }
 
     public JobType getJobType() {
@@ -239,6 +250,7 @@ public class Job implements Serializable {
             ", title='" + title + "'" +
             ", shortDescription='" + shortDescription + "'" +
             ", location='" + location + "'" +
+            ", compensation='" + compensation + "'" +
             ", jobType='" + jobType + "'" +
             ", jobLevel='" + jobLevel + "'" +
             ", education='" + education + "'" +

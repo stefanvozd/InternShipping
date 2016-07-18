@@ -28,6 +28,7 @@
             "birthDate": "Birth Date",
             "jsonResume": "Json Resume",
             "cvFile": "Cv File",
+            "cvFileContent": "Cv File Content",
             "receiveJobAlerts": "Receive Job Alerts",
             "socialLinkedin": "Social Linkedin",
             "representativeSkills": "Representative Skills",

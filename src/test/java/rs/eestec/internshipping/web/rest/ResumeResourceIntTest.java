@@ -61,8 +61,8 @@ public class ResumeResourceIntTest {
     private static final String DEFAULT_OVERVIEW = "AAAAA";
     private static final String UPDATED_OVERVIEW = "BBBBB";
 
-    private static final Education DEFAULT_EDUCATION = Education.ASSOCIATE_STUDENT;
-    private static final Education UPDATED_EDUCATION = Education.BACHELOR_STUDENT;
+    private static final Education DEFAULT_EDUCATION = Education.ANY;
+    private static final Education UPDATED_EDUCATION = Education.ASSOCIATE_STUDENT;
     private static final String DEFAULT_FACULTY = "AAAAA";
     private static final String UPDATED_FACULTY = "BBBBB";
     private static final String DEFAULT_ENROLLMENT_YEAR = "AAAAA";
@@ -81,6 +81,8 @@ public class ResumeResourceIntTest {
     private static final byte[] UPDATED_CV_FILE = TestUtil.createByteArray(2, "1");
     private static final String DEFAULT_CV_FILE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_CV_FILE_CONTENT_TYPE = "image/png";
+    private static final String DEFAULT_CV_FILE_CONTENT = "AAAAA";
+    private static final String UPDATED_CV_FILE_CONTENT = "BBBBB";
 
     private static final Boolean DEFAULT_RECEIVE_JOB_ALERTS = false;
     private static final Boolean UPDATED_RECEIVE_JOB_ALERTS = true;
@@ -140,6 +142,7 @@ public class ResumeResourceIntTest {
         resume.setJsonResume(DEFAULT_JSON_RESUME);
         resume.setCvFile(DEFAULT_CV_FILE);
         resume.setCvFileContentType(DEFAULT_CV_FILE_CONTENT_TYPE);
+        resume.setCvFileContent(DEFAULT_CV_FILE_CONTENT);
         resume.setReceiveJobAlerts(DEFAULT_RECEIVE_JOB_ALERTS);
         resume.setSocialLinkedin(DEFAULT_SOCIAL_LINKEDIN);
         resume.setRepresentativeSkills(DEFAULT_REPRESENTATIVE_SKILLS);
@@ -176,6 +179,7 @@ public class ResumeResourceIntTest {
         assertThat(testResume.getJsonResume()).isEqualTo(DEFAULT_JSON_RESUME);
         assertThat(testResume.getCvFile()).isEqualTo(DEFAULT_CV_FILE);
         assertThat(testResume.getCvFileContentType()).isEqualTo(DEFAULT_CV_FILE_CONTENT_TYPE);
+        assertThat(testResume.getCvFileContent()).isEqualTo(DEFAULT_CV_FILE_CONTENT);
         assertThat(testResume.isReceiveJobAlerts()).isEqualTo(DEFAULT_RECEIVE_JOB_ALERTS);
         assertThat(testResume.getSocialLinkedin()).isEqualTo(DEFAULT_SOCIAL_LINKEDIN);
         assertThat(testResume.getRepresentativeSkills()).isEqualTo(DEFAULT_REPRESENTATIVE_SKILLS);
@@ -267,6 +271,7 @@ public class ResumeResourceIntTest {
                 .andExpect(jsonPath("$.[*].jsonResume").value(hasItem(DEFAULT_JSON_RESUME.toString())))
                 .andExpect(jsonPath("$.[*].cvFileContentType").value(hasItem(DEFAULT_CV_FILE_CONTENT_TYPE)))
                 .andExpect(jsonPath("$.[*].cvFile").value(hasItem(Base64Utils.encodeToString(DEFAULT_CV_FILE))))
+                .andExpect(jsonPath("$.[*].cvFileContent").value(hasItem(DEFAULT_CV_FILE_CONTENT.toString())))
                 .andExpect(jsonPath("$.[*].receiveJobAlerts").value(hasItem(DEFAULT_RECEIVE_JOB_ALERTS.booleanValue())))
                 .andExpect(jsonPath("$.[*].socialLinkedin").value(hasItem(DEFAULT_SOCIAL_LINKEDIN.toString())))
                 .andExpect(jsonPath("$.[*].representativeSkills").value(hasItem(DEFAULT_REPRESENTATIVE_SKILLS.toString())));
@@ -297,6 +302,7 @@ public class ResumeResourceIntTest {
             .andExpect(jsonPath("$.jsonResume").value(DEFAULT_JSON_RESUME.toString()))
             .andExpect(jsonPath("$.cvFileContentType").value(DEFAULT_CV_FILE_CONTENT_TYPE))
             .andExpect(jsonPath("$.cvFile").value(Base64Utils.encodeToString(DEFAULT_CV_FILE)))
+            .andExpect(jsonPath("$.cvFileContent").value(DEFAULT_CV_FILE_CONTENT.toString()))
             .andExpect(jsonPath("$.receiveJobAlerts").value(DEFAULT_RECEIVE_JOB_ALERTS.booleanValue()))
             .andExpect(jsonPath("$.socialLinkedin").value(DEFAULT_SOCIAL_LINKEDIN.toString()))
             .andExpect(jsonPath("$.representativeSkills").value(DEFAULT_REPRESENTATIVE_SKILLS.toString()));
@@ -335,6 +341,7 @@ public class ResumeResourceIntTest {
         updatedResume.setJsonResume(UPDATED_JSON_RESUME);
         updatedResume.setCvFile(UPDATED_CV_FILE);
         updatedResume.setCvFileContentType(UPDATED_CV_FILE_CONTENT_TYPE);
+        updatedResume.setCvFileContent(UPDATED_CV_FILE_CONTENT);
         updatedResume.setReceiveJobAlerts(UPDATED_RECEIVE_JOB_ALERTS);
         updatedResume.setSocialLinkedin(UPDATED_SOCIAL_LINKEDIN);
         updatedResume.setRepresentativeSkills(UPDATED_REPRESENTATIVE_SKILLS);
@@ -363,6 +370,7 @@ public class ResumeResourceIntTest {
         assertThat(testResume.getJsonResume()).isEqualTo(UPDATED_JSON_RESUME);
         assertThat(testResume.getCvFile()).isEqualTo(UPDATED_CV_FILE);
         assertThat(testResume.getCvFileContentType()).isEqualTo(UPDATED_CV_FILE_CONTENT_TYPE);
+        assertThat(testResume.getCvFileContent()).isEqualTo(UPDATED_CV_FILE_CONTENT);
         assertThat(testResume.isReceiveJobAlerts()).isEqualTo(UPDATED_RECEIVE_JOB_ALERTS);
         assertThat(testResume.getSocialLinkedin()).isEqualTo(UPDATED_SOCIAL_LINKEDIN);
         assertThat(testResume.getRepresentativeSkills()).isEqualTo(UPDATED_REPRESENTATIVE_SKILLS);
@@ -420,6 +428,7 @@ public class ResumeResourceIntTest {
             .andExpect(jsonPath("$.[*].jsonResume").value(hasItem(DEFAULT_JSON_RESUME.toString())))
             .andExpect(jsonPath("$.[*].cvFileContentType").value(hasItem(DEFAULT_CV_FILE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].cvFile").value(hasItem(Base64Utils.encodeToString(DEFAULT_CV_FILE))))
+            .andExpect(jsonPath("$.[*].cvFileContent").value(hasItem(DEFAULT_CV_FILE_CONTENT.toString())))
             .andExpect(jsonPath("$.[*].receiveJobAlerts").value(hasItem(DEFAULT_RECEIVE_JOB_ALERTS.booleanValue())))
             .andExpect(jsonPath("$.[*].socialLinkedin").value(hasItem(DEFAULT_SOCIAL_LINKEDIN.toString())))
             .andExpect(jsonPath("$.[*].representativeSkills").value(hasItem(DEFAULT_REPRESENTATIVE_SKILLS.toString())));

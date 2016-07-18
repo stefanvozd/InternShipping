@@ -62,6 +62,7 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.education" for="field_education">Education</label>
             <select class="form-control" name="education" ng-model="vm.resume.education" id="field_education">
+                <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
                 <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
                 <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
                 <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
@@ -145,6 +146,12 @@
                      />
             <input type="hidden" class="form-control" name="cvFileContentType" id="field_cvFileContentType"
                     ng-model="vm.resume.cvFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="internShippingApp.resume.cvFileContent" for="field_cvFileContent">Cv File Content</label>
+            <input type="text" class="form-control" name="cvFileContent" id="field_cvFileContent"
+                    ng-model="vm.resume.cvFileContent"
+                     />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.receiveJobAlerts" for="field_receiveJobAlerts">Receive Job Alerts</label>

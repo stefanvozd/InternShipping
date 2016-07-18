@@ -30,6 +30,8 @@ public class JobDTO implements Serializable {
     @NotNull
     private String location;
 
+    private String compensation;
+
     @NotNull
     private JobType jobType;
 
@@ -86,6 +88,13 @@ public class JobDTO implements Serializable {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+    public String getCompensation() {
+        return compensation;
+    }
+
+    public void setCompensation(String compensation) {
+        this.compensation = compensation;
     }
     public JobType getJobType() {
         return jobType;
@@ -196,6 +205,7 @@ public class JobDTO implements Serializable {
             ", title='" + title + "'" +
             ", shortDescription='" + shortDescription + "'" +
             ", location='" + location + "'" +
+            ", compensation='" + compensation + "'" +
             ", jobType='" + jobType + "'" +
             ", jobLevel='" + jobLevel + "'" +
             ", education='" + education + "'" +

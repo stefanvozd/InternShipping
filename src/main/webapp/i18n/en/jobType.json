@@ -6,7 +6,8 @@
             "PART_TIME": "PART_TIME",
             "FULL_TIME": "FULL_TIME",
             "FREELANCE": "FREELANCE",
-            "REMOTE": "REMOTE"
+            "REMOTE": "REMOTE",
+            "NEGOTIABLE": "NEGOTIABLE"
         }
     }
 }

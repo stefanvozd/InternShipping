@@ -61,6 +61,8 @@ public class JobResourceIntTest {
     private static final String UPDATED_SHORT_DESCRIPTION = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_LOCATION = "AAAAA";
     private static final String UPDATED_LOCATION = "BBBBB";
+    private static final String DEFAULT_COMPENSATION = "AAAAA";
+    private static final String UPDATED_COMPENSATION = "BBBBB";
 
     private static final JobType DEFAULT_JOB_TYPE = JobType.INTERNSHIP;
     private static final JobType UPDATED_JOB_TYPE = JobType.PART_TIME;
@@ -68,8 +70,8 @@ public class JobResourceIntTest {
     private static final JobLevel DEFAULT_JOB_LEVEL = JobLevel.ANY;
     private static final JobLevel UPDATED_JOB_LEVEL = JobLevel.NO_EXPERIENCE;
 
-    private static final Education DEFAULT_EDUCATION = Education.ASSOCIATE_STUDENT;
-    private static final Education UPDATED_EDUCATION = Education.BACHELOR_STUDENT;
+    private static final Education DEFAULT_EDUCATION = Education.ANY;
+    private static final Education UPDATED_EDUCATION = Education.ASSOCIATE_STUDENT;
     private static final String DEFAULT_LONG_DESCRIPTION = "AAAAA";
     private static final String UPDATED_LONG_DESCRIPTION = "BBBBB";
     private static final String DEFAULT_SKILLS = "AAAAA";
@@ -127,6 +129,7 @@ public class JobResourceIntTest {
         job.setTitle(DEFAULT_TITLE);
         job.setShortDescription(DEFAULT_SHORT_DESCRIPTION);
         job.setLocation(DEFAULT_LOCATION);
+        job.setCompensation(DEFAULT_COMPENSATION);
         job.setJobType(DEFAULT_JOB_TYPE);
         job.setJobLevel(DEFAULT_JOB_LEVEL);
         job.setEducation(DEFAULT_EDUCATION);
@@ -158,6 +161,7 @@ public class JobResourceIntTest {
         assertThat(testJob.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testJob.getShortDescription()).isEqualTo(DEFAULT_SHORT_DESCRIPTION);
         assertThat(testJob.getLocation()).isEqualTo(DEFAULT_LOCATION);
+        assertThat(testJob.getCompensation()).isEqualTo(DEFAULT_COMPENSATION);
         assertThat(testJob.getJobType()).isEqualTo(DEFAULT_JOB_TYPE);
         assertThat(testJob.getJobLevel()).isEqualTo(DEFAULT_JOB_LEVEL);
         assertThat(testJob.getEducation()).isEqualTo(DEFAULT_EDUCATION);
@@ -339,6 +343,7 @@ public class JobResourceIntTest {
                 .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
                 .andExpect(jsonPath("$.[*].shortDescription").value(hasItem(DEFAULT_SHORT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION.toString())))
+                .andExpect(jsonPath("$.[*].compensation").value(hasItem(DEFAULT_COMPENSATION.toString())))
                 .andExpect(jsonPath("$.[*].jobType").value(hasItem(DEFAULT_JOB_TYPE.toString())))
                 .andExpect(jsonPath("$.[*].jobLevel").value(hasItem(DEFAULT_JOB_LEVEL.toString())))
                 .andExpect(jsonPath("$.[*].education").value(hasItem(DEFAULT_EDUCATION.toString())))
@@ -364,6 +369,7 @@ public class JobResourceIntTest {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.shortDescription").value(DEFAULT_SHORT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION.toString()))
+            .andExpect(jsonPath("$.compensation").value(DEFAULT_COMPENSATION.toString()))
             .andExpect(jsonPath("$.jobType").value(DEFAULT_JOB_TYPE.toString()))
             .andExpect(jsonPath("$.jobLevel").value(DEFAULT_JOB_LEVEL.toString()))
             .andExpect(jsonPath("$.education").value(DEFAULT_EDUCATION.toString()))
@@ -397,6 +403,7 @@ public class JobResourceIntTest {
         updatedJob.setTitle(UPDATED_TITLE);
         updatedJob.setShortDescription(UPDATED_SHORT_DESCRIPTION);
         updatedJob.setLocation(UPDATED_LOCATION);
+        updatedJob.setCompensation(UPDATED_COMPENSATION);
         updatedJob.setJobType(UPDATED_JOB_TYPE);
         updatedJob.setJobLevel(UPDATED_JOB_LEVEL);
         updatedJob.setEducation(UPDATED_EDUCATION);
@@ -420,6 +427,7 @@ public class JobResourceIntTest {
         assertThat(testJob.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testJob.getShortDescription()).isEqualTo(UPDATED_SHORT_DESCRIPTION);
         assertThat(testJob.getLocation()).isEqualTo(UPDATED_LOCATION);
+        assertThat(testJob.getCompensation()).isEqualTo(UPDATED_COMPENSATION);
         assertThat(testJob.getJobType()).isEqualTo(UPDATED_JOB_TYPE);
         assertThat(testJob.getJobLevel()).isEqualTo(UPDATED_JOB_LEVEL);
         assertThat(testJob.getEducation()).isEqualTo(UPDATED_EDUCATION);
@@ -472,6 +480,7 @@ public class JobResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].shortDescription").value(hasItem(DEFAULT_SHORT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION.toString())))
+            .andExpect(jsonPath("$.[*].compensation").value(hasItem(DEFAULT_COMPENSATION.toString())))
             .andExpect(jsonPath("$.[*].jobType").value(hasItem(DEFAULT_JOB_TYPE.toString())))
             .andExpect(jsonPath("$.[*].jobLevel").value(hasItem(DEFAULT_JOB_LEVEL.toString())))
             .andExpect(jsonPath("$.[*].education").value(hasItem(DEFAULT_EDUCATION.toString())))

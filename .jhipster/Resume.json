@@ -46,7 +46,7 @@
       "fieldId": 5,
       "fieldName": "education",
       "fieldType": "Education",
-      "fieldValues": "ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE"
+      "fieldValues": "ANY,ASSOCIATE_STUDENT,BACHELOR_STUDENT,MASTER_STUDENT,DOCTORAL_STUDENT,ASSOCIATE_DEGREE,BACHELOR_DEGREE,MASTER_DEGREE,DOCTORAL_DEGREE"
     },
     {
       "fieldId": 6,
@@ -92,16 +92,21 @@
     },
     {
       "fieldId": 13,
+      "fieldName": "cvFileContent",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 14,
       "fieldName": "receiveJobAlerts",
       "fieldType": "Boolean"
     },
     {
-      "fieldId": 14,
+      "fieldId": 15,
       "fieldName": "socialLinkedin",
       "fieldType": "String"
     },
     {
-      "fieldId": 15,
+      "fieldId": 16,
       "fieldName": "representativeSkills",
       "fieldType": "String"
     }

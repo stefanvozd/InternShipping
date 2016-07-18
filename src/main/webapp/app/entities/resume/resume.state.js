@@ -107,6 +107,7 @@
                                 jsonResume: null,
                                 cvFile: null,
                                 cvFileContentType: null,
+                                cvFileContent: null,
                                 receiveJobAlerts: null,
                                 socialLinkedin: null,
                                 representativeSkills: null,

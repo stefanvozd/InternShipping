@@ -48,6 +48,8 @@ public class ResumeDTO implements Serializable {
     private byte[] cvFile;
 
     private String cvFileContentType;
+    private String cvFileContent;
+
     private Boolean receiveJobAlerts;
 
     private String socialLinkedin;
@@ -167,6 +169,13 @@ public class ResumeDTO implements Serializable {
     public void setCvFileContentType(String cvFileContentType) {
         this.cvFileContentType = cvFileContentType;
     }
+    public String getCvFileContent() {
+        return cvFileContent;
+    }
+
+    public void setCvFileContent(String cvFileContent) {
+        this.cvFileContent = cvFileContent;
+    }
     public Boolean getReceiveJobAlerts() {
         return receiveJobAlerts;
     }
@@ -243,6 +252,7 @@ public class ResumeDTO implements Serializable {
             ", birthDate='" + birthDate + "'" +
             ", jsonResume='" + jsonResume + "'" +
             ", cvFile='" + cvFile + "'" +
+            ", cvFileContent='" + cvFileContent + "'" +
             ", receiveJobAlerts='" + receiveJobAlerts + "'" +
             ", socialLinkedin='" + socialLinkedin + "'" +
             ", representativeSkills='" + representativeSkills + "'" +

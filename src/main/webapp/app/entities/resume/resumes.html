@@ -48,6 +48,7 @@
                     <th jh-sort-by="birthDate"><span translate="internShippingApp.resume.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="jsonResume"><span translate="internShippingApp.resume.jsonResume">Json Resume</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="cvFile"><span translate="internShippingApp.resume.cvFile">Cv File</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cvFileContent"><span translate="internShippingApp.resume.cvFileContent">Cv File Content</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="receiveJobAlerts"><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="representativeSkills"><span translate="internShippingApp.resume.representativeSkills">Representative Skills</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -78,6 +79,7 @@
                         <a ng-if="resume.cvFile" ng-click="vm.openFile(resume.cvFileContentType, resume.cvFile)" translate="entity.action.open">open</a>
                         <span ng-if="resume.cvFile">{{resume.cvFileContentType}}, {{vm.byteSize(resume.cvFile)}}</span>
                     </td>
+                    <td>{{resume.cvFileContent}}</td>
                     <td>{{resume.receiveJobAlerts}}</td>
                     <td>{{resume.socialLinkedin}}</td>
                     <td>{{resume.representativeSkills}}</td>

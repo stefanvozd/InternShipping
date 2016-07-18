@@ -78,6 +78,9 @@ public class Resume implements Serializable {
     @Column(name = "cv_file_content_type")
     private String cvFileContentType;
 
+    @Column(name = "cv_file_content")
+    private String cvFileContent;
+
     @Column(name = "receive_job_alerts")
     private Boolean receiveJobAlerts;
 
@@ -216,6 +219,14 @@ public class Resume implements Serializable {
         this.cvFileContentType = cvFileContentType;
     }
 
+    public String getCvFileContent() {
+        return cvFileContent;
+    }
+
+    public void setCvFileContent(String cvFileContent) {
+        this.cvFileContent = cvFileContent;
+    }
+
     public Boolean isReceiveJobAlerts() {
         return receiveJobAlerts;
     }
@@ -294,6 +305,7 @@ public class Resume implements Serializable {
             ", jsonResume='" + jsonResume + "'" +
             ", cvFile='" + cvFile + "'" +
             ", cvFileContentType='" + cvFileContentType + "'" +
+            ", cvFileContent='" + cvFileContent + "'" +
             ", receiveJobAlerts='" + receiveJobAlerts + "'" +
             ", socialLinkedin='" + socialLinkedin + "'" +
             ", representativeSkills='" + representativeSkills + "'" +
