@@ -65,6 +65,20 @@ public class ResumeService {
         Page<Resume> result = resumeRepository.findAll(pageable); 
         return result;
     }
+    
+    /**
+     *  Get all the resumes.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public Page<Resume> findCurrentUserResume(Pageable pageable) {
+        log.debug("Request to get all Resumes");
+        List<Resume> findByUserIsCurrentUser = resumeRepository.findByUserIsCurrentUser();
+        Page<Resume> result = resumeRepository.findAll(pageable); 
+        return result;
+    }
 
     /**
      *  Get one resume by id.

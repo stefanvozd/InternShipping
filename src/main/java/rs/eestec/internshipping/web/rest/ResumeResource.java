@@ -108,6 +108,26 @@ public class ResumeResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/resumes");
         return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
     }
+    
+    
+    /**
+     * GET  /resumes : get all the resumes.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of resumes in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @RequestMapping(value = "/myresume",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ResumeDTO>> getCurrentUserResume(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of current user Resume");
+        Page<Resume> page = resumeService.findCurrentUserResume(pageable); 
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/myresume");
+        return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
+    }
 
     /**
      * GET  /resumes/:id : get the "id" resume.
