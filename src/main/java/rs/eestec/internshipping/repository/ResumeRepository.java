@@ -15,7 +15,8 @@ import java.util.List;
 public interface ResumeRepository extends JpaRepository<Resume,Long> {
 
 	@Query("select resume from Resume resume where resume.user.login = ?#{principal.username}")
-	List<Resume> findByUserIsCurrentUser();
+	//List<Resume> findByUserIsCurrentUser();
+	Page<Resume> findByUserIsCurrentUser(Pageable page);
 	
 	
 	

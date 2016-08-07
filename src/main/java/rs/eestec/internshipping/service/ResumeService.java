@@ -75,8 +75,7 @@ public class ResumeService {
     @Transactional(readOnly = true) 
     public Page<Resume> findCurrentUserResume(Pageable pageable) {
         log.debug("Request to get all Resumes");
-        List<Resume> findByUserIsCurrentUser = resumeRepository.findByUserIsCurrentUser();
-        Page<Resume> result = resumeRepository.findAll(pageable); 
+        Page<Resume> result = resumeRepository.findByUserIsCurrentUser(pageable);
         return result;
     }
 

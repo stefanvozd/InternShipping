@@ -5,9 +5,9 @@
         .module('internShippingApp')
         .controller('ResumeController', ResumeController);
 
-    ResumeController.$inject = ['$scope', '$state', 'DataUtils', 'Resume', 'ResumeSearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    ResumeController.$inject = ['$scope', '$state', 'DataUtils', 'Resume', 'ResumeSearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants' ,'MyResume'];
 
-    function ResumeController ($scope, $state, DataUtils, Resume, ResumeSearch, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function ResumeController ($scope, $state, DataUtils, Resume, ResumeSearch, ParseLinks, AlertService, pagingParams, paginationConstants, MyResume) {
         var vm = this;
         
         vm.loadPage = loadPage;
@@ -26,6 +26,14 @@
         loadAll();
 
         function loadAll () {
+        	if($state.$current.name == "myresume"){
+        		 MyResume.query({
+                     page: pagingParams.page - 1,
+                     size: vm.itemsPerPage,
+                     sort: sort()
+                 }, onSuccess, onError);
+        		 return;
+        	}
             if (pagingParams.search) {
                 ResumeSearch.query({
                     query: pagingParams.search,
