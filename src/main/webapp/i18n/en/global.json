@@ -5,13 +5,17 @@
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "resume":{
+            "myresume":"My Resume",
+            "browse":"Browse Resumes"
+            },
             "entities": {
                 "main": "Entities",
-                "article": "Article",
+                "article": "Articles",
                 "resume": "Resume",
                 "company": "Company",
-                "job": "Job",
-                "application": "Application",
+                "job": "Jobs",
+                "application": "Applications",
                 "mailingList": "Mailing List",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
