@@ -106,6 +106,7 @@
                                 socialLinkedin: null,
                                 socialYoutube: null,
                                 socialTwitter: null,
+                                address: null,
                                 id: null
                             };
                         }

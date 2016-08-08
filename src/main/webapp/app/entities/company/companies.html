@@ -1,15 +1,3 @@
- <!-- Site header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
-      <div class="container no-shadow">
-        <h1 class="text-center" translate="internShippingApp.resume.home.title">Resumes</h1>
-        <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
-      </div>
-    </header>
-    <!-- END Site header -->
-    
-    <div class="container">
-    <div class="well">
-
 <div>
     <h2 translate="internShippingApp.company.home.title">Companies</h2>
     <jhi-alert></jhi-alert>
@@ -62,6 +50,7 @@
                     <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.company.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="socialYoutube"><span translate="internShippingApp.company.socialYoutube">Social Youtube</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="socialTwitter"><span translate="internShippingApp.company.socialTwitter">Social Twitter</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span translate="internShippingApp.company.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="userLogin"><span translate="internShippingApp.company.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -88,6 +77,7 @@
                     <td>{{company.socialLinkedin}}</td>
                     <td>{{company.socialYoutube}}</td>
                     <td>{{company.socialTwitter}}</td>
+                    <td>{{company.address}}</td>
                     <td>
                         {{company.userLogin}}
                     </td>
@@ -121,7 +111,4 @@
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
-</div>
-
-</div>
 </div>

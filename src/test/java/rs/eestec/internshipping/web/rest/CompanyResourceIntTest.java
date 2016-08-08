@@ -77,6 +77,8 @@ public class CompanyResourceIntTest {
     private static final String UPDATED_SOCIAL_YOUTUBE = "BBBBB";
     private static final String DEFAULT_SOCIAL_TWITTER = "AAAAA";
     private static final String UPDATED_SOCIAL_TWITTER = "BBBBB";
+    private static final String DEFAULT_ADDRESS = "AAAAA";
+    private static final String UPDATED_ADDRESS = "BBBBB";
 
     @Inject
     private CompanyRepository companyRepository;
@@ -130,6 +132,7 @@ public class CompanyResourceIntTest {
         company.setSocialLinkedin(DEFAULT_SOCIAL_LINKEDIN);
         company.setSocialYoutube(DEFAULT_SOCIAL_YOUTUBE);
         company.setSocialTwitter(DEFAULT_SOCIAL_TWITTER);
+        company.setAddress(DEFAULT_ADDRESS);
     }
 
     @Test
@@ -164,6 +167,7 @@ public class CompanyResourceIntTest {
         assertThat(testCompany.getSocialLinkedin()).isEqualTo(DEFAULT_SOCIAL_LINKEDIN);
         assertThat(testCompany.getSocialYoutube()).isEqualTo(DEFAULT_SOCIAL_YOUTUBE);
         assertThat(testCompany.getSocialTwitter()).isEqualTo(DEFAULT_SOCIAL_TWITTER);
+        assertThat(testCompany.getAddress()).isEqualTo(DEFAULT_ADDRESS);
 
         // Validate the Company in ElasticSearch
         Company companyEs = companySearchRepository.findOne(testCompany.getId());
@@ -252,7 +256,8 @@ public class CompanyResourceIntTest {
                 .andExpect(jsonPath("$.[*].socialFacebook").value(hasItem(DEFAULT_SOCIAL_FACEBOOK.toString())))
                 .andExpect(jsonPath("$.[*].socialLinkedin").value(hasItem(DEFAULT_SOCIAL_LINKEDIN.toString())))
                 .andExpect(jsonPath("$.[*].socialYoutube").value(hasItem(DEFAULT_SOCIAL_YOUTUBE.toString())))
-                .andExpect(jsonPath("$.[*].socialTwitter").value(hasItem(DEFAULT_SOCIAL_TWITTER.toString())));
+                .andExpect(jsonPath("$.[*].socialTwitter").value(hasItem(DEFAULT_SOCIAL_TWITTER.toString())))
+                .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS.toString())));
     }
 
     @Test
@@ -280,7 +285,8 @@ public class CompanyResourceIntTest {
             .andExpect(jsonPath("$.socialFacebook").value(DEFAULT_SOCIAL_FACEBOOK.toString()))
             .andExpect(jsonPath("$.socialLinkedin").value(DEFAULT_SOCIAL_LINKEDIN.toString()))
             .andExpect(jsonPath("$.socialYoutube").value(DEFAULT_SOCIAL_YOUTUBE.toString()))
-            .andExpect(jsonPath("$.socialTwitter").value(DEFAULT_SOCIAL_TWITTER.toString()));
+            .andExpect(jsonPath("$.socialTwitter").value(DEFAULT_SOCIAL_TWITTER.toString()))
+            .andExpect(jsonPath("$.address").value(DEFAULT_ADDRESS.toString()));
     }
 
     @Test
@@ -317,6 +323,7 @@ public class CompanyResourceIntTest {
         updatedCompany.setSocialLinkedin(UPDATED_SOCIAL_LINKEDIN);
         updatedCompany.setSocialYoutube(UPDATED_SOCIAL_YOUTUBE);
         updatedCompany.setSocialTwitter(UPDATED_SOCIAL_TWITTER);
+        updatedCompany.setAddress(UPDATED_ADDRESS);
         CompanyDTO companyDTO = companyMapper.companyToCompanyDTO(updatedCompany);
 
         restCompanyMockMvc.perform(put("/api/companies")
@@ -343,6 +350,7 @@ public class CompanyResourceIntTest {
         assertThat(testCompany.getSocialLinkedin()).isEqualTo(UPDATED_SOCIAL_LINKEDIN);
         assertThat(testCompany.getSocialYoutube()).isEqualTo(UPDATED_SOCIAL_YOUTUBE);
         assertThat(testCompany.getSocialTwitter()).isEqualTo(UPDATED_SOCIAL_TWITTER);
+        assertThat(testCompany.getAddress()).isEqualTo(UPDATED_ADDRESS);
 
         // Validate the Company in ElasticSearch
         Company companyEs = companySearchRepository.findOne(testCompany.getId());
@@ -397,6 +405,7 @@ public class CompanyResourceIntTest {
             .andExpect(jsonPath("$.[*].socialFacebook").value(hasItem(DEFAULT_SOCIAL_FACEBOOK.toString())))
             .andExpect(jsonPath("$.[*].socialLinkedin").value(hasItem(DEFAULT_SOCIAL_LINKEDIN.toString())))
             .andExpect(jsonPath("$.[*].socialYoutube").value(hasItem(DEFAULT_SOCIAL_YOUTUBE.toString())))
-            .andExpect(jsonPath("$.[*].socialTwitter").value(hasItem(DEFAULT_SOCIAL_TWITTER.toString())));
+            .andExpect(jsonPath("$.[*].socialTwitter").value(hasItem(DEFAULT_SOCIAL_TWITTER.toString())))
+            .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS.toString())));
     }
 }

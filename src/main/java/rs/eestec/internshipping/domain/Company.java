@@ -78,6 +78,9 @@ public class Company implements Serializable {
     @Column(name = "social_twitter")
     private String socialTwitter;
 
+    @Column(name = "address")
+    private String address;
+
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
@@ -215,6 +218,14 @@ public class Company implements Serializable {
         this.socialTwitter = socialTwitter;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public User getUser() {
         return user;
     }
@@ -270,6 +281,7 @@ public class Company implements Serializable {
             ", socialLinkedin='" + socialLinkedin + "'" +
             ", socialYoutube='" + socialYoutube + "'" +
             ", socialTwitter='" + socialTwitter + "'" +
+            ", address='" + address + "'" +
             '}';
     }
 }

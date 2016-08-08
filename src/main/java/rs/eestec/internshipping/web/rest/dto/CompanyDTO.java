@@ -50,6 +50,8 @@ public class CompanyDTO implements Serializable {
 
     private String socialTwitter;
 
+    private String address;
+
 
     private Long userId;
     
@@ -169,6 +171,13 @@ public class CompanyDTO implements Serializable {
     public void setSocialTwitter(String socialTwitter) {
         this.socialTwitter = socialTwitter;
     }
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public Long getUserId() {
         return userId;
@@ -226,6 +235,7 @@ public class CompanyDTO implements Serializable {
             ", socialLinkedin='" + socialLinkedin + "'" +
             ", socialYoutube='" + socialYoutube + "'" +
             ", socialTwitter='" + socialTwitter + "'" +
+            ", address='" + address + "'" +
             '}';
     }
 }
