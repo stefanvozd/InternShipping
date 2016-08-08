@@ -36,12 +36,12 @@ public class Job implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(min = 5, max = 40)
-    @Column(name = "title", length = 40, nullable = false)
+    @Size(min = 5, max = 400)
+    @Column(name = "title", length = 400, nullable = false)
     private String title;
 
     @NotNull
-    @Size(min = 29, max = 300)
+    @Size(min = 29, max = 1000)
     @Column(name = "short_description", length = 300, nullable = false)
     private String shortDescription;
 

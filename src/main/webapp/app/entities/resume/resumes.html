@@ -128,196 +128,46 @@
 
 
 
+<div class="row">
 
-            <!-- Resume item -->
+            <!-- Resume detail -->
             <div class="col-xs-12" ng-repeat="resume in vm.resumes track by resume.id">
-              <div class="item-block">
+              <a class="item-block" href="resume-detail.html">
                 <header>
-
-                  <a ng-if="resume.image" ui-sref="resume-detail({id:resume.id})">
-                            <img data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}" style="max-height: 30px;"/>
-                        </a>
-                        <span ng-if="resume.image">{{resume.imageContentType}}, {{vm.byteSize(resume.image)}}</span>
-
+                  
+                  <img class="resume-avatar" data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}" style="max-height: 60px;"/>
                   <div class="hgroup">
-                    <h4><a ui-sref="resume-detail({id:resume.id})">{{resume.name}}</a></h4>
+                    <h4>{{resume.name}}</h4>
                     <h5>{{resume.title}}</h5>
                   </div>
-                  <div class="header-meta">
-                    <span class="location">Menlo park, CA</span>
-                    <span class="rate">$55 per hour</span>
-                  </div>
-                </header>
-
-                <footer>
-                  <p class="status"><strong>Updated on:</strong> March 10, 2016</p>
-
-                  <div class="action-btn">
-                    <a class="btn btn-xs btn-gray" href="#">Hide</a>
-                    <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                  </div>
-                </footer>
-              </div>
-            </div>
-            <!-- END Resume item -->
-
-
-                     <div class="row">
-            <!-- Resume detail -->
-            <div class="col-sm-12 col-md-6">
-              <a class="item-block" href="resume-detail.html">
-                <header>
-                  <img class="resume-avatar" src="assets/img/avatar-1.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Bikesh Soltanian</h4>
-                    <h5>Java developer</h5>
-                  </div>
                 </header>
 
                 <div class="item-body">
-                  <p>I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee.</p>
-
-                  <div class="tag-list">
-                    <span>J2EE</span>
-                    <span>J2SE</span>
-                    <span>Android</span>
-                  </div>
-                </div>
-
-                <footer>
-                  <ul class="details cols-2">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Fairfield, IA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$60 / hour</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Resume detail -->
-
-
-            <!-- Resume detail -->
-            <div class="col-sm-12 col-md-6">
-              <a class="item-block" href="resume-detail.html">
-                <header>
-                  <img class="resume-avatar" src="assets/img/avatar-2.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Chris Hernandeziyan</h4>
-                    <h5>.Net developer</h5>
-                  </div>
-                </header>
-
-                <div class="item-body">
-                  <p>I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee.</p>
-
-                  <div class="tag-list">
-                    <span>VB.Net</span>
-                    <span>C#</span>
-                    <span>WPF</span>
-                    <span>ASP.Net</span>
-                    <span>MVC.Net</span>
-                  </div>
-                </div>
-
-                <footer>
-                  <ul class="details cols-2">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Seattle, WA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$50 / hour</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Resume detail -->
-          </div>
-
-          <div class="row">
-            <!-- Resume detail -->
-            <div class="col-sm-12 col-md-6">
-              <a class="item-block" href="resume-detail.html">
-                <header>
-                  <img class="resume-avatar" src="assets/img/avatar-3.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Mary Amiri</h4>
-                    <h5>Quality assurance</h5>
-                  </div>
-                </header>
-
-                <div class="item-body">
-                  <p>I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee.</p>
-
-                  <div class="tag-list">
-                    <span>Testcase</span>
-                    <span>Unit test</span>
-                    <span>jUnit</span>
-                    <span>Git</span>
-                  </div>
-                </div>
-
-                <footer>
-                  <ul class="details cols-2">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Fremont, CA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$70 / hour</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Resume detail -->
-
-
-
-            <!-- Resume detail -->
-            <div class="col-sm-12 col-md-6">
-              <a class="item-block" href="resume-detail.html">
-                <header>
-                  <img class="resume-avatar" src="assets/img/avatar-4.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Sarah Luizgarden</h4>
-                    <h5>UI/UX developer</h5>
-                  </div>
-                </header>
-
-                <div class="item-body">
-                  <p>I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee.</p>
+                  <p>20+ years of experience working on front-end development for major companies. I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee. Experience and success in both agency and major corporate environments.</p>
 
                   <div class="tag-list">
                     <span>HTML5</span>
                     <span>CSS3</span>
                     <span>Bootstrap</span>
-                    <span>Photoshop</span>
+                    <span>Wordpress</span>
                   </div>
                 </div>
 
                 <footer>
-                  <ul class="details cols-2">
+                  <ul class="details cols-3">
                     <li>
                       <i class="fa fa-map-marker"></i>
-                      <span>Columbus, OH</span>
+                      <span>Menlo Park, CA</span>
                     </li>
 
                     <li>
                       <i class="fa fa-money"></i>
-                      <span>$45 / hour</span>
+                      <span>$55 / hour</span>
+                    </li>
+
+                    <li>
+                      <i class="fa fa-certificate"></i>
+                      <span>Master of Computer Science</span>
                     </li>
                   </ul>
                 </footer>
@@ -325,6 +175,9 @@
             </div>
             <!-- END Resume detail -->
           </div>
+               
+
+
 
 
 

@@ -17,7 +17,7 @@
             <label class="control-label" translate="internShippingApp.job.title" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
                     ng-model="vm.job.title"
-                    required ng-minlength="5" ng-maxlength="40" />
+                    required ng-minlength="5" ng-maxlength="300" />
             <div ng-show="editForm.title.$invalid">
                 <p class="help-block"
                     ng-show="editForm.title.$error.required" translate="entity.validation.required">
@@ -28,8 +28,8 @@
                     This field is required to be at least 5 characters.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
-                    This field cannot be longer than 40 characters.
+                    ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                    This field cannot be longer than 300 characters.
                 </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <label class="control-label" translate="internShippingApp.job.shortDescription" for="field_shortDescription">Short Description</label>
             <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
                     ng-model="vm.job.shortDescription"
-                    required ng-minlength="29" ng-maxlength="300" />
+                    required ng-minlength="29" ng-maxlength="1000" />
             <div ng-show="editForm.shortDescription.$invalid">
                 <p class="help-block"
                     ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
@@ -49,7 +49,7 @@
                 </p>
                 <p class="help-block"
                     ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
-                    This field cannot be longer than 300 characters.
+                    This field cannot be longer than 1000 characters.
                 </p>
             </div>
         </div>

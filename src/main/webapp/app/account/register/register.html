@@ -1,8 +1,22 @@
+ <!-- Site header -->
+    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+      <div class="container no-shadow">
+        <h1 class="text-center" translate="register.title">Registration</h1>
+        <!--p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p -->
+        
+        
+    </header>
+    <!-- END Site header -->
+    
+    <div class="container">
+    <div class="well">
+
+
 <div>
+    
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1 translate="register.title">Registration</h1>
-
             <div class="alert alert-success" ng-show="vm.success" translate="register.messages.success">
                 <strong>Registration saved!</strong> Please check your email for confirmation.
             </div>
@@ -23,6 +37,8 @@
                 The password and its confirmation do not match!
             </div>
         </div>
+
+        
         <div class="col-md-4 col-md-offset-2">
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
 
@@ -90,7 +106,7 @@
                             Your password cannot be longer than 50 characters.
                         </p>
                     </div>
-                    <password-strength-bar password-to-check="vm.registerAccount.password"></password-strength-bar>
+                    <!--  password-strength-bar password-to-check="vm.registerAccount.password"></password-strength-bar -->
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="confirmPassword" translate="global.form.confirmpassword">New password confirmation</label>
@@ -115,9 +131,7 @@
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="register.form.button">Register</button>
             </form>
             <p></p>
-            <div class="alert alert-warning" translate="global.messages.info.authenticated" translate-compile>
-                If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-            </div>
+            
         </div>
         <div class="col-md-4">
             <br/>
@@ -127,4 +141,7 @@
             <!-- jhipster-needle-add-social-button -->
         </div>
     </div>
+</div>
+
+</div>
 </div>
