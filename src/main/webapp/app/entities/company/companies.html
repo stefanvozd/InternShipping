@@ -1,3 +1,39 @@
+<!-- Page header -->
+    <header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+      <div class="container page-name">
+        <h1 class="text-center">Browse companies</h1>
+        <p class="lead text-center">Use following search box to find companies that fits you better</p>
+      </div>
+
+      <div class="container">
+        <!-- <form  name="searchForm">
+
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-12">
+
+            <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.company.home.search' | translate }}">
+            </div>
+
+          </div>
+
+          <div class="button-group">
+            <div class="action-buttons">
+              <button class="btn btn-primary" ng-click="vm.search(vm.searchQuery)">Apply filter</button>
+            </div>
+          </div>
+
+        </form>-->
+
+      </div>
+
+    </header>
+    <!-- END Page header -->
+
+    
+    <div class="container">
+    <div class="well">
+
+<!--
 <div>
     <h2 translate="internShippingApp.company.home.title">Companies</h2>
     <jhi-alert></jhi-alert>
@@ -11,23 +47,7 @@
                     </span>
                 </button>
             </div>
-            <div class="col-xs-8 no-padding-right">
-                <form name="searchForm" class="form-inline">
-                    <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.company.home.search' | translate }}">
-                        <span  class="input-group-btn width-min" >
-                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
-                            <button class="btn btn-info" ng-click="vm.clear()">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
+           
         </div>
     </div>
     <br/>
@@ -111,4 +131,56 @@
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
+</div>
+-->
+
+
+ <!-- Main container -->
+    <main>
+      <section class="no-padding-top bg-alt">
+        <div class="container">
+          <div class="row">
+
+
+            <!-- Company detail -->
+            <div class="col-xs-12"  ng-repeat="company in vm.companies track by company.id">
+              <a class="item-block" ui-sref="company-detail({id:company.id})">
+                <header>
+                   <img data-ng-src="{{'data:' + company.logoContentType + ';base64,' + company.logo}}" style="max-height: 60 px;"/>
+                  <div class="hgroup">
+                    <h4>{{company.name}}</h4>
+                    <h5>{{company.domain}}</h5>
+                  </div>
+                  <span class="open-position">15 open position</span>
+                </header>
+
+                <div class="item-body">
+                  <p>{{company.shortDescription}}</p>
+                </div>
+              </a>
+            </div>
+            <!-- END Company detail -->
+
+
+
+        <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+        </div>
+
+    
+
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- END Main container -->
+
+
+
+
+
+
+
+</div>
 </div>

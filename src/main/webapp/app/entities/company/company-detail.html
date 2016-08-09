@@ -1,83 +1,152 @@
+<!-- Page header -->
+    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+      <div class="container">
+        <div class="header-detail">
 
-<div>
-    <h2><span translate="internShippingApp.company.detail.title">Company</span> {{vm.company.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="internShippingApp.company.logo">Logo</span></dt>
-        <dd>
-            <div ng-if="vm.company.logo">
-                <a ng-click="vm.openFile(vm.company.logoContentType, vm.company.logo)">
-                    <img data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" style="max-width: 100%;"/>
-                </a>
-                {{vm.company.logoContentType}}, {{vm.byteSize(vm.company.logo)}}
+          <img ng-if="vm.company.logo" class="logo" data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" width="92px" />
+          <div class="hgroup">
+            <h1>{{vm.company.name}}</h1>
+            <h3>{{vm.company.domain}}</h3>
+          </div>
+          <hr>
+          <p class="lead">{{vm.company.shortDescription}}</p>
+
+          <ul class="details cols-3">
+            <li ng-if="vm.company.address">
+              <i class="fa fa-map-marker"></i>
+              <span>{{vm.company.address}}</span>
+            </li>
+
+            <li ng-if="vm.company.website">
+              <i class="fa fa-globe"></i>
+              <a href="#">{{vm.company.website}}</a>
+            </li>
+
+            <li ng-if="vm.company.companySize">
+              <i class="fa fa-users"></i>
+              <span>{{vm.company.companySize}}</span>
+            </li>
+
+            <li ng-if="vm.company.foundedYear">
+              <i class="fa fa-birthday-cake"></i>
+              <span>{{vm.company.foundedYear}}</span>
+            </li>
+
+            <li ng-if="vm.company.contactNumber">
+              <i class="fa fa-phone"></i>
+              <span>{{vm.company.contactNumber}}</span>
+            </li>
+
+            <li ng-if="vm.company.contactEmail">
+              <i class="fa fa-envelope"></i>
+              <a href="#">{{vm.company.contactEmail}}</a>
+            </li>
+          </ul>
+
+          <div class="button-group">
+            <ul class="social-icons">
+              <li ng-if="vm.company.socialFacebook"><a class="facebook" href="{{vm.company.socialFacebook}}"><i class="fa fa-facebook"></i></a></li>
+              <li ng-if="vm.company.socialTwitter"><a class="twitter" href="{{vm.company.socialTwitter}}"><i class="fa fa-twitter"></i></a></li>
+              <li ng-if="vm.company.socialLinkedin"><a class="linkedin" href="{{vm.company.socialLinkedin}}"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+
+            <div class="action-buttons">
+              <a class="btn btn-success" href="mailto:{{vm.company.contactEmail}}">Contact</a>
             </div>
-        </dd>
-        <dt><span translate="internShippingApp.company.name">Name</span></dt>
-        <dd>
-            <span>{{vm.company.name}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.domain">Domain</span></dt>
-        <dd>
-            <span>{{vm.company.domain}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.shortDescription">Short Description</span></dt>
-        <dd>
-            <span>{{vm.company.shortDescription}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.longDescription">Long Description</span></dt>
-        <dd>
-            <span>{{vm.company.longDescription}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.website">Website</span></dt>
-        <dd>
-            <span>{{vm.company.website}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.contactEmail">Contact Email</span></dt>
-        <dd>
-            <span>{{vm.company.contactEmail}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.contactNumber">Contact Number</span></dt>
-        <dd>
-            <span>{{vm.company.contactNumber}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.companySize">Company Size</span></dt>
-        <dd>
-            <span>{{vm.company.companySize}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.foundedYear">Founded Year</span></dt>
-        <dd>
-            <span>{{vm.company.foundedYear}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.socialFacebook">Social Facebook</span></dt>
-        <dd>
-            <span>{{vm.company.socialFacebook}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.socialLinkedin">Social Linkedin</span></dt>
-        <dd>
-            <span>{{vm.company.socialLinkedin}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.socialYoutube">Social Youtube</span></dt>
-        <dd>
-            <span>{{vm.company.socialYoutube}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.socialTwitter">Social Twitter</span></dt>
-        <dd>
-            <span>{{vm.company.socialTwitter}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.address">Address</span></dt>
-        <dd>
-            <span>{{vm.company.address}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.company.user">User</span></dt>
-        <dd>
-            {{vm.company.userLogin}}
-        </dd>
-    </dl>
+          </div>
 
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
-    </button>
+        </div>
+      </div>
+    </header>
+    <!-- END Page header -->
+
+<div class="container">
+    <div class="well">
+
+
+<!-- Main container -->
+    <main>
+
+
+      <!-- Company detail -->
+      <section>
+        <div class="container">
+
+          <header class="section-header">
+            <span>About</span>
+            <h2>Company detail</h2>
+          </header>
+          
+          {{vm.company.longDescription}}
+
+        </div>
+      </section>
+      <!-- END Company detail -->
+
+
+      <!-- Open positions -->
+      <section id="open-positions" class="bg-alt">
+        <div class="container">
+          <header class="section-header">
+            <span>vacancies</span>
+            <h2>Open positions</h2>
+          </header>
+          
+          <div class="row">
+
+            <!-- Job item -->
+            <div class="col-xs-12">
+              <a class="item-block" href="job-detail.html">
+                <header>
+                  <img src="assets/img/logo-google.jpg" alt="">
+                  <div class="hgroup">
+                    <h4>Senior front-end developer</h4>
+                    <h5>Google <span class="label label-success">Full-time</span></h5>
+                  </div>
+                  <time datetime="2016-03-10 20:00">34 min ago</time>
+                </header>
+
+                <div class="item-body">
+                  <p>A rapidly growing, well established marketing firm is looking for an experienced web developer for a full-time position. In this role, you will develop websites, apps, emails and other forms of digital electronic media, all while maintaining brand standards across design projects and other marketing communication materials.</p>
+                </div>
+
+                <footer>
+                  <ul class="details cols-3">
+                    <li>
+                      <i class="fa fa-map-marker"></i>
+                      <span>Menlo Park, CA</span>
+                    </li>
+
+                    <li>
+                      <i class="fa fa-money"></i>
+                      <span>$90,000 - $110,000 / year</span>
+                    </li>
+
+                    <li>
+                      <i class="fa fa-certificate"></i>
+                      <span>Master or Bachelor</span>
+                    </li>
+                  </ul>
+                </footer>
+              </a>
+            </div>
+            <!-- END Job item -->
+
+
+            
+
+          </div>
+
+        </div>
+      </section>
+      <!-- END Open positions -->
+
+
+    </main>
+    <!-- END Main container -->
+
+
+</div>
+
+</div>
 </div>
