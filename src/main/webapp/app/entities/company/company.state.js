@@ -79,44 +79,39 @@
             parent: 'company',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_USER'],
+        		pageTitle: 'internShippingApp.company.detail.title'
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/company/company-dialog.html',
                     controller: 'CompanyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                logo: null,
-                                logoContentType: null,
-                                name: null,
-                                domain: null,
-                                shortDescription: null,
-                                longDescription: null,
-                                website: null,
-                                contactEmail: null,
-                                contactNumber: null,
-                                companySize: null,
-                                foundedYear: null,
-                                socialFacebook: null,
-                                socialLinkedin: null,
-                                socialYoutube: null,
-                                socialTwitter: null,
-                                address: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('company', null, { reload: true });
-                }, function() {
-                    $state.go('company');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: function () {
+                    return {
+                        logo: null,
+                        logoContentType: null,
+                        name: null,
+                        domain: null,
+                        shortDescription: null,
+                        longDescription: null,
+                        website: null,
+                        contactEmail: null,
+                        contactNumber: null,
+                        companySize: null,
+                        foundedYear: null,
+                        socialFacebook: null,
+                        socialLinkedin: null,
+                        socialYoutube: null,
+                        socialTwitter: null,
+                        address: null,
+                        id: null
+                    };
+                }
+            }
         })
         .state('company.edit', {
             parent: 'company',

@@ -5,11 +5,11 @@
         .module('internShippingApp')
         .controller('CompanyDialogController', CompanyDialogController);
 
-    CompanyDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Company', 'User', 'Job'];
+    CompanyDialogController.$inject = ['$timeout', '$uibModal', '$location', '$scope', '$stateParams',  '$q', 'DataUtils', 'entity', 'Company', 'User', 'Job', 'Notification'];
 
-    function CompanyDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Company, User, Job) {
+    function CompanyDialogController ($timeout, $uibModal, $location, $scope, $stateParams,  $q, DataUtils, entity, Company, User, Job, Notification) {
         var vm = this;
-
+        
         vm.company = entity;
         vm.clear = clear;
         vm.byteSize = DataUtils.byteSize;
@@ -23,7 +23,6 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
         }
 
         function save () {
@@ -36,8 +35,11 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('internShippingApp:companyUpdate', result);
-            $uibModalInstance.close(result);
+            $scope.$emit('internShippingApp:companyUpdate', result);     
+            
+            $location.url("company");
+            
+            Notification.success('<span translate="global.messages.saved">Saved!</span>');
             vm.isSaving = false;
         }
 
@@ -62,3 +64,5 @@
 
     }
 })();
+
+
