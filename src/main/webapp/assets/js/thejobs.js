@@ -24,10 +24,10 @@ $(function() {
   });
 
   // Smoothscroll to anchor in page load
-  var hash = location.hash.replace('#','');
+  /*var hash = location.hash.replace('#','');
   if (hash != '' && $("#"+hash).size() > 0) {
     $('html, body').animate({scrollTop: $("#"+hash).offset().top-100}, 600);
-  }
+  }*/
 
   // Switchery plugin
   if ($('.js-switch').length) {
@@ -58,8 +58,9 @@ $(function() {
     }
   });
 
-  // Dropify
-  $('.dropify').dropify();
+  $(document).ready(function(){ // Dropify
+	  $('.dropify').dropify();});
+ 
 
   // Upload group
   $('.upload-group input[type="file"]').on('change', function() {
@@ -90,7 +91,7 @@ $(function() {
   }
 
   // Equal height for grid view
-  $('.category-grid > a, .equal-team-members .team-member').matchHeight();
+  //$('.category-grid > a, .equal-team-members .team-member').matchHeight();
 
   //
   // Add a .body-scrolled to body, when page scrolled

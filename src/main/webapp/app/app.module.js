@@ -26,5 +26,6 @@
     function run(stateHandler, translationHandler) {
         stateHandler.initialize();
         translationHandler.initialize();
+        
     }
 })();

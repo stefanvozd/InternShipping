@@ -1,4 +1,4 @@
-
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation >
   
   <!-- Page header -->
       <header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
@@ -15,21 +15,56 @@
                 
                 <div class="col-xs-12 col-sm-4 col-lg-2">
                   <div class="form-group">
-                    <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
+                    <input type="file" ngf-change="vm.setLogo($file, vm.company)" class="dropify" data-default-file="assets/img/logo-default.png">
                     <span class="help-block">A square logo</span>
                   </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-8 col-lg-10">
                   <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Comapny name">
+                    <input type="text" class="form-control input-lg" placeholder="Comapny name" id="field_name"
+                    ng-model="vm.company.name"
+                    required ng-minlength="3" ng-maxlength="40">
+                   
+
+              <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                    This field cannot be longer than 40 characters.
+                </p>
+
+
+            </div>
                   </div>
+
+
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Headline (e.g. Internet and computer software)">
+                    <input type="text" class="form-control" placeholder="Headline (e.g. Internet and computer software)"  id="field_domain"
+                    ng-model="vm.company.domain">
                   </div>
 
                   <div class="form-group">
-                    <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Short description" name="shortDescription" id="field_shortDescription"
+                    ng-model="vm.company.shortDescription"
+                    required ng-maxlength="300"></textarea>
+                    <div ng-show="editForm.shortDescription.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                    This field cannot be longer than 300 characters.
+                </p>
+            </div>
                   </div>
                 </div>
 
@@ -42,50 +77,57 @@
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input type="text" class="form-control" placeholder="Location, e.g. Melon Park, CA">
+                    <input type="text" class="form-control" name="address" id="field_address"
+                    ng-model="vm.company.address" placeholder="Location, e.g. Belgrade, Knez Mihajlova 1"  name="address" id="field_address"
+                    ng-model="vm.company.address"
+                     />
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                    <select class="form-control selectpicker">
-                      <option>0 - 9</option>
-                      <option selected>10 - 99</option>
-                      <option>100 - 999</option>
-                      <option>1,000 - 9,999</option>
-                      <option>10,000 - 99,999</option>
-                      <option>100,000 - 999,999</option>
-                    </select>
-                    <span class="input-group-addon">Employer</span>
+                    <input type="text" class="form-control" placeholder="100-200" name="companySize" id="field_companySize"
+                    ng-model="vm.company.companySize"/>   
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                    <input type="text" class="form-control" placeholder="Website address">
+                    <input type="text" class="form-control" placeholder="Website address" id="field_website"
+                    ng-model="vm.company.website"
+                    required/>
+                    <div ng-show="editForm.website.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.website.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                    <input type="text" class="form-control" placeholder="Founded on, e.g. 2013">
+                    <input type="text" class="form-control" placeholder="Founded on, e.g. 2013"  name="foundedYear" id="field_foundedYear"
+                    ng-model="vm.company.foundedYear"/>
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input type="text" class="form-control" placeholder="Phone number">
+                    <input type="text" class="form-control" placeholder="Phone number" name="contactNumber" id="field_contactNumber"
+                    ng-model="vm.company.contactNumber"/>
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" class="form-control" placeholder="Email address">
+                    <input type="text" class="form-control" placeholder="Email address" name="contactEmail" id="field_contactEmail"
+                    ng-model="vm.company.contactEmail"/>
                   </div>
                 </div>
 
@@ -95,14 +137,7 @@
 
           </div>
 
-          <div class="button-group">
-            <div class="action-buttons">
-              <div class="upload-button">
-                <button class="btn btn-block btn-primary">Choose a cover image</button>
-                <input id="cover_img_file" type="file">
-              </div>
-            </div>
-          </div>
+  
 
         </div>
       </header>
@@ -129,58 +164,38 @@
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
+                    <input type="text" class="form-control" placeholder="Profile URL" name="socialFacebook" id="field_socialFacebook"
+                    ng-model="vm.company.socialFacebook"/>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
+                    <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                    <input type="text" class="form-control" placeholder="Profile URL" name="socialLinkedin" id="field_socialLinkedin"
+                    ng-model="vm.company.socialLinkedin"/>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-dribbble"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
-                  </div>
-                </div>
+  
 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-pinterest"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
-                  </div>
-                </div>
               </div>
 
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
+                    <input type="text" class="form-control" placeholder="Profile URL" name="socialTwitter" id="field_socialTwitter"
+                    ng-model="vm.company.socialTwitter">
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-github"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
-                  </div>
-                </div>
 
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-youtube"></i></span>
-                    <input type="text" class="form-control" placeholder="Profile URL">
+                    <input type="text" class="form-control" placeholder="Profile URL" name="socialYoutube" id="field_socialYoutube"
+                    ng-model="vm.company.socialYoutube"/>
                   </div>
                 </div>
               </div>
@@ -216,7 +231,7 @@
               <p>Please review your information once more and press the below button to put your company online.</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your company</button></p>
+            <p class="text-center"><button class="btn btn-success btn-xl btn-round" ng-disabled="editForm.$invalid || vm.isSaving" translate="entity.action.save">Submit your company</button></p>
 
           </div>
         </section>
@@ -226,174 +241,8 @@
       </main>
       <!-- END Main container -->
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation >
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myCompanyLabel" translate="internShippingApp.company.home.createOrEditLabel">Create or edit a Company</h4>
-    </div>
-    <div class="modal-body">
-        <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.company.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.company.id" readonly />
-        </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.company)" ngf-pattern="'image/*'">
-            <label class="control-label" translate="internShippingApp.company.logo" for="field_logo">Logo</label>
-            <div>
-                <img data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" style="max-height: 100px;" ng-if="vm.company.logo"/>
-                <div ng-if="vm.company.logo" class="help-block clearfix">
-                    <span class="pull-left">{{vm.company.logoContentType}}, {{vm.byteSize(vm.company.logo)}}</span>
-                    <button ng-click="vm.company.logo=null;vm.company.logoContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="file" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setLogo($file, vm.company)" accept="image/*" translate="entity.action.addimage">
-                    Add image
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="logo" id="field_logo"
-                    ng-model="vm.company.logo"
-                     />
-            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
-                    ng-model="vm.company.logoContentType" />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.name" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.company.name"
-                    required ng-minlength="3" ng-maxlength="40" />
-            <div ng-show="editForm.name.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
-                    This field is required to be at least 3 characters.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
-                    This field cannot be longer than 40 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.domain" for="field_domain">Domain</label>
-            <input type="text" class="form-control" name="domain" id="field_domain"
-                    ng-model="vm.company.domain"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.shortDescription" for="field_shortDescription">Short Description</label>
-            <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
-                    ng-model="vm.company.shortDescription"
-                    required ng-maxlength="300" />
-            <div ng-show="editForm.shortDescription.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
-                    This field cannot be longer than 300 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.longDescription" for="field_longDescription">Long Description</label>
-            <input type="text" class="form-control" name="longDescription" id="field_longDescription"
-                    ng-model="vm.company.longDescription"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.website" for="field_website">Website</label>
-            <input type="text" class="form-control" name="website" id="field_website"
-                    ng-model="vm.company.website"
-                    required />
-            <div ng-show="editForm.website.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.website.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.contactEmail" for="field_contactEmail">Contact Email</label>
-            <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
-                    ng-model="vm.company.contactEmail"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.contactNumber" for="field_contactNumber">Contact Number</label>
-            <input type="text" class="form-control" name="contactNumber" id="field_contactNumber"
-                    ng-model="vm.company.contactNumber"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.companySize" for="field_companySize">Company Size</label>
-            <input type="text" class="form-control" name="companySize" id="field_companySize"
-                    ng-model="vm.company.companySize"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.foundedYear" for="field_foundedYear">Founded Year</label>
-            <input type="text" class="form-control" name="foundedYear" id="field_foundedYear"
-                    ng-model="vm.company.foundedYear"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.socialFacebook" for="field_socialFacebook">Social Facebook</label>
-            <input type="text" class="form-control" name="socialFacebook" id="field_socialFacebook"
-                    ng-model="vm.company.socialFacebook"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.socialLinkedin" for="field_socialLinkedin">Social Linkedin</label>
-            <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
-                    ng-model="vm.company.socialLinkedin"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.socialYoutube" for="field_socialYoutube">Social Youtube</label>
-            <input type="text" class="form-control" name="socialYoutube" id="field_socialYoutube"
-                    ng-model="vm.company.socialYoutube"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.socialTwitter" for="field_socialTwitter">Social Twitter</label>
-            <input type="text" class="form-control" name="socialTwitter" id="field_socialTwitter"
-                    ng-model="vm.company.socialTwitter"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="internShippingApp.company.address" for="field_address">Address</label>
-            <input type="text" class="form-control" name="address" id="field_address"
-                    ng-model="vm.company.address"
-                     />
-        </div>
+</div>
+</div>
 
-        <div class="form-group">
-            <label translate="internShippingApp.company.user" for="field_user">User</label>
-            <select class="form-control" id="field_user" name="user" ng-model="vm.company.userId" ng-options="user.id as user.login for user in vm.users"            >
-                <option value=""></option>
-            </select>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
-        </button>
-    </div>
 </form>
-
-
-</div>
-</div>

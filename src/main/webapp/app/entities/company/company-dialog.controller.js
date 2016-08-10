@@ -17,7 +17,17 @@
         vm.save = save;
         vm.users = User.query();
         vm.jobs = Job.query();
-
+        
+        $('.dropify').dropify();
+        
+     // Summernote WYSIWYG
+       
+          $('.summernote-editor').summernote({
+            dialogsInBody: true,
+            height: 300
+          });
+        
+        
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
