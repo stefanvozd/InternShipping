@@ -1,191 +1,226 @@
- <!-- Site header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
-      <div class="container no-shadow">
+<!-- Site header -->
+<header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+    <div class="container no-shadow">
         <h1 class="text-center" translate="internShippingApp.resume.home.title">Resumes</h1>
         <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
-        
+
         <div class="col-xs-8 no-padding-right">
-                <form name="searchForm" class="form-inline">
-                    <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.resume.home.search' | translate }}">
-                        <span  class="input-group-btn width-min" >
+            <form name="searchForm" class="form-inline">
+                <div class="input-group pull-right">
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                           placeholder="{{ 'internShippingApp.resume.home.search' | translate }}">
+                    <span class="input-group-btn width-min">
                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
-                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                    <span class="input-group-btn width-min" ng-if="vm.currentSearch">
                             <button class="btn btn-info" ng-click="vm.clear()">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </span>
-                    </div>
-                </form>
-            </div>
-      </div>
-    </header>
-    <!-- END Site header -->
-    
-    <div class="container">
-    <div class="well">
-        
-<div>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="resume.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  translate="internShippingApp.resume.home.createLabel">
-                        Create new Resume
-                    </span>
-                </button>
-            </div>
-            
+                </div>
+            </form>
         </div>
     </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="image"><span translate="internShippingApp.resume.image">Image</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="internShippingApp.resume.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="title"><span translate="internShippingApp.resume.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="overview"><span translate="internShippingApp.resume.overview">Overview</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="education"><span translate="internShippingApp.resume.education">Education</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="faculty"><span translate="internShippingApp.resume.faculty">Faculty</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="enrollmentYear"><span translate="internShippingApp.resume.enrollmentYear">Enrollment Year</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="location"><span translate="internShippingApp.resume.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="contactEmail"><span translate="internShippingApp.resume.contactEmail">Contact Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="birthDate"><span translate="internShippingApp.resume.birthDate">Birth Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="jsonResume"><span translate="internShippingApp.resume.jsonResume">Json Resume</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cvFile"><span translate="internShippingApp.resume.cvFile">Cv File</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cvFileContent"><span translate="internShippingApp.resume.cvFileContent">Cv File Content</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="receiveJobAlerts"><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="representativeSkills"><span translate="internShippingApp.resume.representativeSkills">Representative Skills</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="userLogin"><span translate="internShippingApp.resume.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="resume in vm.resumes track by resume.id">
-                    <td><a ui-sref="resume-detail({id:resume.id})">{{resume.id}}</a></td>
-                    <td>
-                        <a ng-if="resume.image" ng-click="vm.openFile(resume.imageContentType, resume.image)">
-                            <img data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}" style="max-height: 30px;"/>
-                        </a>
-                        <span ng-if="resume.image">{{resume.imageContentType}}, {{vm.byteSize(resume.image)}}</span>
-                    </td>
-                    <td>{{resume.name}}</td>
-                    <td>{{resume.title}}</td>
-                    <td>{{resume.overview}}</td>
-                    <td translate="{{'internShippingApp.Education.' + resume.education}}">{{resume.education}}</td>
-                    <td>{{resume.faculty}}</td>
-                    <td>{{resume.enrollmentYear}}</td>
-                    <td>{{resume.location}}</td>
-                    <td>{{resume.contactEmail}}</td>
-                        <td>{{resume.birthDate | date:'mediumDate'}}</td>
-                    <td>{{resume.jsonResume}}</td>
-                    <td>
-                        <a ng-if="resume.cvFile" ng-click="vm.openFile(resume.cvFileContentType, resume.cvFile)" translate="entity.action.open">open</a>
-                        <span ng-if="resume.cvFile">{{resume.cvFileContentType}}, {{vm.byteSize(resume.cvFile)}}</span>
-                    </td>
-                    <td>{{resume.cvFileContent}}</td>
-                    <td>{{resume.receiveJobAlerts}}</td>
-                    <td>{{resume.socialLinkedin}}</td>
-                    <td>{{resume.representativeSkills}}</td>
-                    <td>
-                        {{resume.userLogin}}
-                    </td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="resume-detail({id:resume.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="resume.edit({id:resume.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="resume.delete({id:resume.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+</header>
+<!-- END Site header -->
 
+<div class="container">
+    <div class="well">
 
+        <div>
+            <jhi-alert></jhi-alert>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 no-padding-left">
+                        <button class="btn btn-primary" ui-sref="resume.new">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span class="hidden-xs" translate="internShippingApp.resume.home.createLabel">
+                        Create new Resume
+                    </span>
+                        </button>
+                    </div>
 
-<div class="row">
-
-            <!-- Resume detail -->
-            <div class="col-xs-12" ng-repeat="resume in vm.resumes track by resume.id">
-              <a class="item-block" href="resume-detail.html">
-                <header>
-                  
-                  <img class="resume-avatar" data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}" style="max-height: 60px;"/>
-                  <div class="hgroup">
-                    <h4>{{resume.name}}</h4>
-                    <h5>{{resume.title}}</h5>
-                  </div>
-                </header>
-
-                <div class="item-body">
-                  <p>20+ years of experience working on front-end development for major companies. I develop well-designed, accessible, and standards-based web sites and applications. Highly effective communicator and team leader with a proven track record of delivering quality work on time and within budget working as a remote employee. Experience and success in both agency and major corporate environments.</p>
-
-                  <div class="tag-list">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>Bootstrap</span>
-                    <span>Wordpress</span>
-                  </div>
                 </div>
-
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Menlo Park, CA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$55 / hour</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-certificate"></i>
-                      <span>Master of Computer Science</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
             </div>
-            <!-- END Resume detail -->
-          </div>
-               
+            <br/>
+            <div class="table-responsive">
+                <table class="jh-table table table-striped">
+                    <thead>
+                    <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                        <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="image"><span translate="internShippingApp.resume.image">Image</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="name"><span translate="internShippingApp.resume.name">Name</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="title"><span translate="internShippingApp.resume.title">Title</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="overview"><span translate="internShippingApp.resume.overview">Overview</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="education"><span translate="internShippingApp.resume.education">Education</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="faculty"><span translate="internShippingApp.resume.faculty">Faculty</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="enrollmentYear"><span translate="internShippingApp.resume.enrollmentYear">Enrollment Year</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="location"><span translate="internShippingApp.resume.location">Location</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="contactEmail"><span translate="internShippingApp.resume.contactEmail">Contact Email</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="birthDate"><span
+                            translate="internShippingApp.resume.birthDate">Birth Date</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="jsonResume"><span
+                            translate="internShippingApp.resume.jsonResume">Json Resume</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="cvFile"><span translate="internShippingApp.resume.cvFile">Cv File</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="cvFileContent"><span translate="internShippingApp.resume.cvFileContent">Cv File Content</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="receiveJobAlerts"><span translate="internShippingApp.resume.receiveJobAlerts">Receive Job Alerts</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="socialLinkedin"><span translate="internShippingApp.resume.socialLinkedin">Social Linkedin</span>
+                            <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="representativeSkills"><span
+                            translate="internShippingApp.resume.representativeSkills">Representative Skills</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="userLogin"><span translate="internShippingApp.resume.user">User</span> <span
+                            class="glyphicon glyphicon-sort"></span></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="resume in vm.resumes track by resume.id">
+                        <td><a ui-sref="resume-detail({id:resume.id})">{{resume.id}}</a></td>
+                        <td>
+                            <a ng-if="resume.image" ng-click="vm.openFile(resume.imageContentType, resume.image)">
+                                <img data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}"
+                                     style="max-height: 30px;"/>
+                            </a>
+                            <span ng-if="resume.image">{{resume.imageContentType}}, {{vm.byteSize(resume.image)}}</span>
+                        </td>
+                        <td>{{resume.name}}</td>
+                        <td>{{resume.title}}</td>
+                        <td>{{resume.overview}}</td>
+                        <td translate="{{'internShippingApp.Education.' + resume.education}}">{{resume.education}}</td>
+                        <td>{{resume.faculty}}</td>
+                        <td>{{resume.enrollmentYear}}</td>
+                        <td>{{resume.location}}</td>
+                        <td>{{resume.contactEmail}}</td>
+                        <td>{{resume.birthDate | date:'mediumDate'}}</td>
+                        <td>{{resume.jsonResume}}</td>
+                        <td>
+                            <a ng-if="resume.cvFile" ng-click="vm.openFile(resume.cvFileContentType, resume.cvFile)"
+                               translate="entity.action.open">open</a>
+                            <span
+                                ng-if="resume.cvFile">{{resume.cvFileContentType}}, {{vm.byteSize(resume.cvFile)}}</span>
+                        </td>
+                        <td>{{resume.cvFileContent}}</td>
+                        <td>{{resume.receiveJobAlerts}}</td>
+                        <td>{{resume.socialLinkedin}}</td>
+                        <td>{{resume.representativeSkills}}</td>
+                        <td>
+                            {{resume.userLogin}}
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        ui-sref="resume-detail({id:resume.id})"
+                                        class="btn btn-info btn-sm">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                                </button>
+                                <button type="submit"
+                                        ui-sref="resume.edit({id:resume.id})"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                                </button>
+                                <button type="submit"
+                                        ui-sref="resume.delete({id:resume.id})"
+                                        class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
+            <div class="row">
+
+                <!-- Resume detail -->
+                <div class="col-xs-12" ng-repeat="resume in vm.resumes track by resume.id">
+                    <a class="item-block" ui-sref="resume-detail({id:resume.id})">
+                        <header>
+
+                            <img class="resume-avatar"
+                                 data-ng-src="{{'data:' + resume.imageContentType + ';base64,' + resume.image}}"
+                                 style="max-height: 60px;"/>
+                            <div class="hgroup">
+                                <h4>{{resume.name}}</h4>
+                                <h5>{{resume.title}}</h5>
+                            </div>
+                        </header>
+
+                        <div class="item-body">
+                            <p>{{resume.overview}}</p>
+
+                            <div class="tag-list">
+                                <span>{{resume.representativeSkills}}</span>
+                            </div>
+                        </div>
+
+                        <footer>
+                            <ul class="details cols-3">
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>{{resume.faculty}}</span>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-money"></i>
+                                    <span>{{resume.enrollmentYear}}</span>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-certificate"></i>
+                                    <span translate="{{'internShippingApp.Education.' + resume.education}}">{{resume.education}}</span>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-money"></i>
+                                    <span>{{resume.location}}</span>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-money"></i>
+                                    <span>{{resume.contactEmail}}</span>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-money"></i>
+                                    <span>{{resume.socialLinkedin}}</span>
+                                </li>
+
+                            </ul>
+                        </footer>
+                    </a>
+                </div>
+                <!-- END Resume detail -->
+            </div>
 
 
-
-
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
-        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+            <div class="text-center">
+                <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+                <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page"
+                                ng-change="vm.transition()"></uib-pagination>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
