@@ -1,70 +1,199 @@
+<!-- Page header -->
+<header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+    <div class="container">
+        <div class="header-detail">
+            <img class="logo" src="assets/img/logo-google.jpg" alt="">
+            <div class="hgroup">
+                <h1>{{vm.job.title}}</h1>
+                <h3><a ui-sref="company-detail({id:vm.job.companyId})">{{vm.job.companyName}}</a></h3>
+            </div>
+            <time datetime="2016-03-03 20:00">{{vm.job.creationDate | date:'medium'}}</time>
+            <hr>
+            <p class="lead">{{vm.job.shortDescription}}</p>
 
-<div>
-    <h2><span translate="internShippingApp.job.detail.title">Job</span> {{vm.job.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="internShippingApp.job.title">Title</span></dt>
-        <dd>
-            <span>{{vm.job.title}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.shortDescription">Short Description</span></dt>
-        <dd>
-            <span>{{vm.job.shortDescription}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.location">Location</span></dt>
-        <dd>
-            <span>{{vm.job.location}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.compensation">Compensation</span></dt>
-        <dd>
-            <span>{{vm.job.compensation}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.jobType">Job Type</span></dt>
-        <dd>
-            <span translate="{{'internShippingApp.JobType.' + vm.job.jobType}}">{{vm.job.jobType}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.jobLevel">Job Level</span></dt>
-        <dd>
-            <span translate="{{'internShippingApp.JobLevel.' + vm.job.jobLevel}}">{{vm.job.jobLevel}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.education">Education</span></dt>
-        <dd>
-            <span translate="{{'internShippingApp.Education.' + vm.job.education}}">{{vm.job.education}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.longDescription">Long Description</span></dt>
-        <dd>
-            <span>{{vm.job.longDescription}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.skills">Skills</span></dt>
-        <dd>
-            <span>{{vm.job.skills}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span></dt>
-        <dd>
-            <span>{{vm.job.socialLinkedin}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.creationDate">Creation Date</span></dt>
-        <dd>
-            <span>{{vm.job.creationDate | date:'medium'}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.activeUntil">Active Until</span></dt>
-        <dd>
-            <span>{{vm.job.activeUntil | date:'mediumDate'}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.active">Active</span></dt>
-        <dd>
-            <span>{{vm.job.active}}</span>
-        </dd>
-        <dt><span translate="internShippingApp.job.company">Company</span></dt>
-        <dd>
-            <a ui-sref="company-detail({id:vm.job.companyId})">{{vm.job.companyName}}</a>
-        </dd>
-    </dl>
+            <ul class="details cols-3">
+                <li>
+                    <i class="fa fa-map-marker"></i>
+                    <span>{{vm.job.location}}</span>
+                </li>
 
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
-    </button>
+                <li>
+                    <i class="fa fa-briefcase"></i>
+                    <span translate="{{'internShippingApp.JobType.' + vm.job.jobType}}">{{vm.job.jobType}}</span>
+                </li>
+
+                <li>
+                    <i class="fa fa-money"></i>
+                    <span>{{vm.job.compensation}}</span>
+                </li>
+
+                <!--                <li>
+                                    <i class="fa fa-clock-o"></i>
+                                    <span>40h / week</span>
+                                </li>-->
+
+                <li>
+                    <i class="fa fa-flask"></i>
+                    <span translate="{{'internShippingApp.JobLevel.' + vm.job.jobLevel}}">{{vm.job.jobLevel}}</span>
+                </li>
+
+                <li>
+                    <i class="fa fa-certificate"></i>
+                    <span translate="{{'internShippingApp.Education.' + vm.job.education}}">{{vm.job.education}}</span>
+                </li>
+            </ul>
+
+            <div class="button-group">
+                <ul class="social-icons">
+                    <li class="title">Share on</li>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+
+                <div class="action-buttons">
+                    <a class="btn btn-primary" href="{{vm.job.socialLinkedin}}">Apply with linkedin</a>
+                    <a class="btn btn-success" href="job-apply.html">Apply now</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- END Page header -->
+
+
+<div class="container">
+    <div class="well">
+
+        <!-- <div>
+             <h2><span translate="internShippingApp.job.detail.title">Job</span> {{vm.job.id}}</h2>
+             <hr>
+             <jhi-alert-error></jhi-alert-error>
+             <dl class="dl-horizontal jh-entity-details">
+                 <dt><span translate="internShippingApp.job.title">Title</span></dt>
+                 <dd>
+                     <span>{{vm.job.title}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.shortDescription">Short Description</span></dt>
+                 <dd>
+                     <span>{{vm.job.shortDescription}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.location">Location</span></dt>
+                 <dd>
+                     <span>{{vm.job.location}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.compensation">Compensation</span></dt>
+                 <dd>
+                     <span>{{vm.job.compensation}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.jobType">Job Type</span></dt>
+                 <dd>
+                     <span translate="{{'internShippingApp.JobType.' + vm.job.jobType}}">{{vm.job.jobType}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.jobLevel">Job Level</span></dt>
+                 <dd>
+                     <span translate="{{'internShippingApp.JobLevel.' + vm.job.jobLevel}}">{{vm.job.jobLevel}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.education">Education</span></dt>
+                 <dd>
+                     <span translate="{{'internShippingApp.Education.' + vm.job.education}}">{{vm.job.education}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.longDescription">Long Description</span></dt>
+                 <dd>
+                     <span>{{vm.job.longDescription}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.skills">Skills</span></dt>
+                 <dd>
+                     <span>{{vm.job.skills}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.socialLinkedin">Social Linkedin</span></dt>
+                 <dd>
+                     <span>{{vm.job.socialLinkedin}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.creationDate">Creation Date</span></dt>
+                 <dd>
+                     <span>{{vm.job.creationDate | date:'medium'}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.activeUntil">Active Until</span></dt>
+                 <dd>
+                     <span>{{vm.job.activeUntil | date:'mediumDate'}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.active">Active</span></dt>
+                 <dd>
+                     <span>{{vm.job.active}}</span>
+                 </dd>
+                 <dt><span translate="internShippingApp.job.company">Company</span></dt>
+                 <dd>
+                     <a ui-sref="company-detail({id:vm.job.companyId})">{{vm.job.companyName}}</a>
+                 </dd>
+             </dl>
+
+             <button type="submit"
+                     onclick="window.history.back()"
+                     class="btn btn-info">
+                 <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span
+                 translate="entity.action.back"> Back</span>
+             </button>
+         </div>-->
+
+        <!-- Main container -->
+        <main>
+
+            <!-- Job detail -->
+            <section>
+                <div class="container">
+
+                    <p>{{vm.job.longDescription}}</p>
+
+                    <p>Google is and always will be an engineering company. We hire people with a broad set of technical
+                        skills who are ready to tackle some of technology's greatest challenges and make an impact on
+                        millions, if not billions, of users. At Google, engineers not only revolutionize search, they
+                        routinely work on massive scalability and storage solutions, large-scale applications and
+                        entirely new platforms for developers around the world. From AdWords to Chrome, Android to
+                        YouTube, Social to Local, Google engineers are changing the world one technological achievement
+                        after another.</p>
+
+                    <br>
+                    <h4>Responsibilities</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
+                        eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non.</p>
+                    <ul>
+                        <li>Build next-generation web applications with a focus on the client side.</li>
+                        <li>Redesign UI's, implement new UI's, and pick up Java as necessary.</li>
+                        <li>Explore and design dynamic and compelling consumer experiences.</li>
+                        <li>Design and build scalable framework for web applications.</li>
+                    </ul>
+
+                    <br>
+                    <h4>Minimum qualifications</h4>
+                    <ul>
+                        <li>BA/BS degree in a technical field or equivalent practical experience.</li>
+                        <li>2 years of relevant work experience in software development.</li>
+                        <li>Programming experience in C, C++ or Java.</li>
+                        <li>Experience with AJAX, HTML and CSS.</li>
+                    </ul>
+
+                    <br>
+                    <h4>Preferred qualifications</h4>
+                    <ul>
+                        <li>Interest in user interface design.</li>
+                        <li>Web application development experience.</li>
+                        <li>Experience working on cross-browser platforms.</li>
+                        <li>Development experience designing object-oriented JavaScript.</li>
+                        <li>Experience with user interface frameworks such as XUL, Flex and XAML.</li>
+                        <li>Knowledge of user interface design.</li>
+                    </ul>
+
+                </div>
+            </section>
+            <!-- END Job detail -->
+
+        </main>
+        <!-- END Main container -->
+
+
+    </div>
 </div>
+
