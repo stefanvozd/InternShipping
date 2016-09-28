@@ -124,46 +124,39 @@
             parent: 'resume',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_USER'],
+                pageTitle: 'internShippingApp.company.detail.title'
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/resume/resume-dialog.html',
                     controller: 'ResumeDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                image: null,
-                                imageContentType: null,
-                                name: null,
-                                title: null,
-                                overview: null,
-                                education: null,
-                                faculty: null,
-                                enrollmentYear: null,
-                                location: null,
-                                contactEmail: null,
-                                birthDate: null,
-                                jsonResume: null,
-                                cvFile: null,
-                                cvFileContentType: null,
-                                cvFileContent: null,
-                                receiveJobAlerts: null,
-                                socialLinkedin: null,
-                                representativeSkills: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('resume', null, { reload: true });
-                }, function() {
-                    $state.go('resume');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: function () {
+                    return {
+                        logo: null,
+                        logoContentType: null,
+                        name: null,
+                        domain: null,
+                        shortDescription: null,
+                        longDescription: null,
+                        website: null,
+                        contactEmail: null,
+                        contactNumber: null,
+                        companySize: null,
+                        foundedYear: null,
+                        socialFacebook: null,
+                        socialLinkedin: null,
+                        socialYoutube: null,
+                        socialTwitter: null,
+                        address: null,
+                        id: null
+                    };
+                }
+            }
         })
         .state('resume.edit', {
             parent: 'resume',
