@@ -4,38 +4,14 @@
         <h1 class="text-center">Jobs</h1>
         <p class="lead text-center">Find job that fits you best</p>
       </div>
+
+
     </header>
     <!-- END Site header -->
 
     <div class="container">
-    <div class="well">
 
 
-
-        <div class="col-xs-8 no-padding-right">
-            <form name="searchForm" class="form-inline">
-                <div class="input-group pull-right" >
-                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.job.home.search' | translate }}">
-                    <span  class="input-group-btn width-min" >
-                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    <span class="input-group-btn width-min" ng-if="vm.currentSearch">
-                            <button class="btn btn-info" ng-click="vm.clear()">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </span>
-                </div>
-            </form>
-        </div>
-
-        <button class="btn btn-primary" ui-sref="job.new" >
-            <span class="glyphicon glyphicon-plus"></span>
-            <span class="hidden-xs"  translate="internShippingApp.job.home.createLabel">
-                        Create new Job
-                    </span>
-        </button>
 
 
 <!--<div>
@@ -148,7 +124,50 @@
 
         <!-- Main container -->
         <main>
+
             <section class="no-padding-top bg-alt">
+                <div class="col-xs-12 no-padding-right">
+
+          <!--          <form name="searchForm" class="form-inline">
+                        <div class="input-group pull-right">
+                            <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                                   placeholder="{{ 'internShippingApp.job.home.search' | translate }}">
+                            <span class="input-group-btn width-min">
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                        </div>
+                    </form>-->
+
+                    <form class="header-job-search ng-pristine ng-valid" name="searchForm">
+                        <div class="input-keyword">
+                            <input ng-model="vm.searchQuery"  id="searchQuery" type="text" class="form-control" placeholder="Job title, skills, or company">
+                        </div>
+
+                        <div class="btn-search">
+                            <button class="btn btn-info " ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+ <!--               <div class="col-xs-12 no-padding-right">
+                <button class="btn btn-primary " ui-sref="job.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="internShippingApp.job.home.createLabel">
+                        Create new Job
+                    </span>
+                </button>
+                </div>-->
+
                 <div class="container">
                     <div class="row">
 
@@ -216,5 +235,4 @@
 
 
 
-</div>
 </div>
