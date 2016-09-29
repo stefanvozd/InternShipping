@@ -769,7 +769,7 @@ form .text-muted {
 .header-job-search .input-keyword,
 .header-job-search .input-location {
     position: relative;
-    width: 40%
+    width: 80%
 }
 
 .header-job-search .input-keyword::before,

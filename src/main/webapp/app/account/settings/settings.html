@@ -1,20 +1,18 @@
  <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
       <div class="container no-shadow">
-        <h1 class="text-center" translate="internShippingApp.resume.home.title">Resumes</h1>
-        <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
+        <h1 class="text-center" translate-values="{username: '{{vm.settingsAccount.login}}'}">User settings for [{{vm.settingsAccount.login}}]</h1>
+        <p class="lead text-center">Wanna update something?</p>
       </div>
     </header>
     <!-- END Site header -->
-    
+
     <div class="container">
     <div class="well">
 
 <div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h2 translate="settings.title" translate-values="{username: '{{vm.settingsAccount.login}}'}">User settings for [<b>{{vm.settingsAccount.login}}</b>]</h2>
-
             <div class="alert alert-success" ng-show="vm.success" translate="settings.messages.success">
                 <strong>Settings saved!</strong>
             </div>

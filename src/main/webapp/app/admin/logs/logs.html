@@ -1,18 +1,16 @@
  <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
       <div class="container no-shadow">
-        <h1 class="text-center" translate="internShippingApp.resume.home.title">Resumes</h1>
-        <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
+        <h1 class="text-center">Logs</h1>
+        <p class="lead text-center">Loggers settings</p>
       </div>
     </header>
     <!-- END Site header -->
-    
+
     <div class="container">
     <div class="well">
-    
-<div class="table-responsive">
-    <h2 translate="logs.title">Logs</h2>
 
+<div class="table-responsive">
     <p translate="logs.nbloggers" translate-values="{total: '{{ vm.loggers.length }}'}">There are {{ vm.loggers.length }} loggers.</p>
 
     <span translate="logs.filter">Filter</span> <input type="text" ng-model="filter" class="form-control">

@@ -36,53 +36,53 @@
           </div>
 
         </div>
-        
+
         <!-- END User account -->
 
 
         <!-- Navigation menu -->
         <ul class="nav-menu" ng-switch="vm.isAuthenticated()">
           <li ui-sref-active="active">
-            <a  href="#"><span class="hidden-sm" translate="global.menu.home">Home</span></a>
+            <a  href="#"><span class="hidden-sm" >Home</span></a>
           </li>
-          
+
           <!-- ALL -->
-          <li><a ui-sref="article"><span translate="global.menu.entities.article">Article</span></a></li>
-          <li><a ui-sref="company"><span translate="global.menu.entities.company">Company</span></a></li>
-          <li><a ui-sref="job"><span translate="global.menu.entities.job">Job</span></a></li>
-          
+          <li><a ui-sref="article"><span>Blog</span></a></li>
+          <li><a ui-sref="company"><span>Companies</span></a></li>
+          <li><a ui-sref="job"><span>Jobs</span></a></li>
+
           <!-- CANDIDATE -->
-          <li><a ui-sref="resume" has-authority="ROLE_CANDIDATE"><span translate="global.menu.resume.myresume">My Resumes</span></a></li>
-          <li><a ui-sref="application" has-authority="ROLE_CANDIDATE"><span translate="global.menu.entities.application">Application</span></a></li>
-          
+          <li><a ui-sref="resume" has-authority="ROLE_CANDIDATE"><span>My Resumes</span></a></li>
+          <li><a ui-sref="application" has-authority="ROLE_CANDIDATE"><span>Application</span></a></li>
+
           <!-- COMPANY -->
-          <li><a ui-sref="resume" has-authority="ROLE_COMPANY"><span translate="global.menu.resume.browse">Browse Resumes</span></a></li>
-          <li><a ui-sref="application" has-authority="ROLE_COMPANY"><span translate="global.menu.entities.application">Application</span></a></li>
-          
-         
-          
-          
+          <li><a ui-sref="resume" has-authority="ROLE_COMPANY"><span>Browse Resumes</span></a></li>
+          <li><a ui-sref="application" has-authority="ROLE_COMPANY"><span>Applications</span></a></li>
+
+
+
+
           <!-- ADMIN -->
           <li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true" has-authority="ROLE_ADMIN">
-            <a href="#"><span class="hidden-sm" translate="global.menu.admin.main">Administration</span></a>
+            <a href="#"><span class="hidden-sm">Administration</span></a>
             <ul>
-              <li><a ui-sref="mailing-list"><span translate="global.menu.entities.mailingList">Mailing List</span></a></li>
-              <li><a ui-sref="user-management"><span translate="global.menu.admin.userManagement">User management</span></a></li>
-              <li><a ui-sref="jhi-tracker"><span translate="global.menu.admin.tracker">User tracker</span></a></li>
-              <li><a ui-sref="jhi-metrics"><span translate="global.menu.admin.metrics">Metrics</span></a></li>
-              <li><a ui-sref="jhi-health"><span translate="global.menu.admin.health">Health</span></a></li>
-              <li><a ui-sref="jhi-configuration"><span translate="global.menu.admin.configuration">Configuration</span></a></li>
-              <li><a ui-sref="audits"> <span translate="global.menu.admin.audits">Audits</span></a></li>
-              <li><a ui-sref="logs"><span translate="global.menu.admin.logs">Logs</span></a></li>
-              <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active"><a  ui-sref="docs"><span translate="global.menu.admin.apidocs">API</span></a></li>
-              <li ng-hide="vm.inProduction"><a href='/h2-console'> <span translate="global.menu.admin.database">Database</span></a></li>
-              <li ui-sref-active="active" ng-controller="JhiLanguageController as languageVm" ><a ng-if="languageVm.languages.length > 1" href=""><span class="hidden-sm" translate="global.menu.language">Language</span></a> <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
+              <li><a ui-sref="mailing-list"><span>Mailing List</span></a></li>
+              <li><a ui-sref="user-management"><span>User management</span></a></li>
+              <li><a ui-sref="jhi-tracker"><span>User tracker</span></a></li>
+              <li><a ui-sref="jhi-metrics"><span>Metrics</span></a></li>
+              <li><a ui-sref="jhi-health"><span>Health</span></a></li>
+              <li><a ui-sref="jhi-configuration"><span>Configuration</span></a></li>
+              <li><a ui-sref="audits"> <span>Audits</span></a></li>
+              <li><a ui-sref="logs"><span>Logs</span></a></li>
+              <li ng-hide="vm.inProduction || vm.swaggerDisabled" ui-sref-active="active"><a  ui-sref="docs"><span>API</span></a></li>
+              <li ng-hide="vm.inProduction"><a href='/h2-console'> <span>Database</span></a></li>
+              <li ui-sref-active="active" ng-controller="JhiLanguageController as languageVm" ><a ng-if="languageVm.languages.length > 1" href=""><span class="hidden-sm">Language</span></a> <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
                         <li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
                             <a href="" ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language | findLanguageFromKey}}</a>
                         </li>
                     </ul></li>
             </ul>
-          </li> 
+          </li>
         </ul>
         <!-- END Navigation menu -->
 

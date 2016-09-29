@@ -246,7 +246,7 @@ form .text-muted {
 }
 
 .checkbox {
-  
+
   input[type="checkbox"],
   input[type="radio"] {
     opacity: 0;
@@ -381,7 +381,7 @@ form .text-muted {
   .input-keyword,
   .input-location {
     position: relative;
-    width: 40%;
+    width: 100%;
 
     &::before {
       position: absolute;
@@ -488,7 +488,7 @@ form .text-muted {
     margin-right: 10px;
     margin-top: -5px;
   }
-  
+
 }
 
 //
