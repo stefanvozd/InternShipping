@@ -1,0 +1,62 @@
+<!-- Page header -->
+    <header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+      <div class="container page-name">
+        <h1 class="text-center">Our company</h1>
+        <p class="lead text-center">This is how it looks.</p>
+      </div>
+
+
+    </header>
+    <!-- END Page header -->
+
+
+    <div class="container">
+
+
+  <button class="btn btn-primary" ui-sref="company.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="internShippingApp.company.home.createLabel">
+                        Create new Company
+                    </span>
+                </button>
+
+ <!-- Main container -->
+    <main>
+      <section class="no-padding-top bg-alt">
+        <div class="container">
+          <div class="row">
+
+
+            <!-- Company detail -->
+            <div class="col-xs-12"  ng-repeat="company in vm.companies track by company.id">
+              <a class="item-block" ui-sref="company-detail({id:company.id})">
+                <header>
+                   <img data-ng-src="{{'data:' + company.logoContentType + ';base64,' + company.logo}}" style="max-height: 60 px;"/>
+                  <div class="hgroup">
+                    <h4>{{company.name}}</h4>
+                    <h5>{{company.domain}}</h5>
+                  </div>
+                  <span class="open-position">15 open position</span>
+                </header>
+
+                <div class="item-body">
+                  <p>{{company.shortDescription}}</p>
+                </div>
+              </a>
+            </div>
+            <!-- END Company detail -->
+
+        <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+        </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- END Main container -->
+
+
+
+</div>

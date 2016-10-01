@@ -60,7 +60,10 @@ local.properties
 # Maven
 ######################
 /log/**
-/target/**
+/target/**/*
+
+!h2db/
+
 
 ######################
 # Gradle
@@ -73,7 +76,6 @@ local.properties
 *.jar
 *.war
 *.ear
-*.db
 
 ######################
 # Windows

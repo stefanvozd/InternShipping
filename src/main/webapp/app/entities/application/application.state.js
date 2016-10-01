@@ -50,6 +50,48 @@
                     return $translate.refresh();
                 }]
             }
+        }).state('ourapplication', {
+            parent: 'entity',
+            url: '/ourapplication',
+            data: {
+                authorities: ['ROLE_COMPANY'],
+                pageTitle: 'app/entities/application/applications.html'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/application/ourapplications.html',
+                    controller: 'ApplicationController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('resume');
+                    $translatePartialLoader.addPart('education');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
         })
         .state('application-detail', {
             parent: 'entity',

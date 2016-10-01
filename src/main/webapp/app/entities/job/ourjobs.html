@@ -1,0 +1,88 @@
+ <!-- Site header -->
+    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+      <div class="container no-shadow">
+        <h1 class="text-center">Jobs</h1>
+        <p class="lead text-center">That you posted.</p>
+      </div>
+
+    </header>
+    <!-- END Site header -->
+
+    <div class="container">
+
+
+        <!-- Main container -->
+        <main>
+
+            <section class="no-padding-top bg-alt">
+                <div class="col-xs-12 no-padding-right">
+                <button class="btn btn-primary " ui-sref="job.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="internShippingApp.job.home.createLabel">
+                        Create new Job
+                    </span>
+                </button>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+
+                        <!-- Job item -->
+                        <div class="col-xs-12" ng-repeat="job in vm.jobs track by job.id">
+                            <a class="item-block" ui-sref="job-detail({id:job.id})">
+                                <header>
+                                    <img src="assets/img/logo-microsoft.jpg" alt="">
+                                    <div class="hgroup">
+                                        <h4>{{job.title}}</h4>
+                                        <h5>Google <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
+                                    </div>
+                                    <time datetime="2016-03-10 20:00">34 min ago</time>
+                                </header>
+
+                                <div class="item-body">
+                                    <p>{{job.shortDescription}}</p>
+                                </div>
+
+                                <footer>
+                                    <ul class="details cols-3">
+                                        <li>
+                                            <i class="fa fa-map-marker"></i>
+                                            <span>{{job.location}}</span>
+                                        </li>
+
+                                        <li>
+                                            <i class="fa fa-money"></i>
+                                            <span>{{job.compensation}}</span>
+                                        </li>
+
+                                        <li>
+                                            <i class="fa fa-certificate"></i>
+                                            <span>{{job.education}}</span>
+                                        </li>
+                                    </ul>
+                                </footer>
+                            </a>
+                        </div>
+                        <!-- END Job item -->
+
+
+
+                    </div>
+
+
+                    <!-- Page navigation -->
+                    <div class="text-center">
+                        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+                        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+                    </div>
+                    <!-- END Page navigation -->
+
+                </div>
+            </section>
+        </main>
+        <!-- END Main container -->
+
+
+
+</div>
