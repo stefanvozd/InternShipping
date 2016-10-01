@@ -1,6 +1,7 @@
 package rs.eestec.internshipping.service;
 
 import rs.eestec.internshipping.domain.Company;
+import rs.eestec.internshipping.domain.Resume;
 import rs.eestec.internshipping.repository.CompanyRepository;
 import rs.eestec.internshipping.repository.search.CompanySearchRepository;
 import rs.eestec.internshipping.web.rest.dto.CompanyDTO;
@@ -28,19 +29,19 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class CompanyService {
 
     private final Logger log = LoggerFactory.getLogger(CompanyService.class);
-    
+
     @Inject
     private CompanyRepository companyRepository;
-    
+
     @Inject
     private CompanyMapper companyMapper;
-    
+
     @Inject
     private CompanySearchRepository companySearchRepository;
-    
+
     /**
      * Save a company.
-     * 
+     *
      * @param companyDTO the entity to save
      * @return the persisted entity
      */
@@ -55,14 +56,21 @@ public class CompanyService {
 
     /**
      *  Get all the companies.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Company> findAll(Pageable pageable) {
         log.debug("Request to get all Companies");
-        Page<Company> result = companyRepository.findAll(pageable); 
+        Page<Company> result = companyRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Company> findCurrentUserCompany(Pageable pageable) {
+        log.debug("Request to get all Resumes");
+        Page<Company> result = companyRepository.findByUserIsCurrentUser(pageable);
         return result;
     }
 
@@ -72,7 +80,7 @@ public class CompanyService {
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public CompanyDTO findOne(Long id) {
         log.debug("Request to get Company : {}", id);
         Company company = companyRepository.findOne(id);
@@ -82,7 +90,7 @@ public class CompanyService {
 
     /**
      *  Delete the  company by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

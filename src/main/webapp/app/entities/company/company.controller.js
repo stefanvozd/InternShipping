@@ -5,11 +5,11 @@
         .module('internShippingApp')
         .controller('CompanyController', CompanyController);
 
-    CompanyController.$inject = ['$scope', '$state', 'DataUtils', 'Company', 'CompanySearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    CompanyController.$inject = ['$scope', '$state', 'DataUtils', 'Company', 'CompanySearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants' ,'OurCompany'];
 
-    function CompanyController ($scope, $state, DataUtils, Company, CompanySearch, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function CompanyController ($scope, $state, DataUtils, Company, CompanySearch, ParseLinks, AlertService, pagingParams, paginationConstants, OurCompany) {
         var vm = this;
-        
+
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
@@ -26,6 +26,14 @@
         loadAll();
 
         function loadAll () {
+            if($state.$current.name == "ourcompany"){
+                OurCompany.query({
+                    page: pagingParams.page - 1,
+                    size: vm.itemsPerPage,
+                    sort: sort()
+                }, onSuccess, onError);
+                return;
+            }
             if (pagingParams.search) {
                 CompanySearch.query({
                     query: pagingParams.search,

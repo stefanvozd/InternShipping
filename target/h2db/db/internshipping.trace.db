@@ -1507,3 +1507,6 @@ insert into job (id, active, active_until, company_id, compensation, creation_da
 2016-09-28 18:24:24 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "LONG_DESCRIPTION VARCHAR(255) NOT NULL": "'Java Development Internship In our delivery centers, we work closely together with local universities for training and internsh... (712)"; SQL statement:
 insert into job (id, active, active_until, company_id, compensation, creation_date, education, job_level, job_type, location, long_description, short_description, skills, social_linkedin, title) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-191]
+2016-10-01 21:08:18 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "JHI_USER[*]"; SQL statement:
+JHI_USER [42000-191]

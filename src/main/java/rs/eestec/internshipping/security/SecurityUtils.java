@@ -6,8 +6,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import rs.eestec.internshipping.domain.User;
+import rs.eestec.internshipping.service.UserService;
 
+import javax.inject.Inject;
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * Utility class for Spring Security.

@@ -7,7 +7,7 @@
     Company.$inject = ['$resource'];
 
     function Company ($resource) {
-        var resourceUrl =  'api/companies/:id';
+        var resourceUrl =  'api/ourcompany/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
