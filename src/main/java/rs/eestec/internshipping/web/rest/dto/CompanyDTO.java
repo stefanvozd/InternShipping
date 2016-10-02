@@ -54,7 +54,8 @@ public class CompanyDTO implements Serializable {
 
 
     private Long userId;
-    
+
+    private int openPosition;
 
     private String userLogin;
 
@@ -67,6 +68,14 @@ public class CompanyDTO implements Serializable {
     }
     public byte[] getLogo() {
         return logo;
+    }
+
+    public int getOpenPosition() {
+        return openPosition;
+    }
+
+    public void setOpenPosition(int openPosition) {
+        this.openPosition = openPosition;
     }
 
     public void setLogo(byte[] logo) {

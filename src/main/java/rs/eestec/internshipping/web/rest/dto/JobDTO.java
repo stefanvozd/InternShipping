@@ -2,6 +2,7 @@ package rs.eestec.internshipping.web.rest.dto;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -57,9 +58,30 @@ public class JobDTO implements Serializable {
 
 
     private Long companyId;
-    
+
 
     private String companyName;
+
+    @Lob
+    private byte[] companyLogo;
+
+    private String companyLogoContentType;
+
+    public byte[] getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public String getCompanyLogoContentType() {
+        return companyLogoContentType;
+    }
+
+    public void setCompanyLogo(byte[] companyLogo) {
+        this.companyLogo = companyLogo;
+    }
+
+    public void setCompanyLogoContentType(String companyLogoContentType) {
+        this.companyLogoContentType = companyLogoContentType;
+    }
 
     public Long getId() {
         return id;

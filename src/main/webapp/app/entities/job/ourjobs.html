@@ -32,9 +32,10 @@
                         <div class="col-xs-12" ng-repeat="job in vm.jobs track by job.id">
                             <div class="item-block" ui-sref="job-detail({id:job.id})">
                                 <header>
-                                    <a href="company-detail.html"><img src="assets/img/logo-google.jpg" alt=""></a>
+                                    <img ng-show="job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
+                                    <a ng-show="job.companyLogo != null" ui-sref="company-detail({id:job.companyId})"><img data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/></a>
                                     <div class="hgroup">
-                                        <h4><a href="job-detail.html">{{job.title}}</a></h4>
+                                        <h4><a>{{job.title}}</a></h4>
                                         <h5><a ui-sref="company-detail({id:job.companyId})">{{job.companyName}}</a> <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
                                     </div>
                                     <div class="header-meta">
