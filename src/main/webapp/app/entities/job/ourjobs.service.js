@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('internShippingApp')
-        .factory('OurJobs', Job);
+        .factory('OurJobs', OurJob);
 
-    Job.$inject = ['$resource', 'DateUtils'];
+    OurJob.$inject = ['$resource', 'DateUtils'];
 
-    function Job ($resource, DateUtils) {
-        var resourceUrl =  'api/jobs/:id';
+    function OurJob ($resource, DateUtils) {
+        var resourceUrl =  'api/ourjobs/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

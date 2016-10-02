@@ -28,19 +28,19 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class JobService {
 
     private final Logger log = LoggerFactory.getLogger(JobService.class);
-    
+
     @Inject
     private JobRepository jobRepository;
-    
+
     @Inject
     private JobMapper jobMapper;
-    
+
     @Inject
     private JobSearchRepository jobSearchRepository;
-    
+
     /**
      * Save a job.
-     * 
+     *
      * @param jobDTO the entity to save
      * @return the persisted entity
      */
@@ -55,14 +55,27 @@ public class JobService {
 
     /**
      *  Get all the jobs.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Job> findAll(Pageable pageable) {
         log.debug("Request to get all Jobs");
-        Page<Job> result = jobRepository.findAll(pageable); 
+        Page<Job> result = jobRepository.findAll(pageable);
+        return result;
+    }
+
+    /**
+     *  Get all the jobs.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Job> findOurAll(Pageable pageable) {
+        log.debug("Request to get all Our Jobs");
+        Page<Job> result = jobRepository.findAllOurJobs(pageable);
         return result;
     }
 
@@ -72,7 +85,7 @@ public class JobService {
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public JobDTO findOne(Long id) {
         log.debug("Request to get Job : {}", id);
         Job job = jobRepository.findOne(id);
@@ -82,7 +95,7 @@ public class JobService {
 
     /**
      *  Delete the  job by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

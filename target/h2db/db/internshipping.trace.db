@@ -1510,3 +1510,134 @@ insert into job (id, active, active_until, company_id, compensation, creation_da
 2016-10-01 21:08:18 jdbc[14]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "JHI_USER[*]"; SQL statement:
 JHI_USER [42000-191]
+2016-10-02 12:40:59 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Column "USERID" not found; SQL statement:
+SELECT * FROM COMPANY WHERE USERID = 71 [42122-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:855)
+	at org.h2.command.Parser.prepareCommand(Parser.java:257)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp.query(WebApp.java:1037)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at com.codahale.metrics.servlet.AbstractInstrumentedFilter.doFilter(AbstractInstrumentedFilter.java:104)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.boot.actuate.autoconfigure.EndpointWebMvcAutoConfiguration$ApplicationContextHeaderFilter.doFilterInternal(EndpointWebMvcAutoConfiguration.java:261)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:115)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:208)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1502)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1458)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2016-10-02 12:46:45 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT  *
+     FROM COMPANY COM WHERE USER_ID = 71
+     RIGHT[*] JOIN JOB
+     ON COM .ID = JOB.COMPANY_ID "; SQL statement:
+SELECT  *
+     FROM COMPANY com WHERE USER_ID = 71
+     RIGHT JOIN Job
+     ON com .ID = Job.COMPANY_ID [42000-191]
+2016-10-02 12:47:13 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT  * FROM COMPANY C WHERE USER_ID = 71 RIGHT[*] JOIN JOB ON C .ID = JOB.COMPANY_ID "; SQL statement:
+SELECT  * FROM COMPANY c WHERE USER_ID = 71 RIGHT JOIN Job ON c .ID = Job.COMPANY_ID [42000-191]
+2016-10-02 12:47:20 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT  * FROM COMPANY C WHERE USER_ID = 71 JOIN[*] JOB ON C .ID = JOB.COMPANY_ID "; SQL statement:
+SELECT  * FROM COMPANY c WHERE USER_ID = 71 JOIN Job ON c .ID = Job.COMPANY_ID [42000-191]
+2016-10-02 12:50:39 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * C[*].ID AS COMPANY, J.ID AS JOB FROM COMPANY C FULL JOIN JOB J ON C.COMPANY = J.JOB "; SQL statement:
+SELECT * C.ID AS COMPANY, J.ID AS Job FROM COMPANY C FULL JOIN Job J ON C.COMPANY = J.JOB [42000-191]
+2016-10-02 12:50:55 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * C[*].ID AS COMPANY, J.ID AS JOB FROM COMPANY C FULL JOIN JOB J ON C.ID= J.COMPANY_ID "; SQL statement:
+SELECT * C.ID AS COMPANY, J.ID AS Job FROM COMPANY C FULL JOIN Job J ON C.ID= J.COMPANY_ID [42000-191]
+2016-10-02 12:53:11 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM COMPANY COM WHERE USER_ID = 71 )[*] "; SQL statement:
+SELECT * FROM COMPANY com WHERE USER_ID = 71 ) [42000-191]
+2016-10-02 12:54:19 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM COMPANY
+FULL JOIN[*] JOBON COMPANY.ID = JOB.COMPANY_ID"; SQL statement:
+SELECT *
+FROM COMPANY
+FULL JOIN JOBON COMPANY.ID = JOB.COMPANY_ID [42000-191]
+2016-10-02 12:54:28 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM COMPANY
+FULL JOIN[*] JOB ON COMPANY.ID = JOB.COMPANY_ID"; SQL statement:
+SELECT *
+FROM COMPANY
+FULL JOIN JOB ON COMPANY.ID = JOB.COMPANY_ID [42000-191]
+2016-10-02 12:54:58 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM JOB
+FULL JOIN[*] COMPANY ON COMPANY.ID = JOB.COMPANY_ID"; SQL statement:
+SELECT *
+FROM JOB
+FULL JOIN COMPANY ON COMPANY.ID = JOB.COMPANY_ID [42000-191]
+2016-10-02 12:55:07 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM JOB FULL JOIN[*] COMPANY ON COMPANY.ID = JOB.COMPANY_ID"; SQL statement:
+SELECT * FROM JOB FULL JOIN COMPANY ON COMPANY.ID = JOB.COMPANY_ID [42000-191]
+2016-10-02 12:58:18 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ALL FROM COMPANY[*]"; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+SELECT ALL FROM COMPANY [42001-191]
+2016-10-02 13:21:32 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(SELECT ID FROM COMPANY WHERE USER_ID = 3[*]"; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+(SELECT ID FROM COMPANY WHERE USER_ID = 3 [42001-191]
