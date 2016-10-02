@@ -28,43 +28,34 @@
                     <div class="row">
 
 
-                        <!-- Job item -->
+                        <!-- Job detail -->
                         <div class="col-xs-12" ng-repeat="job in vm.jobs track by job.id">
-                            <a class="item-block" ui-sref="job-detail({id:job.id})">
+                            <div class="item-block" ui-sref="job-detail({id:job.id})">
                                 <header>
-                                    <img src="assets/img/logo-microsoft.jpg" alt="">
+                                    <a href="company-detail.html"><img src="assets/img/logo-google.jpg" alt=""></a>
                                     <div class="hgroup">
-                                        <h4>{{job.title}}</h4>
-                                        <h5>Google <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
+                                        <h4><a href="job-detail.html">{{job.title}}</a></h4>
+                                        <h5><a ui-sref="company-detail({id:job.companyId})">{{job.companyName}}</a> <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
                                     </div>
-                                    <time datetime="2016-03-10 20:00">34 min ago</time>
+                                    <div class="header-meta">
+                                        <span class="location">{{job.location}}</span>
+                                        <time datetime="2016-03-10 20:00">34 min ago</time>
+                                    </div>
                                 </header>
 
-                                <div class="item-body">
-                                    <p>{{job.shortDescription}}</p>
-                                </div>
-
                                 <footer>
-                                    <ul class="details cols-3">
-                                        <li>
-                                            <i class="fa fa-map-marker"></i>
-                                            <span>{{job.location}}</span>
-                                        </li>
+                                    <p class="status"><strong>Status:</strong> Pending approval</p>
 
-                                        <li>
-                                            <i class="fa fa-money"></i>
-                                            <span>{{job.compensation}}</span>
-                                        </li>
-
-                                        <li>
-                                            <i class="fa fa-certificate"></i>
-                                            <span>{{job.education}}</span>
-                                        </li>
-                                    </ul>
+                                    <div class="action-btn">
+                                        <a class="btn btn-xs btn-gray" href="#">Edit</a>
+                                        <a class="btn btn-xs btn-danger" href="#">Deactivate</a>
+                                    </div>
                                 </footer>
-                            </a>
+                            </div>
                         </div>
-                        <!-- END Job item -->
+                        <!-- END Job detail -->
+
+
 
 
 
