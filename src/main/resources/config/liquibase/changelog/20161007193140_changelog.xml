@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="91ste (generated)" id="1475868713359-1">
+      <addPrimaryKey columnNames="id" constraintName="companyPK" tableName="company"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-2">
+      <addPrimaryKey columnNames="event_id"
+                     constraintName="jhi_persistent_audit_eventPK"
+                     tableName="jhi_persistent_audit_event"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-3">
+      <addPrimaryKey columnNames="id" constraintName="jhi_userPK" tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-4">
+      <dropDefaultValue columnDataType="datetime"
+                        columnName="created_date"
+                        tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-5">
+      <dropPrimaryKey tableName="company"/>
+      <addPrimaryKey columnNames="id" constraintName="companyPK" tableName="company"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-6">
+      <dropPrimaryKey tableName="jhi_persistent_audit_event"/>
+      <addPrimaryKey columnNames="event_id"
+                     constraintName="jhi_persistent_audit_eventPK"
+                     tableName="jhi_persistent_audit_event"/>
+   </changeSet>
+   <changeSet author="91ste (generated)" id="1475868713359-7">
+      <dropPrimaryKey tableName="jhi_user"/>
+      <addPrimaryKey columnNames="id" constraintName="jhi_userPK" tableName="jhi_user"/>
+   </changeSet>
+</databaseChangeLog>
