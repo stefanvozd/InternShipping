@@ -14,7 +14,7 @@ public interface CompanyMapper {
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "user.login", target = "userLogin")
-    @Mapping(source = "company.openPosition", target = "openPosition")
+    //@Mapping(source = "company.openPosition", target = "openPosition")
     CompanyDTO companyToCompanyDTO(Company company);
 
     List<CompanyDTO> companiesToCompanyDTOs(List<Company> companies);

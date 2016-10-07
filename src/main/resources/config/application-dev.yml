@@ -18,22 +18,24 @@ spring:
         livereload:
             enabled: false # we use gulp + BrowserSync for livereload
     datasource:
-        url: jdbc:h2:file:./target/h2db/db/internshipping;DB_CLOSE_DELAY=-1
-        name:
-        username: InternShipping
-        password:
+        url: jdbc:mysql://104.199.2.204:3306/internshipping
+        username: root
+        password: SDvfk6056
     h2:
         console:
             enabled: false
     jpa:
-        database-platform: rs.eestec.internshipping.domain.util.FixedH2Dialect
-        database: H2
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        database: mysql
         show_sql: true
         properties:
             hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+        generate-ddl: true
+        hibernate:
+          ddl-auto: create-drop
     data:
         elasticsearch:
             cluster-name:

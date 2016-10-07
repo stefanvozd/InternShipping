@@ -14,8 +14,8 @@ public interface JobMapper {
 
     @Mapping(source = "company.id", target = "companyId")
     @Mapping(source = "company.name", target = "companyName")
-    @Mapping(source = "company.logo", target = "companyLogo")
-    @Mapping(source = "company.companyLogoContentType", target = "companyLogoContentType")
+    //@Mapping(source = "company.logo", target = "companyLogo")
+  //  @Mapping(source = "company.companyLogoContentType", target = "companyLogoContentType")
     JobDTO jobToJobDTO(Job job);
 
     List<JobDTO> jobsToJobDTOs(List<Job> jobs);
