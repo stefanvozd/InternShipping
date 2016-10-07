@@ -62,7 +62,6 @@ local.properties
 /log/**
 /target/**/*
 
-!h2db/
 
 
 ######################

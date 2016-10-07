@@ -691,7 +691,7 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://104.199.2.204:3306/stefan</url>
+                    <url>jdbc:mysql://104.199.2.204:3306/internshipping</url>
                     <defaultSchemaName />
                     <username>root</username>
                     <password>SDvfk6056</password>
