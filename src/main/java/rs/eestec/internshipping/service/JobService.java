@@ -1,5 +1,6 @@
 package rs.eestec.internshipping.service;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import rs.eestec.internshipping.domain.Job;
 import rs.eestec.internshipping.repository.JobRepository;
 import rs.eestec.internshipping.repository.search.JobSearchRepository;
@@ -63,8 +64,10 @@ public class JobService {
     public Page<Job> findAll(Pageable pageable) {
         log.debug("Request to get all Jobs");
         Page<Job> result = jobRepository.findAll(pageable);
+
         return result;
     }
+
 
     /**
      *  Get all the jobs.
@@ -76,6 +79,20 @@ public class JobService {
     public Page<Job> findOurAll(Pageable pageable) {
         log.debug("Request to get all Our Jobs");
         Page<Job> result = jobRepository.findAllOurJobs(pageable);
+        return result;
+    }
+
+
+    /**
+     *  Get all applied  jobs.
+     *
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Job> allJobsApplyedTo(Pageable pageable) {
+        log.debug("Request to get all applied Jobs");
+        Page<Job> result = jobRepository.allJobsApplyedTo(pageable);
         return result;
     }
 
