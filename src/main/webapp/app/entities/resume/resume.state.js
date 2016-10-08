@@ -120,6 +120,31 @@
                 }]
             }
         })
+            .state('resumes-job', {
+                parent: 'entity',
+                url: '/resumes/job/{id}',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'internShippingApp.resume.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/resume/resumes.html',
+                        controller: 'ResumeController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('resume');
+                        $translatePartialLoader.addPart('education');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Resume', function($stateParams, ResumesJob) {
+                        return ResumesJob.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
         .state('resume.new', {
             parent: 'resume',
             url: '/new',

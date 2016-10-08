@@ -39,15 +39,17 @@
                                         <h5><a ui-sref="company-detail({id:job.companyId})">{{job.companyName}}</a> <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
                                     </div>
                                     <div class="header-meta">
-                                        <span class="location">{{job.location}}</span>
+                                       <span class="location">{{job.location}}</span>
                                         <time datetime="2016-03-10 20:00">34 min ago</time>
                                     </div>
                                 </header>
 
                                 <footer>
+
                                     <p class="status"><strong>Status:</strong> Pending approval</p>
 
                                     <div class="action-btn">
+                                        <a class="btn btn-xs btn-success"  ui-sref="job-detail({id:job.id})">Browse resume</a>
                                         <a class="btn btn-xs btn-gray" href="#">Edit</a>
                                         <a class="btn btn-xs btn-danger" href="#">Deactivate</a>
                                     </div>

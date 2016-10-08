@@ -28,19 +28,19 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class ResumeService {
 
     private final Logger log = LoggerFactory.getLogger(ResumeService.class);
-    
+
     @Inject
     private ResumeRepository resumeRepository;
-    
+
     @Inject
     private ResumeMapper resumeMapper;
-    
+
     @Inject
     private ResumeSearchRepository resumeSearchRepository;
-    
+
     /**
      * Save a resume.
-     * 
+     *
      * @param resumeDTO the entity to save
      * @return the persisted entity
      */
@@ -55,24 +55,37 @@ public class ResumeService {
 
     /**
      *  Get all the resumes.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Resume> findAll(Pageable pageable) {
         log.debug("Request to get all Resumes");
-        Page<Resume> result = resumeRepository.findAll(pageable); 
+        Page<Resume> result = resumeRepository.findAll(pageable);
         return result;
     }
-    
+
+    /**
+     *  Get resumes for job id
+     *
+     *  @param id the id of the job
+     *  @return the Resume
+     */
+    @Transactional(readOnly = true)
+    public Page<Resume> getResumesForJobId(Pageable pageable,Long id) {
+        log.debug("Request to get Resume : {}", id);
+        Page<Resume> result = resumeRepository.getResumesForJobId(pageable,id);
+        return result;
+    }
+
     /**
      *  Get all the resumes.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Resume> findCurrentUserResume(Pageable pageable) {
         log.debug("Request to get all Resumes");
         Page<Resume> result = resumeRepository.findByUserIsCurrentUser(pageable);
@@ -85,7 +98,7 @@ public class ResumeService {
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public ResumeDTO findOne(Long id) {
         log.debug("Request to get Resume : {}", id);
         Resume resume = resumeRepository.findOne(id);
@@ -95,7 +108,7 @@ public class ResumeService {
 
     /**
      *  Delete the  resume by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {
