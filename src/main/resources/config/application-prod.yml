@@ -18,10 +18,9 @@ spring:
         livereload:
             enabled: false
     datasource:
-        url: jdbc:mysql://localhost:3306/InternShipping?useUnicode=true&characterEncoding=utf8&useSSL=false
-        name:
+        url: jdbc:mysql://104.199.2.204:3306/internshipping?autoReconnect=true&useSSL=false
         username: root
-        password:
+        password: SDvfk6056
         hikari:
             data-source-properties:
                 cachePrepStmts: true

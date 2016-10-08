@@ -18,7 +18,7 @@ spring:
         livereload:
             enabled: false # we use gulp + BrowserSync for livereload
     datasource:
-        url: jdbc:mysql://104.199.2.204:3306/internshipping
+        url: jdbc:mysql://104.199.2.204:3306/internshipping?autoReconnect=true&useSSL=false
         username: root
         password: SDvfk6056
     h2:
