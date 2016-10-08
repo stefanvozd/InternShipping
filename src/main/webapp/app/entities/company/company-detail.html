@@ -101,7 +101,7 @@
                           <img ng-show="vm.company.logo != null" data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" style="max-height: 60 px;"/>
                           <div class="hgroup">
                               <h4>{{job.title}}</h4>
-                              <h5>{{job.companyName}} <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
+                              <h5>{{vm.company.name}} <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
                           </div>
                           <div class="header-meta">
                               <span class="location">{{job.location}}</span>

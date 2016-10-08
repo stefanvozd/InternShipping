@@ -6,533 +6,12 @@
                 ng-click="vm.clear()">&times;</button>
         <h4 class="modal-title" id="myResumeLabel" translate="internShippingApp.resume.home.createOrEditLabel">Create or edit a Resume</h4>
     </div>
-
-    <!-- Page header -->
-  <!--  <header class="page-header">
-        <div class="container page-name">
-            <h1 class="text-center">Add your resume</h1>
-            <p class="lead text-center">Create your resume and put it online.</p>
-        </div>
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="form-group">
-                        <input type="file" class="dropify" data-default-file="assets/img/avatar.jpg">
-                        <span class="help-block">Please choose a 4:6 profile picture.</span>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Name">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Headline (e.g. Front-end developer)">
-                    </div>
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Short description about you"></textarea>
-                    </div>
-
-                    <hr class="hr-lg">
-
-                    <h6>Basic information</h6>
-                    <div class="row">
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                <input type="text" class="form-control" placeholder="Location, e.g. Melon Park, CA">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                <input type="text" class="form-control" placeholder="Website address">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-                                <input type="text" class="form-control" placeholder="Salary, e.g. 85">
-                                <span class="input-group-addon">Per hour</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                                <input type="text" class="form-control" placeholder="Age">
-                                <span class="input-group-addon">Years old</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input type="text" class="form-control" placeholder="Phone number">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="text" class="form-control" placeholder="Email address">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <hr class="hr-lg">
-
-                    <h6>Tags list</h6>
-                    <div class="form-group">
-                        <input type="text" value="HTML,CSS,Javascript" data-role="tagsinput" placeholder="Tag name">
-                        <span class="help-block">Write tag name and press enter</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="button-group">
-                <div class="action-buttons">
-
-                    <div class="upload-button">
-                        <button class="btn btn-block btn-gray">Choose a resume file</button>
-                        <input type="file">
-                    </div>
-
-                    <div class="upload-button">
-                        <button class="btn btn-block btn-primary">Choose a cover image</button>
-                        <input id="cover_img_file" type="file">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </header>-->
-    <!-- END Page header -->
-
-
-    <!-- Main container -->
- <!--   <main>
-
-
-        &lt;!&ndash; Social media &ndash;&gt;
-        <section>
-            <div class="container">
-
-                <header class="section-header">
-                    <span>Get connected</span>
-                    <h2>Social media</h2>
-                </header>
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-dribbble"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-pinterest"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-github"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-youtube"></i></span>
-                                <input type="text" class="form-control" placeholder="Profile URL">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        &lt;!&ndash; Social media &ndash;&gt;
-
-
-
-        &lt;!&ndash; Education &ndash;&gt;
-        <section class=" bg-alt">
-            <div class="container">
-
-                <header class="section-header">
-                    <span>Latest degrees</span>
-                    <h2>Education</h2>
-                </header>
-
-                <div class="row">
-
-                    <div class="col-xs-12">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <div class="form-group">
-                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
-                                            <span class="help-block">Please choose a square logo</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">Date from</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2012">
-                                                <span class="input-group-addon">Date to</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2016">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 duplicateable-content">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <div class="form-group">
-                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
-                                            <span class="help-block">Please choose a square logo</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">Date from</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2012">
-                                                <span class="input-group-addon">Date to</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2016">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 text-center">
-                        <br>
-                        <button class="btn btn-primary btn-duplicator">Add education</button>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-        &lt;!&ndash; END Education &ndash;&gt;
-
-
-        &lt;!&ndash; Work Experience &ndash;&gt;
-        <section>
-            <div class="container">
-                <header class="section-header">
-                    <span>Past positions</span>
-                    <h2>Work Experience</h2>
-                </header>
-
-                <div class="row">
-
-                    <div class="col-xs-12">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <div class="form-group">
-                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
-                                            <span class="help-block">Please choose a square logo</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Company name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">Date from</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2012">
-                                                <span class="input-group-addon">Date to</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2016">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <textarea class="summernote-editor"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 duplicateable-content">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <div class="form-group">
-                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
-                                            <span class="help-block">Please choose a square logo</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-8">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Company name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">Date from</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2012">
-                                                <span class="input-group-addon">Date to</span>
-                                                <input type="text" class="form-control" placeholder="e.g. 2016">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <textarea class="summernote-editor"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 text-center">
-                        <br>
-                        <button class="btn btn-primary btn-duplicator">Add experience</button>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </section>
-        &lt;!&ndash; END Work Experience &ndash;&gt;
-
-
-        &lt;!&ndash; Skills &ndash;&gt;
-        <section class=" bg-alt">
-            <div class="container">
-                <header class="section-header">
-                    <span>Expertise Areas</span>
-                    <h2>Skills</h2>
-                </header>
-
-                <div class="row">
-
-                    <div class="col-xs-12">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-6">
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
-                                                <span class="input-group-addon">%</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 duplicateable-content">
-                        <div class="item-block">
-                            <div class="item-form">
-
-                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-6">
-
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
-                                                <span class="input-group-addon">%</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 text-center">
-                        <br>
-                        <button class="btn btn-primary btn-duplicator">Add experience</button>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </section>
-        &lt;!&ndash; END Skills &ndash;&gt;
-
-
-
-        &lt;!&ndash; Submit &ndash;&gt;
-        <section class=" bg-img" style="background-image: url(assets/img/bg-facts.jpg);">
-            <div class="container">
-                <header class="section-header">
-                    <span>Are you done?</span>
-                    <h2>Submit resume</h2>
-                    <p>Please review your information once more and press the below button to put your resume online.</p>
-                </header>
-
-                <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your resume</button></p>
-
-            </div>
-        </section>
-        &lt;!&ndash; END Submit &ndash;&gt;
-
-
-    </main>-->
-    <!-- END Main container -->
-
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.resume.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.resume.id" readonly />
+                   ng-model="vm.resume.id" readonly />
         </div>
         <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.resume)" ngf-pattern="'image/*'">
             <label class="control-label" translate="internShippingApp.resume.image" for="field_image">Image</label>
@@ -551,19 +30,19 @@
                 </button>
             </div>
             <input type="hidden" class="form-control" name="image" id="field_image"
-                    ng-model="vm.resume.image"
-                     />
+                   ng-model="vm.resume.image"
+            />
             <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
-                    ng-model="vm.resume.imageContentType" />
+                   ng-model="vm.resume.imageContentType" />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.resume.name"
-                    required />
+                   ng-model="vm.resume.name"
+                   required />
             <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
@@ -571,14 +50,14 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.title" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
-                    ng-model="vm.resume.title"
-                     />
+                   ng-model="vm.resume.title"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.overview" for="field_overview">Overview</label>
             <input type="text" class="form-control" name="overview" id="field_overview"
-                    ng-model="vm.resume.overview"
-                     />
+                   ng-model="vm.resume.overview"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.education" for="field_education">Education</label>
@@ -597,11 +76,11 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.faculty" for="field_faculty">Faculty</label>
             <input type="text" class="form-control" name="faculty" id="field_faculty"
-                    ng-model="vm.resume.faculty"
-                    required />
+                   ng-model="vm.resume.faculty"
+                   required />
             <div ng-show="editForm.faculty.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.faculty.$error.required" translate="entity.validation.required">
+                   ng-show="editForm.faculty.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
@@ -609,11 +88,11 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.enrollmentYear" for="field_enrollmentYear">Enrollment Year</label>
             <input type="text" class="form-control" name="enrollmentYear" id="field_enrollmentYear"
-                    ng-model="vm.resume.enrollmentYear"
-                    required />
+                   ng-model="vm.resume.enrollmentYear"
+                   required />
             <div ng-show="editForm.enrollmentYear.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.enrollmentYear.$error.required" translate="entity.validation.required">
+                   ng-show="editForm.enrollmentYear.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
@@ -621,30 +100,30 @@
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.location" for="field_location">Location</label>
             <input type="text" class="form-control" name="location" id="field_location"
-                    ng-model="vm.resume.location"
-                     />
+                   ng-model="vm.resume.location"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.contactEmail" for="field_contactEmail">Contact Email</label>
             <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
-                    ng-model="vm.resume.contactEmail"
-                     />
+                   ng-model="vm.resume.contactEmail"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.birthDate" for="field_birthDate">Birth Date</label>
-                <div class="input-group">
-                    <input id="field_birthDate" type="text" class="form-control" name="birthDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.resume.birthDate" is-open="vm.datePickerOpenStatus.birthDate"
-                    />
-                    <span class="input-group-btn">
+            <div class="input-group">
+                <input id="field_birthDate" type="text" class="form-control" name="birthDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.resume.birthDate" is-open="vm.datePickerOpenStatus.birthDate"
+                />
+                <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthDate')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
-                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.jsonResume" for="field_jsonResume">Json Resume</label>
             <input type="text" class="form-control" name="jsonResume" id="field_jsonResume"
-                    ng-model="vm.resume.jsonResume"
-                     />
+                   ng-model="vm.resume.jsonResume"
+            />
         </div>
         <div class="form-group" ngf-drop ngf-change="vm.setCvFile($file, vm.resume)">
             <label class="control-label" translate="internShippingApp.resume.cvFile" for="field_cvFile">Cv File</label>
@@ -663,34 +142,34 @@
                 </button>
             </div>
             <input type="hidden" class="form-control" name="cvFile" id="field_cvFile"
-                    ng-model="vm.resume.cvFile"
-                     />
+                   ng-model="vm.resume.cvFile"
+            />
             <input type="hidden" class="form-control" name="cvFileContentType" id="field_cvFileContentType"
-                    ng-model="vm.resume.cvFileContentType" />
+                   ng-model="vm.resume.cvFileContentType" />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.cvFileContent" for="field_cvFileContent">Cv File Content</label>
             <input type="text" class="form-control" name="cvFileContent" id="field_cvFileContent"
-                    ng-model="vm.resume.cvFileContent"
-                     />
+                   ng-model="vm.resume.cvFileContent"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.receiveJobAlerts" for="field_receiveJobAlerts">Receive Job Alerts</label>
             <input type="checkbox" class="form-control" name="receiveJobAlerts" id="field_receiveJobAlerts"
-                    ng-model="vm.resume.receiveJobAlerts"
-                     />
+                   ng-model="vm.resume.receiveJobAlerts"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.socialLinkedin" for="field_socialLinkedin">Social Linkedin</label>
             <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
-                    ng-model="vm.resume.socialLinkedin"
-                     />
+                   ng-model="vm.resume.socialLinkedin"
+            />
         </div>
         <div class="form-group">
             <label class="control-label" translate="internShippingApp.resume.representativeSkills" for="field_representativeSkills">Representative Skills</label>
             <input type="text" class="form-control" name="representativeSkills" id="field_representativeSkills"
-                    ng-model="vm.resume.representativeSkills"
-                     />
+                   ng-model="vm.resume.representativeSkills"
+            />
         </div>
 
         <div class="form-group">

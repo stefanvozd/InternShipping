@@ -129,12 +129,12 @@
                     controller: 'ApplicationDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
-                    size: 'lg',
+                    size: 'xlg',
                     resolve: {
                         entity: function () {
                             return {
                                 marked: null,
-                                id: null
+                                id: null,
                             };
                         }
                     }
@@ -169,7 +169,35 @@
                     $state.go('^');
                 });
             }]
-        })
+        }).state('application.apply', {
+                parent: 'job',
+                url: '/{id}/apply',
+                data: {
+                    authorities: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'app/entities/application/application-dialog.html',
+                        controller: 'ApplicationDialogController',
+                        controllerAs: 'vm',
+                        backdrop: 'static',
+                        size: 'xlg',
+                        resolve: {
+                            entity: function () {
+                                return {
+                                    marked: null,
+                                    id: null,
+                                    jobId: parseInt($stateParams.id)
+                                };
+                            }
+                        }
+                    }).result.then(function() {
+                        $state.go('application', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    });
+                }]
+         })
         .state('application.delete', {
             parent: 'application',
             url: '/{id}/delete',
