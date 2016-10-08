@@ -9,12 +9,12 @@ import java.util.List;
 /**
  * Mapper for the entity Company and its DTO CompanyDTO.
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class, })
+@Mapper(componentModel = "spring", uses = {UserMapper.class, JobMapper.class})
+
 public interface CompanyMapper {
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "user.login", target = "userLogin")
-    //@Mapping(source = "company.openPosition", target = "openPosition")
     CompanyDTO companyToCompanyDTO(Company company);
 
     List<CompanyDTO> companiesToCompanyDTOs(List<Company> companies);
