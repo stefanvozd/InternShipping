@@ -1,9 +1,11 @@
 package rs.eestec.internshipping.web.rest.dto;
 
+import rs.eestec.internshipping.domain.Job;
+
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Lob;
 
@@ -52,12 +54,10 @@ public class CompanyDTO implements Serializable {
 
     private String address;
 
-
     private Long userId;
 
-    private int openPosition;
-
     private String userLogin;
+
 
     public Long getId() {
         return id;
@@ -68,14 +68,6 @@ public class CompanyDTO implements Serializable {
     }
     public byte[] getLogo() {
         return logo;
-    }
-
-    public int getOpenPosition() {
-        return openPosition;
-    }
-
-    public void setOpenPosition(int openPosition) {
-        this.openPosition = openPosition;
     }
 
     public void setLogo(byte[] logo) {
@@ -196,6 +188,15 @@ public class CompanyDTO implements Serializable {
         this.userId = userId;
     }
 
+    private List<Job> jobs = new ArrayList<Job>();
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     public String getUserLogin() {
         return userLogin;

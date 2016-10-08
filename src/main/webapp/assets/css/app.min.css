@@ -7010,6 +7010,19 @@ button.close {
     }
 }
 
+@media (min-width:992px) {
+    .modal-xlg {
+        width: 1200px;
+    }
+}
+
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+
 .tooltip {
     position: absolute;
     z-index: 1070;

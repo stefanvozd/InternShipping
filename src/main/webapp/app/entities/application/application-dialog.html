@@ -1,13 +1,66 @@
+<div class="container no-shadow">
+    <h1 class="text-center">Apply for the job</h1>
+    <p class="lead text-center">Apply with your online resume, create new resume for the job, or make a custom application.</p>
+    <p> <jhi-alert-error></jhi-alert-error> </p>
+    <hr>
+    <form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <!-- Job detail -->
+    <a class="item-block item-block-flat" href="job-detail.html" ng-repeat="job in vm.jobs | filter:{id: vm.application.jobId}">
+        <header>
+            <img ng-show="job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
+            <img ng-show="job.companyLogo != null" data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/>
+            <div class="hgroup">
+                <h4>{{job.title}}</h4>
+                <h5>{{job.companyName}}</h5>
+            </div>
+            <div class="header-meta">
+                <span class="location">{{job.location}}</span>
+                <time datetime="2016-03-10 20:00">34 min ago</time>
+            </div>
+        </header>
+    </a>
+    <!-- END Job detail -->
+
+        <div class="form-group hidden">
+            <label for="field_job">Job</label>
+            <select class="form-control" id="field_job" name="job" ng-model="vm.application.jobId" ng-options="job.id as job.title for job in vm.jobs"            >
+                <option value=""></option>
+            </select>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px; padding-left: 44px; padding-right: 44px">
+            <label for="field_resume">Resume  </label>
+            <select class="form-control" id="field_resume" name="resume" ng-init="vm.application.resumeId = {id:  parseInt(vm.resumes[0].id) }" ng-model="vm.application.resumeId"
+                    ng-options="resume.id as resume.name for resume in vm.resumes">
+                <option value=""></option>
+            </select>
+        </div>
+
+    <div style="margin-top: 40px; margin-bottom: 20px; margin-right: 44px" class="button-group pull-right">
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span>Apply with a resume</span>
+        </button>
+    </div>
+
+    </form>
+
+</div>
+
+
+<!--
+
 
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myApplicationLabel" translate="internShippingApp.application.home.createOrEditLabel">Create or edit a Application</h4>
+        <h4 class="modal-title" id="myApplicationLabel" >Apply</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
+&lt;!&ndash;
         <div class="form-group" ng-show="vm.application.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
@@ -18,16 +71,16 @@
             <input type="checkbox" class="form-control" name="marked" id="field_marked"
                     ng-model="vm.application.marked"
                      />
-        </div>
+        </div>&ndash;&gt;
 
         <div class="form-group">
-            <label translate="internShippingApp.application.resume" for="field_resume">Resume</label>
+            <label for="field_resume">Resume</label>
             <select class="form-control" id="field_resume" name="resume" ng-model="vm.application.resumeId" ng-options="resume.id as resume.name for resume in vm.resumes"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="internShippingApp.application.job" for="field_job">Job</label>
+            <label for="field_job">Job</label>
             <select class="form-control" id="field_job" name="job" ng-model="vm.application.jobId" ng-options="job.id as job.title for job in vm.jobs"            >
                 <option value=""></option>
             </select>
@@ -35,10 +88,11 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>
+-->

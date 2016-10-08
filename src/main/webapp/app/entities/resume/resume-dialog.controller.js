@@ -5,9 +5,9 @@
         .module('internShippingApp')
         .controller('ResumeDialogController', ResumeDialogController);
 
-    ResumeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Resume', 'User', 'Application'];
+    ResumeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$q', 'DataUtils', 'entity', 'Resume', 'User', 'Application'];
 
-    function ResumeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Resume, User, Application) {
+    function ResumeDialogController ($timeout, $scope, $stateParams, $q, DataUtils, entity, Resume, User, Application) {
         var vm = this;
 
         vm.resume = entity;
@@ -25,7 +25,6 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
         }
 
         function save () {
@@ -39,7 +38,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('internShippingApp:resumeUpdate', result);
-            $uibModalInstance.close(result);
+            $location.url("company");
             vm.isSaving = false;
         }
 
