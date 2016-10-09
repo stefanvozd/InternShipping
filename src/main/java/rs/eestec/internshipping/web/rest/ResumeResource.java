@@ -160,10 +160,10 @@ public class ResumeResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<ResumeDTO>> getResumesForJobId(Pageable pageable,@PathVariable Long id)
+    public ResponseEntity<List<ResumeDTO>> getResumesForJobId(Pageable pageable,@PathVariable String id)
         throws URISyntaxException {
         log.debug("REST request to get a page of Resumes");
-        Page<Resume> page = resumeService.getResumesForJobId(pageable,id);
+        Page<Resume> page = resumeService.getResumesForJobId(pageable,Long.parseLong(id));
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/resumes");
         return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
     }
