@@ -8,8 +8,7 @@
     ResumesJob.$inject = ['$resource'];
 
     function ResumesJob($resource) {
-        var resourceUrl =  'api/resumes/job/:id';
-
+        var resourceUrl =  'api/job/:id/resumes';
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true}
         });

@@ -156,7 +156,7 @@ public class ResumeResource {
      * @return the ResponseEntity with status 200 (OK) and the list of resumes in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
-    @RequestMapping(value = "/resumes/job/{id}",
+    @RequestMapping(value = "/job/{id}/resumes",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed

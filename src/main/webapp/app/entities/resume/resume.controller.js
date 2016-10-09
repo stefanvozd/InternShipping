@@ -34,11 +34,12 @@
                  }, onSuccess, onError);
         		 return;
         	}
-            if($state.$current.name == "resumes-job"){
+            if($state.$current.name == "resumes-for-job"){
                 ResumesJob.query({
                     page: pagingParams.page - 1,
                     size: vm.itemsPerPage,
-                    sort: sort()
+                    sort: sort(),
+                    id: $state.params.id
                 }, onSuccess, onError);
                 return;
             }
