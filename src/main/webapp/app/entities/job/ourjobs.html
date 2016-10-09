@@ -1,12 +1,35 @@
- <!-- Site header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
-      <div class="container no-shadow">
-        <h1 class="text-center">Jobs</h1>
-        <p class="lead text-center">That you posted.</p>
-      </div>
+<!-- Page header -->
+<header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+    <div class="container page-name">
+        <h1 class="text-center">Your Jobs</h1>
+        <p class="lead text-center">Find a perfect candidate</p>
+    </div>
 
-    </header>
-    <!-- END Site header -->
+    <div class="container">
+        <form  name="searchForm">
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-12">
+
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.job.home.search' | translate }}">
+                </div>
+
+            </div>
+
+            <div class="button-group">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" ng-click="vm.search(vm.searchQuery)">Search</button>
+                    <button class="btn btn-primary pull-left" ui-sref="job.new">Post new job</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</header>
+<!-- END Page header -->
+
 
     <div class="container">
 
@@ -16,12 +39,7 @@
 
             <section class="no-padding-top bg-alt">
                 <div class="col-xs-12 no-padding-right">
-                <button class="btn btn-primary " ui-sref="job.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs"  translate="internShippingApp.job.home.createLabel">
-                        Create new Job
-                    </span>
-                </button>
+
                 </div>
 
                 <div class="container">

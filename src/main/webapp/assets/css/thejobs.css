@@ -2315,9 +2315,8 @@ dl.icon-holder dd {
 }
 
 .item-block {
-    margin: 30px 15px 0 15px;
+    margin: 0px 15px 25px 15px;
     display: block;
-    margin-top: 30px;
     background-color: #fff;
     border: 1px solid #eee;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
