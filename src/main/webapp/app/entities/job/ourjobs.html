@@ -30,12 +30,12 @@
 
                         <!-- Job detail -->
                         <div class="col-xs-12" ng-repeat="job in vm.jobs track by job.id">
-                            <div class="item-block" ui-sref="job-detail({id:job.id})">
+                            <div class="item-block">
                                 <header>
                                     <img ng-show="job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
                                     <a ng-show="job.companyLogo != null" ui-sref="company-detail({id:job.companyId})"><img data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/></a>
                                     <div class="hgroup">
-                                        <h4><a>{{job.title}}</a></h4>
+                                        <h4><a  ui-sref="job-detail({id:job.id})" >{{job.title}}</a></h4>
                                         <h5><a ui-sref="company-detail({id:job.companyId})">{{job.companyName}}</a> <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
                                     </div>
                                     <div class="header-meta">
@@ -46,10 +46,9 @@
 
                                 <footer>
 
-                                    <p class="status"><strong>Status:</strong> Pending approval</p>
-
+                                    <p class="status"><strong><a ui-sref="resumes-for-job({id:job.id})"><span class="glyphicon glyphicon-user"> </span> 14 candidates applied</a></strong></p>
+                                    <p class="status" style="margin-left: 15px"><strong>Expires: </strong>{{job.activeUntil}}</p>
                                     <div class="action-btn">
-                                        <a class="btn btn-xs btn-success"  ui-sref="job-detail({id:job.id})">Browse resume</a>
                                         <a class="btn btn-xs btn-gray" href="#">Edit</a>
                                         <a class="btn btn-xs btn-danger" href="#">Deactivate</a>
                                     </div>
