@@ -5,9 +5,9 @@
         .module('internShippingApp')
         .controller('JobController', JobController);
 
-    JobController.$inject = ['$scope', '$state', 'Job', 'JobSearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'OurJobs'];
+    JobController.$inject = ['$scope', '$state', 'Job', 'JobSearch', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'OurJobs' , 'JobsApplied'];
 
-    function JobController ($scope, $state, Job, JobSearch, ParseLinks, AlertService, pagingParams, paginationConstants, OurJobs) {
+    function JobController ($scope, $state, Job, JobSearch, ParseLinks, AlertService, pagingParams, paginationConstants, OurJobs, JobsApplied) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -26,6 +26,14 @@
         function loadAll () {
             if($state.$current.name == "ourjobs"){
                 OurJobs.query({
+                    page: pagingParams.page - 1,
+                    size: vm.itemsPerPage,
+                    sort: sort()
+                }, onSuccess, onError);
+                return;
+            }
+            if($state.$current.name == "jobsapplied"){
+                JobsApplied.query({
                     page: pagingParams.page - 1,
                     size: vm.itemsPerPage,
                     sort: sort()

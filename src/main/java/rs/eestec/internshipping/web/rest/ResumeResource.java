@@ -37,13 +37,13 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class ResumeResource {
 
     private final Logger log = LoggerFactory.getLogger(ResumeResource.class);
-        
+
     @Inject
     private ResumeService resumeService;
-    
+
     @Inject
     private ResumeMapper resumeMapper;
-    
+
     /**
      * POST  /resumes : Create a new resume.
      *
@@ -104,12 +104,12 @@ public class ResumeResource {
     public ResponseEntity<List<ResumeDTO>> getAllResumes(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Resumes");
-        Page<Resume> page = resumeService.findAll(pageable); 
+        Page<Resume> page = resumeService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/resumes");
         return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
     }
-    
-    
+
+
     /**
      * GET  /resumes : get all the resumes.
      *
@@ -124,7 +124,7 @@ public class ResumeResource {
     public ResponseEntity<List<ResumeDTO>> getCurrentUserResume(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of current user Resume");
-        Page<Resume> page = resumeService.findCurrentUserResume(pageable); 
+        Page<Resume> page = resumeService.findCurrentUserResume(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/myresume");
         return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
     }
@@ -148,6 +148,26 @@ public class ResumeResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    /**
+     * GET  /resumes/job/{id} : get all the resumes applied for job id.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of resumes in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @RequestMapping(value = "/job/{id}/resumes",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<ResumeDTO>> getResumesForJobId(Pageable pageable,@PathVariable String id)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Resumes");
+        Page<Resume> page = resumeService.getResumesForJobId(pageable,Long.parseLong(id));
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/resumes");
+        return new ResponseEntity<>(resumeMapper.resumesToResumeDTOs(page.getContent()), headers, HttpStatus.OK);
+    }
+
 
     /**
      * DELETE  /resumes/:id : delete the "id" resume.

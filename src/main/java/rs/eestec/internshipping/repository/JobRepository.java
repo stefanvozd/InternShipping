@@ -14,14 +14,17 @@ import java.util.List;
  * Spring Data JPA repository for the Job entity.
  */
 @SuppressWarnings("unused")
-public interface JobRepository extends JpaRepository<Job,Long> {
-
+public interface JobRepository extends JpaRepository<Job, Long> {
+    
     @Query("select job from Job job where job.company.id = (select company from Company company where company.user.login = ?#{principal.username})")
     Page<Job> findAllOurJobs(Pageable pageable);
 
     @Query("select count(j) FROM Job j WHERE j.company.id=?1")
     Long countJobsByCompany(Long companyId);
 
-  //  @Query("select count(u) from Job u where u.firstname = ?1")
-   // Long countWithFirstname(String firstname);
+    @Query("select job from Application app where app.resume.id in (select id from Resume resume where resume.user.login = ?#{principal.username})")
+    Page<Job> allJobsApplyedTo(Pageable pageable);
 }
+
+
+

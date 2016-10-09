@@ -129,6 +129,29 @@ public class JobResource {
         return new ResponseEntity<>(jobMapper.jobsToJobDTOs(page.getContent()), headers, HttpStatus.OK);
     }
 
+
+    /**
+     * GET  /ourjobs : get all our jobs.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of jobs in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
+     */
+    @RequestMapping(value = "/jobs/applied",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<JobDTO>> allJobsApplyedTo(Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get a page of Jobs");
+        Page<Job> page = jobService.allJobsApplyedTo(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/jobs");
+        return new ResponseEntity<>(jobMapper.jobsToJobDTOs(page.getContent()), headers, HttpStatus.OK);
+    }
+
+
+
+
     /**
      * GET  /jobs/:id : get the "id" job.
      *

@@ -120,6 +120,49 @@
                 }]
             }
         })
+            .state('resumes-for-job', {
+                parent: 'entity',
+                url: '/job/{id}/resumes',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'internShippingApp.resume.home.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/resume/resumes.html',
+                        controller: 'ResumeController',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', 'ResumesJob', function ($stateParams, PaginationUtil, ResumesJob) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('resume');
+                        $translatePartialLoader.addPart('education');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            })
         .state('resume.new', {
             parent: 'resume',
             url: '/new',
