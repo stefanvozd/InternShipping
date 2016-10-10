@@ -1,70 +1,41 @@
-<!-- Site header -->
-<header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
-    <div class="container no-shadow">
+<!-- Page header -->
+<header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+    <div class="container page-name">
         <h1 class="text-center" translate="internShippingApp.resume.home.title">Resumes</h1>
         <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
+    </div>
 
+    <div class="container">
+        <form  name="searchForm">
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-12">
+
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'internShippingApp.resume.home.search' | translate }}">
+                </div>
+
+            </div>
+
+            <div class="button-group">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" ng-click="vm.search(vm.searchQuery)">Search</button>
+                    <button class="btn btn-primary pull-left" ui-sref="resume.new">Create new</button>
+                </div>
+            </div>
+
+        </form>
 
     </div>
+
 </header>
-<!-- END Site header -->
+<!-- END Page header -->
+
 
 <div class="container">
 
 
     <div>
         <jhi-alert></jhi-alert>
-        <div class="container-fluid">
-
-            <div class="row">
-
-                <div class="col-xs-12 no-padding-right">
-                    <form class="header-job-search ng-pristine ng-valid" name="searchForm">
-                        <div class="input-keyword">
-                            <input ng-model="vm.searchQuery" id="searchQuery" type="text" class="form-control"
-                                   placeholder="Skills, education, faculty ">
-                        </div>
-
-                        <div class="btn-search" >
-                            <button class="btn btn-info " ng-click="vm.search(vm.searchQuery)">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </div>
-                    </form>
-
-    <!--                <form name="searchForm" class="form-inline">
-                        <div class="input-group pull-right">
-                            <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
-                                   placeholder="{{ 'internShippingApp.resume.home.search' | translate }}">
-                            <span class="input-group-btn width-min">
-                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
-                            <button class="btn btn-info" ng-click="vm.clear()">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </span>
-                        </div>
-                    </form>-->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-4 no-padding-left">
-                    <button class="btn btn-primary" ui-sref="resume.new" style="margin-top: 15px" >
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <span class="hidden-xs">
-                        Create new Resume
-                    </span>
-                    </button>
-                </div>
-
-            </div>
-
-
-        </div>
         <br/>
         <div class="table-responsive">
            <!-- <table class="jh-table table table-striped">
