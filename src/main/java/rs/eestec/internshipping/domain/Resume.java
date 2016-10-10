@@ -78,6 +78,7 @@ public class Resume implements Serializable {
     @Column(name = "cv_file_content_type")
     private String cvFileContentType;
 
+    @JsonIgnore
     @Column(name = "cv_file_content")
     private String cvFileContent;
 
