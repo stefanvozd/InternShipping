@@ -2,10 +2,7 @@ package rs.eestec.internshipping.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import rs.eestec.internshipping.domain.Resume;
-import rs.eestec.internshipping.domain.User;
-import rs.eestec.internshipping.security.SecurityUtils;
 import rs.eestec.internshipping.service.ResumeService;
-import rs.eestec.internshipping.service.UserService;
 import rs.eestec.internshipping.web.rest.util.HeaderUtil;
 import rs.eestec.internshipping.web.rest.util.PaginationUtil;
 import rs.eestec.internshipping.web.rest.dto.ResumeDTO;
@@ -42,9 +39,6 @@ public class ResumeResource {
     private final Logger log = LoggerFactory.getLogger(ResumeResource.class);
 
     @Inject
-    private UserService userService;
-
-    @Inject
     private ResumeService resumeService;
 
     @Inject
@@ -66,12 +60,6 @@ public class ResumeResource {
         if (resumeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("resume", "idexists", "A new resume cannot already have an ID")).body(null);
         }
-
-        /* CurrentUser */
-        resumeDTO.setUserLogin(SecurityUtils.getCurrentUserLogin());
-        Optional<User> activeUser = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
-        resumeDTO.setUserId( activeUser.get().getId() );
-
         ResumeDTO result = resumeService.save(resumeDTO);
         return ResponseEntity.created(new URI("/api/resumes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("resume", result.getId().toString()))
