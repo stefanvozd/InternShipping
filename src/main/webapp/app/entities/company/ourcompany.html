@@ -29,7 +29,7 @@
 
                     <!-- Company detail -->
                     <div class="col-xs-12" ng-repeat="company in vm.companies track by company.id">
-                        <a class="item-block" ui-sref="company-detail({id:company.id})">
+                        <a class="item-block">
                             <header>
                                 <img ng-show="company.logo == null" src="assets/img/logo-unknown.jpg" alt="">
                                 <img ng-show="company.logo != null" data-ng-src="{{'data:' + company.logoContentType + ';base64,' + company.logo}}" style="max-height: 60 px;"/>
@@ -38,7 +38,15 @@
                                     <h5>{{company.domain}}</h5>
                                 </div>
 
+
+
                                 <div class="action-btn">
+                                    <button type="submit"
+                                            ui-sref="company-detail({id:company.id})"
+                                            class="btn btn-xs btn-warning">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                        <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                                    </button>
                                     <button type="submit"
                                             ui-sref="company.edit({id:company.id})"
                                             class="btn btn-xs btn-primary">

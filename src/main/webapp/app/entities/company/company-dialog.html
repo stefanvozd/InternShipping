@@ -14,37 +14,40 @@
               <div class="row">
 
                   <div class="col-xs-12 col-sm-4 col-lg-2">
-                  <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.company)" ngf-pattern="'image/*'">
-                      <label class="control-label" translate="internShippingApp.company.logo" for="field_logo">Logo</label>
-                      <div>
-                          <img data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" style="max-height: 100px;" ng-if="vm.company.logo"/>
-                          <div ng-if="vm.company.logo" class="help-block clearfix">
-                              <span class="pull-left">{{vm.company.logoContentType}}, {{vm.byteSize(vm.company.logo)}}</span>
-                              <button ng-click="vm.company.logo=null;vm.company.logoContentType=null;"
-                                      class="btn btn-default btn-xs pull-right">
-                                  <span class="glyphicon glyphicon-remove"></span>
+
+                      <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.company)" ngf-pattern="'image/*'">
+                          <label class="control-label" translate="internShippingApp.company.logo" for="field_logo">Logo</label>
+                          <div>
+                              <img data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" style="max-height: 100px;" ng-if="vm.company.logo"/>
+                              <div ng-if="vm.company.logo" class="help-block clearfix">
+                                  <span class="pull-left">{{vm.company.logoContentType}}, {{vm.byteSize(vm.company.logo)}}</span>
+                                  <button ng-click="vm.company.logo=null;vm.company.logoContentType=null;"
+                                          class="btn btn-default btn-xs pull-right">
+                                      <span class="glyphicon glyphicon-remove"></span>
+                                  </button>
+                              </div>
+                              <button type="file" ngf-select class="btn btn-default btn-block"
+                                      ngf-change="vm.setLogo($file, vm.company)" accept="image/*" translate="entity.action.addimage">
+                                  Add image
                               </button>
                           </div>
-                          <button type="file" ngf-select class="btn btn-default btn-block"
-                                  ngf-change="vm.setLogo($file, vm.company)" accept="image/*" translate="entity.action.addimage">
-                              Add image
-                          </button>
+                          <input type="hidden" class="form-control" name="logo" id="field_logo"
+                                 ng-model="vm.company.logo"
+                          />
+                          <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                                 ng-model="vm.company.logoContentType" />
                       </div>
-                      <input type="hidden" class="form-control" name="logo" id="field_logo"
-                             ng-model="vm.company.logo"
-                      />
-                      <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
-                             ng-model="vm.company.logoContentType" />
-                  </div>
+
+
+                    <!--  <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.company)" ngf-pattern="'image/*'">
+                              <input type="file" ng-model="vm.company.logo" ngf-change="vm.setLogo($file, vm.company)" class="dropify" data-default-file="assets/img/logo-default.png" data-ng-src="{{'data:' + vm.company.logoContentType + ';base64,' + vm.company.logo}}" >
+                              <span class="help-block">A square logo</span>
+                          </div>
+-->
+
                   </div>
 
 
- <!--               <div class="col-xs-12 col-sm-4 col-lg-2">
-                  <div class="form-group">
-                    <input type="file" ngf-change="vm.setLogo($file, vm.company)" class="dropify" data-default-file="assets/img/logo-default.png">
-                    <span class="help-block">A square logo</span>
-                  </div>
-                </div>-->
 
 
 
@@ -242,7 +245,7 @@
               <p>Write about your company, culture, benefits of working there, etc.</p>
             </header>
 
-            <textarea class="summernote-editor"></textarea>
+              <text-angular ng-model="vm.company.longDescription"></text-angular>
 
           </div>
         </section>
