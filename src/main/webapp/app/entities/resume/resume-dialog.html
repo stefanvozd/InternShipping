@@ -1,3 +1,670 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <!-- Page header -->
+    <header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+
+
+        <div class="container page-name">
+            <h1 class="text-center">Fill your profile</h1>
+            <p class="lead text-center">Upload or create your resume.</p>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                <!-- <div class="form-group">
+                        <input type="file" class="dropify" data-default-file="assets/img/avatar.jpg">
+                        <span class="help-block">Please choose a 4:6 profile picture.</span>
+                </div>-->
+                    <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.resume)" ngf-pattern="'image/*'">
+                       <!-- <label class="control-label" translate="internShippingApp.resume.image" for="field_image">Image</label>-->
+                        <div>
+                            <img data-ng-src="{{'data:' + vm.resume.imageContentType + ';base64,' + vm.resume.image}}" style="max-height: 100px;" ng-if="vm.resume.image"/>
+                            <div ng-if="vm.resume.image" class="help-block clearfix">
+                                <span class="pull-left">{{vm.resume.imageContentType}}, {{vm.byteSize(vm.resume.image)}}</span>
+                                <button ng-click="vm.resume.image=null;vm.resume.imageContentType=null;"
+                                        class="btn btn-default btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                            <button type="file" ngf-select class="btn btn-default btn-block"
+                                    ngf-change="vm.setImage($file, vm.resume)" accept="image/*" translate="entity.action.addimage">
+                                Add image
+                            </button>
+                        </div>
+                        <input type="hidden" class="form-control" name="image" id="field_image"
+                               ng-model="vm.resume.image"
+                        />
+                        <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                               ng-model="vm.resume.imageContentType" />
+                    </div>
+
+                    <div class="form-group" ngf-drop ngf-change="vm.setCvFile($file, vm.resume)">
+                        <div>
+                            <div ng-if="vm.resume.cvFile" class="help-block clearfix">
+                                <a class="pull-left" ng-click="vm.openFile(vm.resume.cvFileContentType, vm.resume.cvFile)" translate="entity.action.open">open</a><br>
+                                <span class="pull-left">{{vm.resume.cvFileContentType}}, {{vm.byteSize(vm.resume.cvFile)}}</span>
+                                <button ng-click="vm.resume.cvFile=null;vm.resume.cvFileContentType=null;"
+                                        class="btn btn-default btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                            <button type="file" ngf-select class="btn btn-primary btn-block"
+                                    ngf-change="vm.setCvFile($file, vm.resume)">
+                                <span class="glyphicon glyphicon-upload"></span>&nbsp;<span>Upload CV</span>
+                            </button>
+                        </div>
+                        <input type="hidden" class="form-control" name="cvFile" id="field_cvFile"
+                               ng-model="vm.resume.cvFile"
+                        />
+                        <input type="hidden" class="form-control" name="cvFileContentType" id="field_cvFileContentType"
+                               ng-model="vm.resume.cvFileContentType" />
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-xs-12 col-sm-8">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group" ng-show="vm.resume.id">
+                        <label for="id" translate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id"
+                               ng-model="vm.resume.id" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="field_name"
+                               ng-model="vm.resume.name"
+                               required
+                        placeholder="Name *"/>
+                        <div ng-show="editForm.name.$invalid">
+                            <!--<p class="help-block"
+                               ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                                This field is required.
+                            </p>-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title" id="field_title"
+                               ng-model="vm.resume.title"
+                               placeholder="Headline (e.g. Front-end developer)"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" name="overview" id="field_overview"
+                               ng-model="vm.resume.overview"
+                               rows="3"
+                               placeholder="Short description about you"
+                        ></textarea>
+                    </div>
+
+                    <hr class="hr-lg">
+
+                    <h6>Basic information</h6>
+                    <div class="row">
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-book"></i></span>
+                                <select class="form-control" name="education" ng-model="vm.resume.education" id="field_education">
+                                    <option value="" disabled selected>Education</option>
+                                    <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE_STUDENT</option>
+                                    <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR_STUDENT</option>
+                                    <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER_STUDENT</option>
+                                    <option value="DOCTORAL_STUDENT" translate="internShippingApp.Education.DOCTORAL_STUDENT">DOCTORAL_STUDENT</option>
+                                    <option value="ASSOCIATE_DEGREE" translate="internShippingApp.Education.ASSOCIATE_DEGREE">ASSOCIATE_DEGREE</option>
+                                    <option value="BACHELOR_DEGREE" translate="internShippingApp.Education.BACHELOR_DEGREE">BACHELOR_DEGREE</option>
+                                    <option value="MASTER_DEGREE" translate="internShippingApp.Education.MASTER_DEGREE">MASTER_DEGREE</option>
+                                    <option value="DOCTORAL_DEGREE" translate="internShippingApp.Education.DOCTORAL_DEGREE">DOCTORAL_DEGREE</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-building"></i></span>
+ <!--                               <input type="text" class="form-control" placeholder="Location, e.g. Melon Park, CA">-->
+                                <input type="text" class="form-control" name="faculty" id="field_faculty"
+                                       ng-model="vm.resume.faculty"
+                                       placeholder="Faculty *"
+                                       required />
+                                <!--<div ng-show="editForm.faculty.$invalid">
+                                    <p class="help-block"
+                                       ng-show="editForm.faculty.$error.required" translate="entity.validation.required">
+                                        This field is required.
+                                    </p>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" name="enrollmentYear" id="field_enrollmentYear"
+                                       ng-model="vm.resume.enrollmentYear"
+                                       required
+                                       placeholder="Enrollment year *"/>
+                                <!--<div ng-show="editForm.enrollmentYear.$invalid">
+                                    <p class="help-block"
+                                       ng-show="editForm.enrollmentYear.$error.required" translate="entity.validation.required">
+                                        This field is required.
+                                    </p>
+                                </div>-->
+                            </div>
+                        </div>
+
+
+
+                        <!--<div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
+                                <input id="field_birthDate" type="text" class="form-control" name="birthDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.resume.birthDate" is-open="vm.datePickerOpenStatus.birthDate"
+                                       placeholder="Birth date"/>
+                                <span class="input-group-addon">
+                               <button type="button" style="color:darkgrey" class="btn btn-xs" ng-click="vm.openCalendar('birthDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                           </span>
+                            </div>
+                        </div>-->
+
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                                <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
+                                       ng-model="vm.resume.socialLinkedin" placeholder="Profile URL"
+                                />
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                <input type="text" class="form-control" name="location" id="field_location"
+                                       ng-model="vm.resume.location"
+                                       placeholder="Location"
+                                />
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
+                                       ng-model="vm.resume.contactEmail"
+                                       placeholder="Contact e-mail"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="hr-lg">
+
+                    <h6>Skills</h6>
+                    <div class="form-group">
+                        <input type="text" name="representativeSkills" ng-model="vm.resume.representativeSkills" value="Java C# UML Pyton Hybris C++ Pascal" data-role="tagsinput" placeholder="Skills">
+                        <span class="help-block">Write skill name and press enter</span>
+                    </div>
+
+                   <!-- <div class="form-group">
+                        <label class="control-label" translate="internShippingApp.resume.representativeSkills" for="field_representativeSkills">Representative Skills</label>
+                        <input type="text" class="form-control" name="representativeSkills" id="field_representativeSkills"
+                               ng-model="vm.resume.representativeSkills"
+                        />
+                    </div>-->
+
+
+                </div>
+            </div>
+
+            <div class="button-group">
+                <div class="action-buttons">
+
+                    <div class="upload-button">
+                        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+
+                   <!-- <div class="upload-button">
+                        <button class="btn btn-block btn-gray">Choose a resume file</button>
+                        <input type="file">
+                    </div>
+
+                    <div class="upload-button">
+                        <button class="btn btn-block btn-primary">Choose a cover image</button>
+                        <input id="cover_img_file" type="file">
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END Page header -->
+
+
+    <!-- Main container -->
+    <main>
+
+
+<!--
+         Social media
+        <section>
+            <div class="container">
+
+                <header class="section-header">
+                    <span>Get connected</span>
+                    <h2>Social media</h2>
+                </header>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-dribbble"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pinterest"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-github"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-youtube"></i></span>
+                                <input type="text" class="form-control" placeholder="Profile URL">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+         Social media
+
+
+
+         Education
+        <section class=" bg-alt">
+            <div class="container">
+
+                <header class="section-header">
+                    <span>Latest degrees</span>
+                    <h2>Education</h2>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
+                                            <span class="help-block">Please choose a square logo</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Date from</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2012">
+                                                <span class="input-group-addon">Date to</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2016">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 duplicateable-content">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
+                                            <span class="help-block">Please choose a square logo</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Degree, e.g. Bachelor">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Major, e.g. Computer Science">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Date from</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2012">
+                                                <span class="input-group-addon">Date to</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2016">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 text-center">
+                        <br>
+                        <button class="btn btn-primary btn-duplicator">Add education</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+         END Education
+
+
+         Work Experience
+        <section>
+            <div class="container">
+                <header class="section-header">
+                    <span>Past positions</span>
+                    <h2>Work Experience</h2>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
+                                            <span class="help-block">Please choose a square logo</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Company name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Date from</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2012">
+                                                <span class="input-group-addon">Date to</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2016">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <textarea class="summernote-editor"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 duplicateable-content">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="form-group">
+                                            <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
+                                            <span class="help-block">Please choose a square logo</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Company name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Date from</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2012">
+                                                <span class="input-group-addon">Date to</span>
+                                                <input type="text" class="form-control" placeholder="e.g. 2016">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <textarea class="summernote-editor"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 text-center">
+                        <br>
+                        <button class="btn btn-primary btn-duplicator">Add experience</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+         END Work Experience
+
+
+         Skills
+        <section class=" bg-alt">
+            <div class="container">
+                <header class="section-header">
+                    <span>Expertise Areas</span>
+                    <h2>Skills</h2>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6">
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 duplicateable-content">
+                        <div class="item-block">
+                            <div class="item-form">
+
+                                <button class="btn btn-danger btn-float btn-remove"><i class="ti-close"></i></button>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6">
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 text-center">
+                        <br>
+                        <button class="btn btn-primary btn-duplicator">Add experience</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+         END Skills
+
+
+
+         Submit
+        <section class=" bg-img" >
+            <div class="container">
+                <header class="section-header">
+                    <span>Are you done?</span>
+                    <h2>Submit resume</h2>
+                    <p>Please review your information once more and press the below button to put your resume online.</p>
+                </header>
+
+                <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your resume</button></p>
+
+            </div>
+        </section>
+         END Submit
+-->
+
+
+    </main>
+    <!-- END Main container -->
+
+</form>
+<!--
+
 
 <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
@@ -188,3 +855,4 @@
         </button>
     </div>
 </form>
+-->

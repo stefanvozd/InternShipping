@@ -1,24 +1,29 @@
 package rs.eestec.internshipping.service;
 
+import org.apache.tika.exception.TikaException;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.sax.BodyContentHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.xml.sax.SAXException;
 import rs.eestec.internshipping.domain.Resume;
 import rs.eestec.internshipping.repository.ResumeRepository;
 import rs.eestec.internshipping.repository.search.ResumeSearchRepository;
 import rs.eestec.internshipping.web.rest.dto.ResumeDTO;
 import rs.eestec.internshipping.web.rest.mapper.ResumeMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing Resume.
@@ -47,10 +52,30 @@ public class ResumeService {
     public ResumeDTO save(ResumeDTO resumeDTO) {
         log.debug("Request to save Resume : {}", resumeDTO);
         Resume resume = resumeMapper.resumeDTOToResume(resumeDTO);
+        resume.setCvFileContent(parseToPlainText(resume.getCvFile()));
         resume = resumeRepository.save(resume);
         ResumeDTO result = resumeMapper.resumeToResumeDTO(resume);
         resumeSearchRepository.save(resume);
         return result;
+    }
+
+    public String parseToPlainText(byte[] source) {
+        log.info("Parsing CV file to plain text");
+        AutoDetectParser parser = new AutoDetectParser();
+        BodyContentHandler handler = new BodyContentHandler();
+        Metadata metadata = new Metadata();
+        try (InputStream stream = new ByteArrayInputStream(source)) {
+            parser.parse(stream, handler, metadata);
+            log.info("Done Parsing CV file to plain text");
+            return handler.toString();
+        } catch (IOException e) {
+            log.error(e.getMessage(),e);
+        } catch (SAXException e) {
+            log.error(e.getMessage(),e);
+        } catch (TikaException e) {
+            log.error(e.getMessage(),e);
+        }
+        return "";
     }
 
     /**
