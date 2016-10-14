@@ -1,265 +1,181 @@
-<!--div ng-cloak>
-    <div class="row">
-        <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
-        </div>
-        <div class="col-md-8">
-            <h1 translate="home.title">Welcome, Java Hipster!</h1>
-            <p class="lead" translate="home.subtitle">This is your homepage</p>
-
-            <div ng-switch="vm.isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true" translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
-                    You are logged in as user "{{vm.account.login}}".
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated" translate-compile>
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.register" translate-compile>
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
-                </div>
-            </div>
-
-            <p translate="home.question">
-                If you have any question on JHipster:
-            </p>
-
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank" translate="home.link.homepage">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" translate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" translate="home.link.bugtracker">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" translate="home.link.chat">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank"  translate="home.link.follow">follow @java_hipster on Twitter</a></li>
-            </ul>
-
-            <p>
-             <span translate="home.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" translate="home.github">Github</a>!
-            </p>
-        </div>
-    </div>
-</div-->
-
-    <!-- Site header -->
-    <header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
-      <div class="container">
+<!-- Site header -->
+<header class="site-header size-lg text-center" style="background-image: url(assets/img/bg-banner1.jpg)">
+    <div class="container">
         <div class="col-xs-12">
-          <br><br>
-          <h2>Intern<mark>Shipping</mark></h2>
-          <h5 class="font-alt">Because life's too short for wrong job  count: {{count}}</h5>
-          <br><br><br>
-          <form class="header-job-search" >
-            <div class="input-keyword">
-              <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Job title, skills, or company">
-            </div>
+            <br><br>
+            <h2>Intern
+                <mark>Shipping</mark>
+            </h2>
+            <h5 class="font-alt">Life's too short for wrong job</h5>
+            <br><br><br>
+            <form class="header-job-search">
+                <div class="input-keyword">
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                           placeholder="Job title, skills, or company">
+                </div>
 
-            <div class="btn-search">
-              <button class="btn btn-primary" ng-click="go( 'job', vm.searchQuery );">Find jobs</button>
-              <a ui-sref="job.new" has-authority="ROLE_COMPANY">Or publish new one!</a>
-            </div>
-          </form>
+                <div class="btn-search">
+                    <button class="btn btn-primary" ng-click="go( 'job', vm.searchQuery );">Find jobs</button>
+                    <a ui-sref="job.new" has-authority="ROLE_COMPANY">Or publish new one!</a>
+                </div>
+            </form>
         </div>
 
-      </div>
-    </header>
-    <!-- END Site header -->
+    </div>
+</header>
+<!-- END Site header -->
 
-    <div class="container well">
+<div class="container well">
     <!-- Main container -->
     <main>
 
 
-
-      <!-- Recent jobs -->
-      <section>
-        <div class="container">
-          <header class="section-header">
-            <span>Latest</span>
-            <h2>Recent jobs</h2>
-          </header>
-
-          <div class="row item-blocks-connected">
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
-                <header>
-                  <img src="assets/img/logo-google.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Senior front-end developer</h4>
-                    <h5>Google</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Menlo park, CA</span>
-                    <span class="label label-success">Full-time</span>
-                  </div>
+        <!-- Recent jobs -->
+        <section>
+            <div class="container">
+                <header class="section-header">
+                    <span>Featured </span>
+                    <h2>Companies</h2>
                 </header>
-              </a>
+
+                <div class="row item-blocks-connected">
+
+                    <!-- Job item -->
+                    <div class="col-xs-12">
+                        <a class="item-block" href="job-detail.html">
+                            <header>
+                                <img src="assets/img/logo-google.jpg" alt="">
+                                <div class="hgroup">
+                                    <h4>Senior front-end developer</h4>
+                                    <h5>Google</h5>
+                                </div>
+                                <div class="header-meta">
+                                    <span class="location">Menlo park, CA</span>
+                                    <span class="label label-success">Full-time</span>
+                                </div>
+                            </header>
+                        </a>
+                    </div>
+                    <!-- END Job item -->
+
+                    
+
+                    <!-- Job item -->
+                    <div class="col-xs-12">
+                        <a class="item-block" href="job-detail.html">
+                            <header>
+                                <img src="assets/img/logo-microsoft.jpg" alt="">
+                                <div class="hgroup">
+                                    <h4>Sr. SQL Server Developer</h4>
+                                    <h5>Microsoft</h5>
+                                </div>
+                                <div class="header-meta">
+                                    <span class="location">Palo Alto, CA</span>
+                                    <span class="label label-success">Remote</span>
+                                </div>
+                            </header>
+                        </a>
+                    </div>
+                    <!-- END Job item -->
+
+                </div>
+
+                <br><br>
+                <p class="text-center"><a class="btn btn-info" href="job-list.html">Browse all jobs</a></p>
             </div>
-            <!-- END Job item -->
+        </section>
+        <!-- END Recent jobs -->
 
 
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
-                <header>
-                  <img src="assets/img/logo-linkedin.png" alt="">
-                  <div class="hgroup">
-                    <h4>Software Engineer (Entry or Senior)</h4>
-                    <h5>Linkedin</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Livermore, CA</span>
-                    <span class="label label-warning">Part-time</span>
-                  </div>
-                </header>
-              </a>
+        <!-- Facts -->
+        <section class="bg-img bg-repeat no-overlay section-sm" style="background-image: url(assets/img/jobfairbg.png)">
+            <div class="container">
+
+                <div class="row">
+                    <div class="counter col-sm-12">
+                    <h1><a class="counterh1" target="_blank" href="http://jobfair.rs/">What is Job Fair?</a></h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="counter col-md-3 col-sm-6">
+                        <p><span data-from="0" data-to="16"></span>+</p>
+                        <h6>Years</h6>
+                    </div>
+
+                    <div class="counter col-md-3 col-sm-6">
+                        <p><span data-from="0" data-to="48"></span>+</p>
+                        <h6>Jobs</h6>
+                    </div>
+
+                    <div class="counter col-md-3 col-sm-6">
+                        <p><span data-from="0" data-to="543"></span>+</p>
+                        <h6>Resume</h6>
+                    </div>
+
+                    <div class="counter col-md-3 col-sm-6">
+                        <p><span data-from="0" data-to="37"></span>+</p>
+                        <h6>Company</h6>
+                    </div>
+                </div>
+
             </div>
-            <!-- END Job item -->
+        </section>
+        <!-- END Facts -->
 
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
-                <header>
-                  <img src="assets/img/logo-envato.png" alt="">
-                  <div class="hgroup">
-                    <h4>Full Stack Web Developer</h4>
-                    <h5>Envato</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="label label-info">Freelance</span>
-                  </div>
-                </header>
-              </a>
+
+        <!-- How it works -->
+        <section>
+            <div class="container">
+
+                <div class="col-sm-12 col-md-6">
+                    <header class="section-header text-left">
+                        <span>Workflow</span>
+                        <h2>How it works</h2>
+                    </header>
+
+                    <p class="lead">Pellentesque et pulvinar orci. Suspendisse sed euismod purus. Pellentesque nunc ex,
+                        ultrices eu enim non, consectetur interdum nisl. Nam congue interdum mauris, sed ultrices augue
+                        lacinia in. Praesent turpis purus, faucibus in tempor vel, dictum ac eros.</p>
+                    <p>Nulla quis felis et orci luctus semper sit amet id dui. Aenean ultricies lectus nunc, vel rhoncus
+                        odio sagittis eu. Sed at felis eu tortor mattis imperdiet et sed tortor. Nullam ac porttitor
+                        arcu. Vivamus tristique elit id tempor lacinia. Donec auctor at nibh eget tincidunt. Nulla
+                        facilisi. Nunc condimentum dictum mattis.</p>
+
+
+                    <br><br>
+                    <a class="btn btn-primary" href="page-typography.html">Learn more</a>
+                </div>
+
+                <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
+                    <br>
+                    <img class="center-block" src="assets/img/how-it-works.png" alt="how it works">
+                </div>
+
             </div>
-            <!-- END Job item -->
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
-                <header>
-                  <img src="assets/img/logo-facebook.png" alt="">
-                  <div class="hgroup">
-                    <h4>Web Applications Developer</h4>
-                    <h5>Facebook</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Lexington, MA</span>
-                    <span class="label label-danger">Internship</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
-                <header>
-                  <img src="assets/img/logo-microsoft.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Sr. SQL Server Developer</h4>
-                    <h5>Microsoft</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Palo Alto, CA</span>
-                    <span class="label label-success">Remote</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-          </div>
-
-          <br><br>
-          <p class="text-center"><a class="btn btn-info" href="job-list.html">Browse all jobs</a></p>
-        </div>
-      </section>
-      <!-- END Recent jobs -->
+        </section>
+        <!-- END How it works -->
 
 
-      <!-- Facts -->
-      <section class="bg-img bg-repeat no-overlay section-sm" style="background-image: url(assets/img/bg-pattern.png)">
-        <div class="container">
-
-          <div class="row">
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="6890"></span>+</p>
-              <h6>Jobs</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="1200"></span>+</p>
-              <h6>Members</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="36800"></span>+</p>
-              <h6>Resume</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="15400"></span>+</p>
-              <h6>Company</h6>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!-- END Facts -->
-
-
-      <!-- How it works -->
-      <section>
-        <div class="container">
-
-          <div class="col-sm-12 col-md-6">
-            <header class="section-header text-left">
-              <span>Workflow</span>
-              <h2>How it works</h2>
-            </header>
-
-            <p class="lead">Pellentesque et pulvinar orci. Suspendisse sed euismod purus. Pellentesque nunc ex, ultrices eu enim non, consectetur interdum nisl. Nam congue interdum mauris, sed ultrices augue lacinia in. Praesent turpis purus, faucibus in tempor vel, dictum ac eros.</p>
-            <p>Nulla quis felis et orci luctus semper sit amet id dui. Aenean ultricies lectus nunc, vel rhoncus odio sagittis eu. Sed at felis eu tortor mattis imperdiet et sed tortor. Nullam ac porttitor arcu. Vivamus tristique elit id tempor lacinia. Donec auctor at nibh eget tincidunt. Nulla facilisi. Nunc condimentum dictum mattis.</p>
-
-
-            <br><br>
-            <a class="btn btn-primary" href="page-typography.html">Learn more</a>
-          </div>
-
-          <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
-            <br>
-            <img class="center-block" src="assets/img/how-it-works.png" alt="how it works">
-          </div>
-
-        </div>
-      </section>
-      <!-- END How it works -->
-
-
-
-
-      <!-- Newsletter -->
-      <section class="bg-img text-center" style="background-image: url(assets/img/bg-facts.jpg)">
-        <div class="container">
-          <h2><strong>Subscribe</strong></h2>
-          <h6 class="font-alt">Get weekly top new jobs delivered to your inbox</h6>
-          <br><br>
-          <form class="form-subscribe" action="#">
-            <div class="input-group">
-              <input type="text" class="form-control input-lg" placeholder="Your eamil address">
-              <span class="input-group-btn">
+        <!-- Newsletter -->
+        <section class="bg-img text-center" style="background-image: url(assets/img/bg-facts.jpg)">
+            <div class="container">
+                <h2><strong>Subscribe</strong></h2>
+                <h6 class="font-alt">Get weekly top new jobs delivered to your inbox</h6>
+                <br><br>
+                <form class="form-subscribe" action="#">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg" placeholder="Your eamil address">
+                        <span class="input-group-btn">
                 <button class="btn btn-success btn-lg" type="submit">Subscribe</button>
               </span>
+                    </div>
+                </form>
             </div>
-          </form>
-        </div>
-      </section>
-      <!-- END Newsletter -->
+        </section>
+        <!-- END Newsletter -->
 
 
     </main>
-    </div>
-    <!-- END Main container -->
+</div>
+<!-- END Main container -->

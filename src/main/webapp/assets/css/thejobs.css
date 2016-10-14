@@ -1416,6 +1416,17 @@ dl.icon-holder dd {
     }
 }
 
+
+a.counterh1 {
+ color:white !important;
+}
+
+
+a.counterh1:hover {
+    color: #29aafe!important;
+}
+
+
 .counter {
     text-align: center;
     padding-top: 24px;
@@ -1432,7 +1443,7 @@ dl.icon-holder dd {
     position: relative;
     font-size: 36px;
     margin: 32px 0 52px;
-    color: #373a3c;
+    color: #FFFFFF;
     font-family: Oswald, sans-serif;
     letter-spacing: 3px
 }
