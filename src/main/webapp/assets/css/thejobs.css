@@ -3543,7 +3543,9 @@ section.no-overlay::before {
 .social-icons {
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: none;
+    display: inline-flex;
+
 }
 
 .social-icons li {

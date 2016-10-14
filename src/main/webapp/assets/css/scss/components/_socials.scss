@@ -20,6 +20,10 @@
     }
   }
 
+    button {
+        display: inline-block;
+    }
+
   a {
     background-color: $color-gray-lightest;
     color: $color-gray-light;
