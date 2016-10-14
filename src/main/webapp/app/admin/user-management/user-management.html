@@ -1,11 +1,35 @@
- <!-- Site header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
-      <div class="container no-shadow">
+<!-- Page header -->
+<header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+    <div class="container page-name">
         <h1 class="text-center">Users</h1>
         <p class="lead text-center">Manage you beloved users.</p>
-      </div>
-    </header>
-    <!-- END Site header -->
+    </div>
+
+    <div class="container">
+        <form  name="searchForm">
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-12">
+
+                    <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Find user...">
+                </div>
+
+            </div>
+
+            <div class="button-group">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" ng-click="vm.search(vm.searchQuery)">Search</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</header>
+<!-- END Page header -->
+
+
 
     <div class="container">
 

@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/company?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'internShippingApp.company.home.title'
             },
             views: {
@@ -98,7 +98,7 @@
             parent: 'entity',
             url: '/company/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'internShippingApp.company.detail.title'
             },
             views: {

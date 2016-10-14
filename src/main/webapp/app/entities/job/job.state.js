@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/job?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'internShippingApp.job.home.title'
             },
             views: {
@@ -144,7 +144,7 @@
             parent: 'entity',
             url: '/job/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'internShippingApp.job.detail.title'
             },
             views: {
@@ -171,7 +171,7 @@
             parent: 'job',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_COMPANY']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -211,7 +211,7 @@
             parent: 'job',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_COMPANY']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -236,7 +236,7 @@
             parent: 'job',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_COMPANY']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

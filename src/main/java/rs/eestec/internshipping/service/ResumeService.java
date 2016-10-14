@@ -52,7 +52,10 @@ public class ResumeService {
     public ResumeDTO save(ResumeDTO resumeDTO) {
         log.debug("Request to save Resume : {}", resumeDTO);
         Resume resume = resumeMapper.resumeDTOToResume(resumeDTO);
+
+        if(resume.getCvFile() != null )
         resume.setCvFileContent(parseToPlainText(resume.getCvFile()));
+
         resume = resumeRepository.save(resume);
         ResumeDTO result = resumeMapper.resumeToResumeDTO(resume);
         resumeSearchRepository.save(resume);

@@ -3749,7 +3749,7 @@ section.no-overlay::before {
 }
 
 .login-links {
-    padding: 15px 5px 0;
+    padding: 10px 5px 0;
     font-size: 13px;
     color: #96a2b2
 }
@@ -3761,7 +3761,7 @@ section.no-overlay::before {
 }
 
 .login-links a {
-    color: #96a2b2;
+    color: #f6f7f7;
     opacity: .9
 }
 
