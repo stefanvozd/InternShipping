@@ -45,17 +45,17 @@
       <div class="container">
         <div class="col-xs-12">
           <br><br>
-          <h2>We offer <mark>29</mark> job vacancies right now!</h2>
-          <h5 class="font-alt">Find your desire one in a minute</h5>
+          <h2>Intern<mark>Shipping</mark></h2>
+          <h5 class="font-alt">Because life's too short for wrong job  count: {{count}}</h5>
           <br><br><br>
-          <form class="header-job-search">
+          <form class="header-job-search" >
             <div class="input-keyword">
-              <input type="text" class="form-control" placeholder="Job title, skills, or company">
+              <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Job title, skills, or company">
             </div>
 
             <div class="btn-search">
-              <button class="btn btn-primary" type="submit">Find jobs</button>
-              <!--<a href="job-list.html">Or publish new one!</a>-->
+              <button class="btn btn-primary" ng-click="go( 'job', vm.searchQuery );">Find jobs</button>
+              <a ui-sref="job.new" has-authority="ROLE_COMPANY">Or publish new one!</a>
             </div>
           </form>
         </div>

@@ -5,10 +5,15 @@
         .module('internShippingApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$location', '$scope', 'Principal', 'LoginService', '$state'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($location, $scope, Principal, LoginService, $state) {
         var vm = this;
+
+        $scope.go = function ( path ,search) {
+            console.log(path);
+            $location.path(path).search('sort=_score,desc&search='+search);
+        };
 
         vm.account = null;
         vm.isAuthenticated = null;
