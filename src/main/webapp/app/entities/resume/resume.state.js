@@ -167,7 +167,7 @@
             parent: 'resume',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_CANDIDATE'],
                 pageTitle: 'internShippingApp.company.detail.title'
             },
             views: {
