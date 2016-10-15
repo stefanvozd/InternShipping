@@ -58,7 +58,7 @@ public class ResumeDTO implements Serializable {
 
 
     private Long userId;
-    
+
 
     private String userLogin;
 
@@ -240,22 +240,10 @@ public class ResumeDTO implements Serializable {
     public String toString() {
         return "ResumeDTO{" +
             "id=" + id +
-            ", image='" + image + "'" +
             ", name='" + name + "'" +
             ", title='" + title + "'" +
-            ", overview='" + overview + "'" +
-            ", education='" + education + "'" +
-            ", faculty='" + faculty + "'" +
-            ", enrollmentYear='" + enrollmentYear + "'" +
-            ", location='" + location + "'" +
             ", contactEmail='" + contactEmail + "'" +
             ", birthDate='" + birthDate + "'" +
-            ", jsonResume='" + jsonResume + "'" +
-            ", cvFile='" + cvFile + "'" +
-            ", cvFileContent='" + cvFileContent + "'" +
-            ", receiveJobAlerts='" + receiveJobAlerts + "'" +
-            ", socialLinkedin='" + socialLinkedin + "'" +
-            ", representativeSkills='" + representativeSkills + "'" +
             '}';
     }
 }
