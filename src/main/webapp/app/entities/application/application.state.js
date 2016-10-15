@@ -118,10 +118,10 @@
             }
         })
         .state('application.new', {
-            parent: 'application',
+            parent: 'jobsapplied',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_CANDIDATE']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -139,9 +139,9 @@
                         }
                     }
                 }).result.then(function() {
-                    $state.go('application', null, { reload: true });
+                    $state.go('jobsapplied', null, { reload: true });
                 }, function() {
-                    $state.go('application');
+                    $state.go('jobsapplied');
                 });
             }]
         })
@@ -192,7 +192,7 @@
                             }
                         }
                     }).result.then(function() {
-                        $state.go('application', null, { reload: true });
+                        $state.go('jobsapplied', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     });

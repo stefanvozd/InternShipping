@@ -1,12 +1,12 @@
-<div class="container no-shadow">
-    <h1 class="text-center">Apply for the job</h1>
+<div style="margin-top: 30%"  class="container whiteform no-shadow">
+   <!-- <h2 class="text-center">Apply for the job</h2>
     <p class="lead text-center">Apply with your online resume, create new resume for the job, or make a custom application.</p>
     <p> <jhi-alert-error></jhi-alert-error> </p>
-    <hr>
+    <hr>-->
     <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <!-- Job detail -->
-    <a class="item-block item-block-flat" href="job-detail.html" ng-repeat="job in vm.jobs | filter:{id: vm.application.jobId}">
+    <a class="item-block item-block-flat" ng-repeat="job in vm.jobs | filter:{id: vm.application.jobId}">
         <header>
             <img ng-show="job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
             <img ng-show="job.companyLogo != null" data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/>
@@ -29,15 +29,15 @@
             </select>
         </div>
 
-        <div class="form-group" style="margin-top: 10px; padding-left: 44px; padding-right: 44px">
+<!--        <div class="form-group" style="margin-top: 10px; padding-left: 44px; padding-right: 44px">
             <label for="field_resume">Resume  </label>
             <select class="form-control" id="field_resume" name="resume" ng-init="vm.application.resumeId = {id:  parseInt(vm.resumes[0].id) }" ng-model="vm.application.resumeId"
                     ng-options="resume.id as resume.name for resume in vm.resumes">
                 <option value=""></option>
             </select>
-        </div>
+        </div>-->
 
-    <div style="margin-top: 40px; margin-bottom: 20px; margin-right: 44px" class="button-group pull-right">
+    <div style="margin-top: 20px; margin-bottom: 20px; margin-right: 30px" class=" center-block button-group pull-right">
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
             <span>Apply with a resume</span>
         </button>

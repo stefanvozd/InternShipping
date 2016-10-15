@@ -2,6 +2,7 @@ package rs.eestec.internshipping.service;
 
 import rs.eestec.internshipping.domain.Application;
 import rs.eestec.internshipping.repository.ApplicationRepository;
+import rs.eestec.internshipping.repository.ResumeRepository;
 import rs.eestec.internshipping.repository.search.ApplicationSearchRepository;
 import rs.eestec.internshipping.web.rest.dto.ApplicationDTO;
 import rs.eestec.internshipping.web.rest.mapper.ApplicationMapper;
@@ -28,25 +29,29 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class ApplicationService {
 
     private final Logger log = LoggerFactory.getLogger(ApplicationService.class);
-    
+
     @Inject
     private ApplicationRepository applicationRepository;
-    
+
     @Inject
     private ApplicationMapper applicationMapper;
-    
+
     @Inject
     private ApplicationSearchRepository applicationSearchRepository;
-    
+
+    @Inject
+    private ResumeRepository resumeRepository;
+
     /**
      * Save a application.
-     * 
+     *
      * @param applicationDTO the entity to save
      * @return the persisted entity
      */
     public ApplicationDTO save(ApplicationDTO applicationDTO) {
         log.debug("Request to save Application : {}", applicationDTO);
         Application application = applicationMapper.applicationDTOToApplication(applicationDTO);
+        application.setResume(resumeRepository.findByUserIsCurrentUser());
         application = applicationRepository.save(application);
         ApplicationDTO result = applicationMapper.applicationToApplicationDTO(application);
         applicationSearchRepository.save(application);
@@ -55,14 +60,14 @@ public class ApplicationService {
 
     /**
      *  Get all the applications.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Application> findAll(Pageable pageable) {
         log.debug("Request to get all Applications");
-        Page<Application> result = applicationRepository.findAll(pageable); 
+        Page<Application> result = applicationRepository.findAll(pageable);
         return result;
     }
 
@@ -72,7 +77,7 @@ public class ApplicationService {
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public ApplicationDTO findOne(Long id) {
         log.debug("Request to get Application : {}", id);
         Application application = applicationRepository.findOne(id);
@@ -82,7 +87,7 @@ public class ApplicationService {
 
     /**
      *  Delete the  application by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

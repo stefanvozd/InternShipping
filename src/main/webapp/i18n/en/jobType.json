@@ -3,8 +3,8 @@
         "JobType" : {
             "null": "",
             "INTERNSHIP": "INTERNSHIP",
-            "PART_TIME": "PART_TIME",
-            "FULL_TIME": "FULL_TIME",
+            "PART_TIME": "PART TIME",
+            "FULL_TIME": "FULL TIME",
             "FREELANCE": "FREELANCE",
             "REMOTE": "REMOTE",
             "NEGOTIABLE": "NEGOTIABLE"

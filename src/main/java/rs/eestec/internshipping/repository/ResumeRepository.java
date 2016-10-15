@@ -18,6 +18,9 @@ public interface ResumeRepository extends JpaRepository<Resume,Long> {
 	@Query("select resume from Resume resume where resume.user.login = ?#{principal.username}")
 	Page<Resume> findByUserIsCurrentUser(Pageable page);
 
+    @Query("select resume from Resume resume where resume.user.login = ?#{principal.username}")
+    Resume findByUserIsCurrentUser();
+
     @Query("select resume from  Resume resume where resume.id in (select resume.id from Application app where job.id = :job_id and job in (select job from Job job where job.company.id = (select company from Company company where company.user.login = ?#{principal.username} )))")
     Page<Resume> getResumesForJobId(Pageable page,@Param("job_id") long job_id);
 

@@ -2,11 +2,11 @@
     "internShippingApp": {
         "JobLevel" : {
             "null": "",
-            "ANY": "ANY",
-            "NO_EXPERIENCE": "NO_EXPERIENCE",
+            "ANY": "ALL LEVELS",
+            "NO_EXPERIENCE": "NO EXPERIENCE",
             "JUNIOR": "JUNIOR",
-            "MID_LEVEL": "MID_LEVEL",
-            "SENIOR_LEVEL": "SENIOR_LEVEL"
+            "MID_LEVEL": "MID LEVEL",
+            "SENIOR_LEVEL": "SENIOR LEVEL"
         }
     }
 }

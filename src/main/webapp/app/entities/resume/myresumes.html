@@ -41,7 +41,7 @@
                     </header>
 
                     <div class="item-body">
-                        <p>{{resume.overview}}</p>
+                        <p ng-show="resume.overview != null">{{resume.overview}}</p>
 
                         <div class="tag-list">
                             <span>{{resume.representativeSkills}}</span>
@@ -50,32 +50,32 @@
 
                     <footer>
                         <ul class="details cols-3">
-                            <li>
+                            <li ng-show="resume.faculty != null">
                                 <i class="fa fa-building"></i>
                                 <span>{{resume.faculty}}</span>
                             </li>
 
-                            <li>
+                            <li ng-show="resume.enrollmentYear != null">
                                 <i class="fa fa-calendar"></i>
                                 <span>Enrolled: {{resume.enrollmentYear}}</span>
                             </li>
 
-                            <li>
+                            <li ng-show="resume.education != null">
                                 <i class="fa fa-graduation-cap"></i>
                                 <span translate="{{'internShippingApp.Education.' + resume.education}}">{{resume.education}}</span>
                             </li>
 
-                            <li>
+                            <li ng-show="resume.location != null">
                                 <i class="fa fa-map-marker"></i>
                                 <span>{{resume.location}}</span>
                             </li>
 
-                            <li>
+                            <li ng-show="resume.contactEmail != null">
                                 <i class="fa fa-envelope"></i>
                                 <span><a href="mailto:{{resume.contactEmail}}">{{resume.contactEmail}}</a></span>
                             </li>
 
-                            <li>
+                            <li ng-show="resume.socialLinkedin != null">
                                 <i class="fa fa-linkedin"></i>
                                 <span><a target="_blank" href="http://{{resume.socialLinkedin}}">{{resume.socialLinkedin}}</a></span>
 
