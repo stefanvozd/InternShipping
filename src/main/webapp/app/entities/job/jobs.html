@@ -177,7 +177,7 @@
                                     <img ng-show="job.companyLogo != null" data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/>
                                     <div class="hgroup">
                                         <h4>{{job.title}}</h4>
-                                        <h5>{{job.companyName}} <span class="label label-success">{{job.jobType}}</span><span class="label label-info">{{job.jobLevel}}</span></h5>
+                                        <h5>{{job.companyName}} <span class="label label-success" translate="{{'internShippingApp.JobType.' + job.jobType}}" >{{job.jobType}}</span><span class="label label-info" translate="{{'internShippingApp.JobLevel.' + job.jobLevel}}">{{job.jobLevel}}</span></h5>
                                     </div>
                                     <div class="header-meta">
                                         <span class="location">{{job.location}}</span>
@@ -202,8 +202,8 @@
                                         </li>
 
                                         <li ng-show="job.education != null">
-                                            <i class="fa fa-certificate"></i>
-                                            <span>{{job.education}}</span>
+                                            <i class="fa fa-graduation-cap"></i>
+                                            <span translate="{{'internShippingApp.Education.' + job.education}}">{{job.education}}</span>
                                         </li>
                                     </ul>
                                 </footer>
