@@ -2,10 +2,11 @@
 <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
     <div class="container">
         <div class="header-detail">
-            <img class="logo" src="assets/img/logo-google.jpg" alt="">
+            <img class="logo" ng-show="vm.job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
+            <img class="logo" ng-show="vm.job.companyLogo != null" data-ng-src="{{'data:' + vm.job.companyLogoContentType + ';base64,' + vm.job.companyLogo}}" style="max-height: 70 px;"/>
             <div class="hgroup">
                 <h1>{{vm.job.title}}</h1>
-                <h3><a ui-sref="company-detail({id:vm.job.companyId})">{{vm.job.companyName}}</a></h3>
+                <h3><a ui-sref="company-detail({id:vm.job.companyId})">{{vm.job.companyName}}</a> </h3>
             </div>
             <time datetime="2016-03-03 20:00">{{vm.job.creationDate | date:'medium'}}</time>
             <hr>
@@ -27,9 +28,9 @@
                     <span>{{vm.job.compensation}}</span>
                 </li>
 
-                <!--                <li>
-                                    <i class="fa fa-clock-o"></i>
-                                    <span>40h / week</span>
+              <!--                  <li>
+                                    <i class="fa fa-level-down"></i>
+                                    <span translate="{{'internShippingApp.JobLevel.' + vm.job.jobLevel}}">{{vm.job.jobLevel}}</span>
                                 </li>-->
 
                 <li>
@@ -38,7 +39,7 @@
                 </li>
 
                 <li>
-                    <i class="fa fa-certificate"></i>
+                    <i class="fa fa-graduation-cap"></i>
                     <span translate="{{'internShippingApp.Education.' + vm.job.education}}">{{vm.job.education}}</span>
                 </li>
             </ul>
@@ -53,7 +54,7 @@
                 </ul>
 
                 <div class="action-buttons">
-                    <a class="btn btn-primary" href="{{vm.job.socialLinkedin}}">Apply with linkedin</a>
+                    <a class="btn btn-primary" ng-show="vm.job.socialLinkedin != null" href="{{vm.job.socialLinkedin}}">Apply with linkedin</a>
                     <a class="btn btn-success" ui-sref="application.apply({id:vm.job.id})">Apply now</a>
                 </div>
             </div>

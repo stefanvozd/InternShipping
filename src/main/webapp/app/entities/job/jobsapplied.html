@@ -1,0 +1,80 @@
+<!-- Page header -->
+<header class="page-header bg-img" style="background-image: url(assets/img/bg-banner1.jpg);">
+    <div class="container page-name">
+        <h1 class="text-center">Your Applications</h1>
+        <p class="lead text-center">Good luck!</p>
+        <button ng-hide="vm.queryCount > 0" class="btn btn-primary center-block" ui-sref="resume.new">Create new</button>
+    </div>
+</header>
+<!-- END Page header -->
+
+ <div class="container">
+
+        <!-- Main container -->
+        <main>
+
+            <section class="no-padding-top bg-alt">
+                <div class="col-xs-12 no-padding-right">
+
+
+                <div class="container">
+                    <div class="row">
+
+
+                        <!-- Job item -->
+                        <div class="col-xs-12" ng-repeat="job in vm.jobs track by job.id">
+                            <a class="item-block" ui-sref="job-detail({id:job.id})">
+                                <header>
+                                    <img ng-show="job.companyLogo == null" src="assets/img/logo-unknown.jpg" alt="">
+                                    <img ng-show="job.companyLogo != null" data-ng-src="{{'data:' + job.companyLogoContentType + ';base64,' + job.companyLogo}}" style="max-height: 60 px;"/>
+                                    <div class="hgroup">
+                                        <h4>{{job.title}}</h4>
+                                        <h5>{{job.companyName}}</h5>
+                                    </div>
+                                    <div class="header-meta">
+                                        <span class="location">{{job.location}}</span>
+                                        <time datetime="2016-03-10 20:00">34 min ago</time>
+                                    </div>
+                                </header>
+
+                                <div class="item-body">
+                                    <p>{{job.shortDescription}}</p>
+                                </div>
+
+                                <footer>
+                                    <ul class="details cols-3">
+                                        <li ng-show="job.activeUntil != null">
+                                            <i class="fa fa-calendar"></i>
+                                            <span>{{job.activeUntil}}</span>
+                                        </li>
+
+                                        <li ng-show="job.compensation != null">
+                                            <i class="fa fa-money"></i>
+                                            <span>{{job.compensation}}</span>
+                                        </li>
+
+                                        <li ng-show="job.education != null">
+                                            <i class="fa fa-graduation-cap"></i>
+                                            <span translate="{{'internShippingApp.Education.' + job.education}}">{{job.education}}</span>
+                                        </li>
+                                    </ul>
+                                </footer>
+                            </a>
+                        </div>
+                        <!-- END Job item -->
+
+                    </div>
+
+                    <!-- Page navigation -->
+                    <div class="text-center">
+                        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+                        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+                    </div>
+                    <!-- END Page navigation -->
+
+                </div>
+            </section>
+        </main>
+        <!-- END Main container -->
+
+</div>

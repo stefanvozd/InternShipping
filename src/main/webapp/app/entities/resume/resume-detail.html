@@ -42,7 +42,7 @@
 
                     <li ng-show="vm.resume.contactEmail != null">
                         <i class="fa fa-envelope"></i>
-                        <a href="#">{{vm.resume.contactEmail}}</a>
+                        <a href="mailto:{{vm.resume.contactEmail}}">{{vm.resume.contactEmail}}</a>
                     </li>
                 </ul>
 
@@ -54,7 +54,7 @@
 
         <div class="button-group">
             <ul class="social-icons" >
-                <li ng-show="vm.resume.socialLinkedin != null" ><a class="linkedin" href="#"><i class="fa fa-linkedin"></i>{{vm.resume.socialLinkedin}}</a></li>
+                <li ng-show="vm.resume.socialLinkedin != null" ><a class="linkedin" target="_blank" href="http://{{vm.resume.socialLinkedin}}"><i class="fa fa-linkedin"></i></a></li>
             </ul>
 
             <div class="action-buttons">

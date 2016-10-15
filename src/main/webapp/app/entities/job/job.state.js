@@ -106,7 +106,7 @@
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/entities/job/jobs.html',
+                        templateUrl: 'app/entities/job/jobsapplied.html',
                         controller: 'JobController',
                         controllerAs: 'vm'
                     }
