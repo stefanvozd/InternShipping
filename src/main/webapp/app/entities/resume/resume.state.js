@@ -61,7 +61,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/resume/resumes.html',
+                    templateUrl: 'app/entities/resume/myresumes.html',
                     controller: 'ResumeController',
                     controllerAs: 'vm'
                 }

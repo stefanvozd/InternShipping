@@ -1,7 +1,18 @@
+
+<!-- Site header -->
+<header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+    <div class="container no-shadow">
+        <h1 class="text-center" translate="reset.request.title">Set password</h1>
+        <p class="lead text-center">Make it strong</p>
+    </div>
+</header>
+<!-- END Site header -->
+
+<div class="container">
+
 <div>
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <h1 translate="reset.finish.title">Reset password</h1>
+        <div class="col-md-6 col-md-offset-3">
 
             <div class="alert alert-danger" translate="reset.finish.messages.keymissing" ng-show="vm.keyMissing">
                 <strong>The password reset key is missing.</strong>
@@ -43,7 +54,7 @@
                                 Your password cannot be longer than 50 characters.
                             </p>
                         </div>
-                        <password-strength-bar password-to-check="vm.resetAccount.password"></password-strength-bar>
+                        <!--<password-strength-bar password-to-check="vm.resetAccount.password"></password-strength-bar>-->
                     </div>
 
                     <div class="form-group">
@@ -65,10 +76,12 @@
                             </p>
                         </div>
                     </div>
-                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="reset.finish.form.button">Reset Password</button>
+                    <button style="margin-bottom: 70px" type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="reset.finish.form.button">Reset Password</button>
                 </form>
             </div>
 
         </div>
     </div>
 </div>
+
+    </div>

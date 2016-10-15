@@ -2325,7 +2325,12 @@ a.counterh1:hover {
     }
 }
 
+.whiteform {
+background-color: #fff;
+}
+
 .item-block {
+    margin-bottom: 30px;
     display: block;
     background-color: #fff;
     border: 1px solid #eee;

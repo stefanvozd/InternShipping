@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form class="whiteform" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,7 +8,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div hidden class="form-group">
             <label translate="global.field.id">ID</label>
             <input type="text" class="form-control" name="id"
                    ng-model="vm.user.id" readonly>
@@ -87,16 +87,16 @@
             </label>
         </div>
 
-        <div class="form-group">
+       <!-- <div class="form-group">
             <label translate="userManagement.langKey">Lang Key</label>
             <select class="form-control" name="langKey" ng-model="vm.user.langKey"
                     ng-options="language as language for language in vm.languages track by language">
             </select>
-        </div>
+        </div>-->
 
         <div class="form-group">
             <label translate="userManagement.profiles">Profiles</label>
-            <select class="form-control" multiple name="authority" ng-model="vm.user.authorities"
+            <select size="5" class="form-control" multiple name="authority" ng-model="vm.user.authorities"
                     ng-options="authority for authority in vm.authorities">
             </select>
         </div>
