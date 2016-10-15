@@ -207,24 +207,18 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/resume/resume-dialog.html',
                     controller: 'ResumeDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Resume', function(Resume) {
-                            return Resume.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('resume', null, { reload: true });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: ['$stateParams','Resume', function($stateParams,Resume) {
+                    return Resume.get({id : $stateParams.id}).$promise;
+                }]
+            }
         })
         .state('resume.delete', {
             parent: 'resume',

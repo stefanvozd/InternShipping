@@ -5,9 +5,9 @@
         .module('internShippingApp')
         .controller('ResumeDialogController', ResumeDialogController);
 
-    ResumeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$q', 'DataUtils', 'entity', 'Resume', 'User', 'Application'];
+    ResumeDialogController.$inject = ['$location','$timeout', '$scope', '$stateParams', '$q', 'DataUtils', 'entity', 'Resume', 'User', 'Application'];
 
-    function ResumeDialogController ($timeout, $scope, $stateParams, $q, DataUtils, entity, Resume, User, Application) {
+    function ResumeDialogController ($location,$timeout, $scope, $stateParams, $q, DataUtils, entity, Resume, User, Application) {
         var vm = this;
 
         vm.resume = entity;
@@ -38,7 +38,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('internShippingApp:resumeUpdate', result);
-            $location.url("company");
+            $location.path("myresume");
             vm.isSaving = false;
         }
 
