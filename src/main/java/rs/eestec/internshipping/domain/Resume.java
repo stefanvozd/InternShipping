@@ -78,7 +78,6 @@ public class Resume implements Serializable {
     @Column(name = "cv_file_content_type")
     private String cvFileContentType;
 
-    @JsonIgnore
     @Column(name = "cv_file_content")
     private String cvFileContent;
 
@@ -292,24 +291,9 @@ public class Resume implements Serializable {
     public String toString() {
         return "Resume{" +
             "id=" + id +
-            ", image='" + image + "'" +
-            ", imageContentType='" + imageContentType + "'" +
-            ", name='" + name + "'" +
             ", title='" + title + "'" +
-            ", overview='" + overview + "'" +
-            ", education='" + education + "'" +
-            ", faculty='" + faculty + "'" +
-            ", enrollmentYear='" + enrollmentYear + "'" +
-            ", location='" + location + "'" +
             ", contactEmail='" + contactEmail + "'" +
             ", birthDate='" + birthDate + "'" +
-            ", jsonResume='" + jsonResume + "'" +
-            ", cvFile='" + cvFile + "'" +
-            ", cvFileContentType='" + cvFileContentType + "'" +
-            ", cvFileContent='" + cvFileContent + "'" +
-            ", receiveJobAlerts='" + receiveJobAlerts + "'" +
-            ", socialLinkedin='" + socialLinkedin + "'" +
-            ", representativeSkills='" + representativeSkills + "'" +
             '}';
     }
 }
