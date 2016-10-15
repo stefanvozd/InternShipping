@@ -3,14 +3,14 @@
         "Education" : {
             "null": "",
             "ANY": "ANY",
-            "ASSOCIATE_STUDENT": "ASSOCIATE_STUDENT",
-            "BACHELOR_STUDENT": "BACHELOR_STUDENT",
-            "MASTER_STUDENT": "MASTER_STUDENT",
-            "DOCTORAL_STUDENT": "DOCTORAL_STUDENT",
-            "ASSOCIATE_DEGREE": "ASSOCIATE_DEGREE",
-            "BACHELOR_DEGREE": "BACHELOR_DEGREE",
-            "MASTER_DEGREE": "MASTER_DEGREE",
-            "DOCTORAL_DEGREE": "DOCTORAL_DEGREE"
+            "ASSOCIATE_STUDENT": "Associate student",
+            "BACHELOR_STUDENT": "Bachelor student",
+            "MASTER_STUDENT": "Master student",
+            "DOCTORAL_STUDENT": "Doctoral student",
+            "ASSOCIATE_DEGREE": "Associate degree",
+            "BACHELOR_DEGREE": "Bachelor degree",
+            "MASTER_DEGREE": "Master degree",
+            "DOCTORAL_DEGREE": "Doctoral degree"
         }
     }
 }
