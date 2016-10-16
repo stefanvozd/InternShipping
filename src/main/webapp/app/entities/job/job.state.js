@@ -173,39 +173,36 @@
             data: {
                 authorities: ['ROLE_COMPANY']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/job/job-dialog.html',
                     controller: 'JobDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                title: null,
-                                shortDescription: null,
-                                location: null,
-                                compensation: null,
-                                jobType: null,
-                                jobLevel: null,
-                                education: null,
-                                longDescription: null,
-                                skills: null,
-                                socialLinkedin: null,
-                                creationDate: null,
-                                activeUntil: null,
-                                active: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('job', null, { reload: true });
-                }, function() {
-                    $state.go('job');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: function () {
+                    return {
+                        logo: null,
+                        logoContentType: null,
+                        name: null,
+                        domain: null,
+                        shortDescription: null,
+                        longDescription: null,
+                        website: null,
+                        contactEmail: null,
+                        contactNumber: null,
+                        companySize: null,
+                        foundedYear: null,
+                        socialFacebook: null,
+                        socialLinkedin: null,
+                        socialYoutube: null,
+                        socialTwitter: null,
+                        address: null,
+                        id: null
+                    };
+                }
+            }
         })
         .state('job.edit', {
             parent: 'job',

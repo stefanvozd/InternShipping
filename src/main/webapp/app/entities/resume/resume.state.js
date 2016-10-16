@@ -205,7 +205,7 @@
             parent: 'resume',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_CANDIDATE']
             },
             views: {
                 'content@': {

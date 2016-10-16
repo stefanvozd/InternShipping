@@ -5,9 +5,9 @@
         .module('internShippingApp')
         .controller('JobDialogController', JobDialogController);
 
-    JobDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Job', 'Application', 'Company'];
+    JobDialogController.$inject = ['$location', '$timeout', '$scope', '$stateParams', 'entity', 'Job', 'Application', 'Company'];
 
-    function JobDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Job, Application, Company) {
+    function JobDialogController ($location, $timeout, $scope, $stateParams, entity, Job, Application, Company) {
         var vm = this;
 
         vm.job = entity;
@@ -23,7 +23,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+
         }
 
         function save () {
@@ -36,8 +36,8 @@
         }
 
         function onSaveSuccess (result) {
+            $location.path('ourjobs');
             $scope.$emit('internShippingApp:jobUpdate', result);
-            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 

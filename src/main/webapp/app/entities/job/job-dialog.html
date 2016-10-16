@@ -1,6 +1,262 @@
 
 <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
+
+<!-- Page header -->
+<header class="page-header bg-img " style="background-image: url(assets/img/bg-banner1.jpg)">
+    <div class="container page-name">
+        <h1 class="text-center">Add a new job</h1>
+        <p class="lead text-center">Create a new vacancy for your company and put it online.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="form-group hidden" ng-show="vm.job.id">
+                <label for="id" translate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id"
+                       ng-model="vm.job.id" readonly />
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-12">
+                <jhi-alert-error></jhi-alert-error>
+                <!--<input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer">-->
+
+                <input type="text" class="form-control input-lg"  placeholder="Job title, e.g. Front-end developer" name="title" id="field_title"
+                       ng-model="vm.job.title"
+                       required ng-minlength="5" ng-maxlength="300" /><!--
+                <div ng-show="editForm.title.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.title.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.title.$error.minlength" translate="entity.validation.minlength" translate-value-min="5">
+                        This field is required to be at least 5 characters.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                        This field cannot be longer than 300 characters.
+                    </p>
+                </div>-->
+            </div>
+
+
+
+            <div class="form-group col-xs-12">
+                <textarea class="form-control" rows="3" name="shortDescription" id="field_shortDescription"
+                          ng-model="vm.job.shortDescription"
+                          required ng-minlength="29" ng-maxlength="1000" placeholder="Short description"></textarea>
+
+              <!--  <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
+                       ng-model="vm.job.shortDescription"
+                       required ng-minlength="29" ng-maxlength="1000" />-->
+
+                <!--<div ng-show="editForm.shortDescription.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.shortDescription.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.shortDescription.$error.minlength" translate="entity.validation.minlength" translate-value-min="29">
+                        This field is required to be at least 29 characters.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.shortDescription.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                        This field cannot be longer than 1000 characters.
+                    </p>
+                </div>-->
+
+            </div>
+
+            <div class="form-group col-xs-12">
+                <input type="text" class="form-control" name="skills" id="field_skills"
+                       ng-model="vm.job.skills"  placeholder="Tehnologies and skilles e.g Java, C#, Node.js or Architecture, Interior"
+                />
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                           ng-model="vm.job.location"
+                           required placeholder="Location, e.g. Belgrade, Serbia">
+
+                   <!-- <input type="text" class="form-control" name="location" id="field_location"
+                           ng-model="vm.job.location"
+                           required />-->
+
+                   <!-- <div ng-show="editForm.location.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.location.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>-->
+
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                    <select class="form-control" name="jobType" ng-model="vm.job.jobType" id="field_jobType" required>
+                        <option value="INTERNSHIP" translate="internShippingApp.JobType.INTERNSHIP">INTERNSHIP</option>
+                        <option value="PART_TIME" translate="internShippingApp.JobType.PART_TIME">PART TIME</option>
+                        <option value="FULL_TIME" translate="internShippingApp.JobType.FULL_TIME">FULL TIME</option>
+                        <option value="FREELANCE" translate="internShippingApp.JobType.FREELANCE">FREELANCE</option>
+                        <option value="REMOTE" translate="internShippingApp.JobType.REMOTE">REMOTE</option>
+                        <option value="NEGOTIABLE" translate="internShippingApp.JobType.NEGOTIABLE">NEGOTIABLE</option>
+                    </select>
+                    <!--<div ng-show="editForm.jobType.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.jobType.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                    <input type="text" name="compensation" id="field_compensation"
+                           ng-model="vm.job.compensation" class="form-control" placeholder="Salary">
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                    <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
+                           ng-model="vm.job.socialLinkedin"
+                           placeholder="Linkedin job ad URL"
+                    />
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-flask"></i></span>
+                    <select class="form-control" name="jobLevel" ng-model="vm.job.jobLevel" id="field_jobLevel" required>
+                        <option value="ANY" translate="internShippingApp.JobLevel.ANY">ALL LEVELS</option>
+                        <option value="NO_EXPERIENCE" translate="internShippingApp.JobLevel.NO_EXPERIENCE">NO EXPERIENCE</option>
+                        <option value="JUNIOR" translate="internShippingApp.JobLevel.JUNIOR">JUNIOR</option>
+                        <option value="MID_LEVEL" translate="internShippingApp.JobLevel.MID_LEVEL">MID LEVEL</option>
+                        <option value="SENIOR_LEVEL" translate="internShippingApp.JobLevel.SENIOR_LEVEL">SENIOR LEVEL</option>
+                    </select>
+                   <!-- <div ng-show="editForm.jobLevel.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.jobLevel.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
+                    <select class="form-control" name="education" ng-model="vm.job.education" id="field_education" required>
+                        <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
+                        <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE STUDENT</option>
+                        <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR STUDENT</option>
+                        <option value="MASTER_STUDENT" translate="internShippingApp.Education.MASTER_STUDENT">MASTER STUDENT</option>
+                        <option value="DOCTORAL_STUDENT" translate="internShippingApp.Education.DOCTORAL_STUDENT">DOCTORAL STUDENT</option>
+                        <option value="ASSOCIATE_DEGREE" translate="internShippingApp.Education.ASSOCIATE_DEGREE">ASSOCIATE DEGREE</option>
+                        <option value="BACHELOR_DEGREE" translate="internShippingApp.Education.BACHELOR_DEGREE">BACHELOR DEGREE</option>
+                        <option value="MASTER_DEGREE" translate="internShippingApp.Education.MASTER_DEGREE">MASTER DEGREE</option>
+                        <option value="DOCTORAL_DEGREE" translate="internShippingApp.Education.DOCTORAL_DEGREE">DOCTORAL DEGREE</option>
+                    </select>
+                    <!--<div ng-show="editForm.education.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.education.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>-->
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="button-group">
+            <div class="action-buttons">
+                <div class="upload-button">
+                   <!-- <button class="btn btn-block btn-primary">Choose a cover image</button>
+                    <input id="cover_img_file" type="file">-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+<!-- END Page header -->
+
+
+<!-- Main container -->
+<main>
+
+
+    <!-- Job detail -->
+    <section>
+        <div class="container">
+
+            <header class="section-header">
+                <span>Description</span>
+                <h2>Job detail</h2>
+                <p>Write about your company, job description, skills required, benefits, etc.</p>
+            </header>
+
+            <text-angular ng-model="vm.job.longDescription" required></text-angular>
+
+           <!-- <input type="text" class="form-control" name="longDescription" id="field_longDescription"
+                   ng-model="vm.job.longDescription"
+                   required />
+            <div ng-show="editForm.longDescription.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.longDescription.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>-->
+
+        </div>
+    </section>
+    <!-- END Job detail -->
+
+
+    <!-- Submit -->
+    <section class="bg-alt">
+        <div class="container">
+            <header class="section-header">
+                <span>Are you done?</span>
+                <h2>Submit Job</h2>
+                <p>Please review your information once more and press the below button to put your job online.</p>
+            </header>
+
+            <p class="text-center">
+                <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-success btn-xl btn-round">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Submit your job</span>
+                </button>
+
+            </p>
+
+
+
+
+        </div>
+    </section>
+    <!-- END Submit -->
+
+
+</main>
+<!-- END Main container -->
+</form>
+
+<!--
+
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
@@ -197,3 +453,4 @@
         </button>
     </div>
 </form>
+-->

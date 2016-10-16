@@ -162,24 +162,18 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/company/company-dialog.html',
                     controller: 'CompanyDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Company', function(Company) {
-                            return Company.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('company', null, { reload: true });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: ['$stateParams','Company', function($stateParams,Company) {
+                    return Company.get({id : $stateParams.id}).$promise;
+                }]
+            }
         })
         .state('company.delete', {
             parent: 'company',
