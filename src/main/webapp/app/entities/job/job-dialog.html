@@ -69,10 +69,19 @@
 
             </div>
 
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-8">
                 <input type="text" class="form-control" name="skills" id="field_skills"
                        ng-model="vm.job.skills"  placeholder="Tehnologies and skilles e.g Java, C#, Node.js or Architecture, Interior"
                 />
+            </div>
+
+            <div class="form-group col-xs-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input id="field_activeUntil" placeholder="Expires" type="text" class="form-control" name="activeUntil" uib-datepicker-popup="{{dateformat}}" ng-model="vm.job.activeUntil" is-open="vm.datePickerOpenStatus.activeUntil"
+                           required/>
+                    <span class="input-group-addon"  ng-click="vm.openCalendar('activeUntil')"><i class="fa fa-calendar-plus-o"></i></span>
+                </div>
             </div>
 
             <div class="form-group col-xs-12 col-sm-6 col-md-4">
@@ -98,8 +107,28 @@
 
             <div class="form-group col-xs-12 col-sm-6 col-md-4">
                 <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                    <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
+                           ng-model="vm.job.socialLinkedin"
+                           placeholder="Linkedin job ad URL"
+                    />
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                    <input type="text" name="compensation" id="field_compensation"
+                           ng-model="vm.job.compensation" class="form-control" placeholder="Salary">
+                </div>
+            </div>
+
+
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                     <select class="form-control" name="jobType" ng-model="vm.job.jobType" id="field_jobType" required>
+                        <option value="" disabled selected>Job type</option>
                         <option value="INTERNSHIP" translate="internShippingApp.JobType.INTERNSHIP">INTERNSHIP</option>
                         <option value="PART_TIME" translate="internShippingApp.JobType.PART_TIME">PART TIME</option>
                         <option value="FULL_TIME" translate="internShippingApp.JobType.FULL_TIME">FULL TIME</option>
@@ -116,28 +145,12 @@
                 </div>
             </div>
 
-            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                    <input type="text" name="compensation" id="field_compensation"
-                           ng-model="vm.job.compensation" class="form-control" placeholder="Salary">
-                </div>
-            </div>
-
-            <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
-                    <input type="text" class="form-control" name="socialLinkedin" id="field_socialLinkedin"
-                           ng-model="vm.job.socialLinkedin"
-                           placeholder="Linkedin job ad URL"
-                    />
-                </div>
-            </div>
 
             <div class="form-group col-xs-12 col-sm-6 col-md-4">
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-flask"></i></span>
                     <select class="form-control" name="jobLevel" ng-model="vm.job.jobLevel" id="field_jobLevel" required>
+                        <option value="" disabled selected>Experience level</option>
                         <option value="ANY" translate="internShippingApp.JobLevel.ANY">ALL LEVELS</option>
                         <option value="NO_EXPERIENCE" translate="internShippingApp.JobLevel.NO_EXPERIENCE">NO EXPERIENCE</option>
                         <option value="JUNIOR" translate="internShippingApp.JobLevel.JUNIOR">JUNIOR</option>
@@ -157,6 +170,7 @@
                 <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
                     <select class="form-control" name="education" ng-model="vm.job.education" id="field_education" required>
+                        <option value="" disabled selected>Education required</option>
                         <option value="ANY" translate="internShippingApp.Education.ANY">ANY</option>
                         <option value="ASSOCIATE_STUDENT" translate="internShippingApp.Education.ASSOCIATE_STUDENT">ASSOCIATE STUDENT</option>
                         <option value="BACHELOR_STUDENT" translate="internShippingApp.Education.BACHELOR_STUDENT">BACHELOR STUDENT</option>

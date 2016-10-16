@@ -210,24 +210,18 @@
             data: {
                 authorities: ['ROLE_COMPANY']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            views: {
+                'content@': {
                     templateUrl: 'app/entities/job/job-dialog.html',
                     controller: 'JobDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Job', function(Job) {
-                            return Job.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('job', null, { reload: true });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: ['$stateParams','Job', function($stateParams,Job) {
+                    return Job.get({id : $stateParams.id}).$promise;
+                }]
+            }
         })
         .state('job.delete', {
             parent: 'job',

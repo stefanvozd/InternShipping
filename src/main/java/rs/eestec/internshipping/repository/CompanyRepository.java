@@ -18,4 +18,7 @@ public interface CompanyRepository extends JpaRepository<Company,Long> {
     @Query("select company from Company company where company.user.login = ?#{principal.username}")
     Page<Company> findByUserIsCurrentUser(Pageable page);
 
+    @Query("select company from Company company where company.user.login = ?#{principal.username}")
+    Company findByUserIsCurrentUser();
+
 }

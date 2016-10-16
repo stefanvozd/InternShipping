@@ -1,7 +1,9 @@
 package rs.eestec.internshipping.service;
 
 import org.springframework.security.core.context.SecurityContextHolder;
+import rs.eestec.internshipping.domain.Company;
 import rs.eestec.internshipping.domain.Job;
+import rs.eestec.internshipping.repository.CompanyRepository;
 import rs.eestec.internshipping.repository.JobRepository;
 import rs.eestec.internshipping.repository.search.JobSearchRepository;
 import rs.eestec.internshipping.web.rest.dto.JobDTO;
@@ -14,8 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -39,6 +43,9 @@ public class JobService {
     @Inject
     private JobSearchRepository jobSearchRepository;
 
+    @Inject
+    private CompanyRepository companyRepository;
+
     /**
      * Save a job.
      *
@@ -48,6 +55,14 @@ public class JobService {
     public JobDTO save(JobDTO jobDTO) {
         log.debug("Request to save Job : {}", jobDTO);
         Job job = jobMapper.jobDTOToJob(jobDTO);
+
+        Company company = companyRepository.findByUserIsCurrentUser();
+        if(company == null) return null;
+
+        job.setCompany(companyRepository.findByUserIsCurrentUser());
+        job.setActive(true);
+        job.setCreationDate(ZonedDateTime.now());
+
         job = jobRepository.save(job);
         JobDTO result = jobMapper.jobToJobDTO(job);
         jobSearchRepository.save(job);

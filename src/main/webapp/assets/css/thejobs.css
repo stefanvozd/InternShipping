@@ -11,7 +11,7 @@
     letter-spacing: 1px;
     border-radius: 3px;
     padding: 0 30px;
-    color: #fff;
+
     background-color: #eceeef;
     transition: .2s linear
 }
@@ -20,7 +20,7 @@
 .btn:focus,
 .btn:active,
 .btn:active:focus {
-    color: #fff;
+    color: #29aafe;
     background-color: #e4e7e8;
     border-color: transparent;
     box-shadow: none;

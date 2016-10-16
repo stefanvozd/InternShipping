@@ -67,8 +67,8 @@
                                     <p class="status"><strong><a ui-sref="resumes-for-job({id:job.id})"><span class="glyphicon glyphicon-user"> </span> Browse candidates </a></strong></p>
                                     <p class="status" style="margin-left: 15px"><strong>Expires: </strong>{{job.activeUntil}}</p>
                                     <div class="action-btn">
-                                        <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                                        <a class="btn btn-xs btn-danger" href="#">Deactivate</a>
+                                        <a class="btn btn-xs btn-gray" ui-sref="job.edit({id:job.id})">Edit</a>
+                                        <a class="btn btn-xs btn-danger" ui-sref="job.delete({id:job.id})">Deactivate</a>
                                     </div>
                                 </footer>
                             </div>
