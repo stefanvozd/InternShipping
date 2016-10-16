@@ -25,7 +25,7 @@
               <input type="text" class="form-control" id="username" placeholder="{{'global.form.username.placeholder' | translate}}" ng-model="vm.username">
             </div>
           </div>
-          
+
           <hr class="hr-xs">
 
           <div class="form-group">
@@ -43,6 +43,10 @@
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <jh-social ng-provider="google"></jh-social>
+                <jh-social ng-provider="facebook"></jh-social>
+                <jh-social ng-provider="twitter"></jh-social>
+                <jh-social ng-provider="linkedin"></jh-social>
             </ul>
           </div>
 

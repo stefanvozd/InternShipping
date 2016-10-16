@@ -1,5 +1,6 @@
 package rs.eestec.internshipping.config.social;
 
+import org.springframework.social.linkedin.connect.LinkedInConnectionFactory;
 import rs.eestec.internshipping.repository.SocialUserConnectionRepository;
 import rs.eestec.internshipping.repository.CustomSocialUsersConnectionRepository;
 import rs.eestec.internshipping.security.social.CustomSignInAdapter;
@@ -87,7 +88,20 @@ public class SocialConfiguration implements SocialConfigurer {
             log.error("Cannot configure TwitterConnectionFactory id or secret null");
         }
 
-        // jhipster-needle-add-social-connection-factory
+        // Something configuration
+        String linkedinClientId = environment.getProperty("spring.social.linkedin.clientId");
+        String linkedinClientSecret = environment.getProperty("spring.social.linkedin.clientSecret");
+        if (linkedinClientId != null && linkedinClientSecret != null) {
+            log.debug("Configuring linkedinConnectionFactory");
+            connectionFactoryConfigurer.addConnectionFactory(
+                new LinkedInConnectionFactory(
+                    linkedinClientId,
+                    linkedinClientSecret
+                )
+            );
+        } else {
+            log.error("Cannot configure SomethingConnectionFactory id or secret null");
+        }
     }
 
     @Override

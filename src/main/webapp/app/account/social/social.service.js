@@ -19,7 +19,7 @@
             case 'google': return 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
             case 'facebook': return 'public_profile,email';
             case 'twitter': return '';
-                // jhipster-needle-add-social-button
+            case 'linkedin': return '';
             default: return 'Provider setting not defined';
             }
         }

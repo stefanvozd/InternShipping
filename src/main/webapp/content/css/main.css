@@ -373,4 +373,15 @@ Social Buttons
     color: #fff;
 }
 
+.jh-btn-linkedin {
+    background-color: #55acee;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.jh-btn-linkedin:hover, .jh-btn-linkedin:focus, .jh-btn-linkedin:active, .jh-btn-linkedin.active, .open > .dropdown-toggle.jh-btn-linkedin {
+    background-color: #2795e9;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
 /* jhipster-needle-css-add-main JHipster will add new css style */
